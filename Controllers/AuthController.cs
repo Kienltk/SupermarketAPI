@@ -23,7 +23,13 @@ namespace SupermarketAPI.Controllers
             try
             {
                 await _authService.RegisterAsync(registerDto);
-                return Ok("Register successful");
+                var response = new ResponseObject<String>
+                {
+                    Code = 200,
+                    Message = "Register successful",
+                    Data = null
+                };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -96,7 +102,13 @@ namespace SupermarketAPI.Controllers
             try
             {
                 await _authService.LogoutAsync();
-                return Ok("Logout successful");
+                var response = new ResponseObject<String>
+                {
+                    Code = 200,
+                    Message = "Logout successful",
+                    Data = null
+                };
+                return Ok(response);
             }
             catch (Exception ex)
             {

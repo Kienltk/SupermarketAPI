@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SupermarketAPI.DTOs.Response;
+using SupermarketAPI.Models;
 using SupermarketAPI.Services;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace SupermarketAPI.Controllers
         }
 
         [HttpGet("home")]
-        public async Task<IActionResult> Home()
+        public async Task<ActionResult<ResponseObject<HomeDto>>> Home()
         {
             var customerId = User.Identity.IsAuthenticated
                 ? int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value)
@@ -28,17 +29,29 @@ namespace SupermarketAPI.Controllers
             try
             {
                 var products = await _productService.Home(customerId);
-                return Ok(products);
+                var response = new ResponseObject<HomeDto>
+                {
+                    Code = 200,
+                    Message = "Get Products successful",
+                    Data = products
+                };
+                return Ok(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                var errorResponse = new ResponseObject<String>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                };
+                return BadRequest(errorResponse);
             }
         }
 
 
         [HttpGet("category/{slug}")]
-        public async Task<IActionResult> GetProductsByCategory(string slug)
+        public async Task<ActionResult<ResponseObject<Dictionary<string, List<ProductDto>>>>> GetProductsByCategory(string slug)
         {
             var customerId = User.Identity.IsAuthenticated
                 ? int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value)
@@ -47,16 +60,28 @@ namespace SupermarketAPI.Controllers
             try
             {
                 var products = await _productService.GetProductsByCategoryAsync(customerId, slug);
-                return Ok(products);
+                var response = new ResponseObject<Dictionary<string, List<ProductDto>>>
+                {
+                    Code = 200,
+                    Message = "Get Products successful",
+                    Data = products
+                };
+                return Ok(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                var errorResponse = new ResponseObject<String>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                };
+                return BadRequest(errorResponse);
             }
         }
 
         [HttpGet("{slug}")]
-        public async Task<IActionResult> GetProductDetails(string slug)
+        public async Task<ActionResult<ProductDetailDto>> GetProductDetails(string slug)
         {
             var customerId = User.Identity.IsAuthenticated
                 ? int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value)
@@ -66,12 +91,32 @@ namespace SupermarketAPI.Controllers
             {
                 var productDetails = await _productService.GetProductDetailsAsync(slug, customerId);
                 if (productDetails == null)
-                    return NotFound("Product not found");
-                return Ok(productDetails);
+                {
+                    var errorResponse = new ResponseObject<String>
+                    {
+                        Code = 404,
+                        Message = "Not found",
+                        Data = null
+                    };
+                    return NotFound(errorResponse);
+                }
+                var response = new ResponseObject<ProductDetailDto>
+                {
+                    Code = 200,
+                    Message = "Get Produt detal successful",
+                    Data = productDetails
+                };
+                return Ok(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                var errorResponse = new ResponseObject<String>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                };
+                return BadRequest(errorResponse);
             }
         }
     }
