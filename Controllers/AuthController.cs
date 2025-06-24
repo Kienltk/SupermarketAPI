@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SupermarketAPI.DTOs.Request;
 using SupermarketAPI.DTOs.Response;
 using SupermarketSystemAPI.Services;
@@ -6,7 +7,7 @@ using SupermarketSystemAPI.Services;
 namespace SupermarketAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
@@ -26,7 +27,13 @@ namespace SupermarketAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                var errorResponse = new ResponseObject<AuthResponseDto>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                };
+                return BadRequest(errorResponse);
             }
         }
 
@@ -36,7 +43,13 @@ namespace SupermarketAPI.Controllers
             try
             {
                 var response = await _authService.LoginAsync(loginDto);
-                return Ok(response);
+                return Ok(new ResponseObject<AuthResponseDto>
+                {
+                    Code = 200,
+                    Message = "Login successful",
+                    Data = response
+
+                });
             }
             catch (Exception ex)
             {
@@ -51,12 +64,39 @@ namespace SupermarketAPI.Controllers
         }
 
         [HttpPost("refresh-token")]
-        public async Task<IActionResult> RefreshToken([FromBody] string refreshToken)
+        public async Task<ActionResult<ResponseObject<AuthResponseDto>>> RefreshToken([FromBody] string refreshToken)
         {
             try
             {
                 var response = await _authService.RefreshTokenAsync(refreshToken);
-                return Ok(response);
+                return Ok(new ResponseObject<AuthResponseDto>
+                {
+                    Code = 200,
+                    Message = "Refresh Token successful",
+                    Data = response
+
+                });
+            }
+            catch (Exception ex)
+            {
+                var errorResponse = new ResponseObject<AuthResponseDto>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                };
+                return BadRequest(errorResponse);
+            }
+        }
+
+        [Authorize]
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            try
+            {
+                await _authService.LogoutAsync();
+                return Ok("Logout successful");
             }
             catch (Exception ex)
             {

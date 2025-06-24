@@ -8,6 +8,7 @@ using SupermarketSystemAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using SupermarketAPI.Services;
 
 DotEnv.Load();
 
@@ -25,6 +26,8 @@ builder.Services.AddDbContext<SupermarketContext>(options =>
 // Register Repositories and Services
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 // JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

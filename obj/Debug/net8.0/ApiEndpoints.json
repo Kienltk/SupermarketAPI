@@ -2,7 +2,7 @@
   {
     "ContainingType": "SupermarketAPI.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Auth/login",
+    "RelativePath": "api/auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -27,8 +27,18 @@
   },
   {
     "ContainingType": "SupermarketAPI.Controllers.AuthController",
+    "Method": "Logout",
+    "RelativePath": "api/auth/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.AuthController",
     "Method": "RefreshToken",
-    "RelativePath": "api/Auth/refresh-token",
+    "RelativePath": "api/auth/refresh-token",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -39,12 +49,22 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[SupermarketAPI.DTOs.Response.AuthResponseDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "SupermarketAPI.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "api/Auth/register",
+    "RelativePath": "api/auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -55,6 +75,48 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.ProductController",
+    "Method": "GetProductDetails",
+    "RelativePath": "api/products/{slug}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.ProductController",
+    "Method": "GetProductsByCategory",
+    "RelativePath": "api/products/category/{slug}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.ProductController",
+    "Method": "Home",
+    "RelativePath": "api/products/home",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

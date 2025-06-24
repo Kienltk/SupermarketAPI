@@ -349,7 +349,7 @@ public partial class SupermarketContext : DbContext
                 .HasColumnType("datetime");
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
-            entity.Property(e => e.Rating1).HasColumnName("Rating");
+            entity.Property(e => e.RatingScore).HasColumnName("Rating");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Ratings)
                 .HasForeignKey(d => d.CustomerId)

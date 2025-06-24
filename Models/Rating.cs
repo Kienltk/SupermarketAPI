@@ -11,7 +11,7 @@ public partial class Rating
 
     public int ProductId { get; set; }
 
-    public int Rating1 { get; set; }
+    public int RatingScore { get; set; }
 
     public string? Comment { get; set; }
 

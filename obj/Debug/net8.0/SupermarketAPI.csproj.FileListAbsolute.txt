@@ -174,3 +174,4 @@ E:\Project\Supermarket\SupermarketAPI\obj\Debug\net8.0\refint\SupermarketAPI.dll
 E:\Project\Supermarket\SupermarketAPI\obj\Debug\net8.0\SupermarketAPI.pdb
 E:\Project\Supermarket\SupermarketAPI\obj\Debug\net8.0\SupermarketAPI.genruntimeconfig.cache
 E:\Project\Supermarket\SupermarketAPI\obj\Debug\net8.0\ref\SupermarketAPI.dll
+E:\Project\Supermarket\SupermarketAPI\obj\Debug\net8.0\SupermarketAPI.sourcelink.json

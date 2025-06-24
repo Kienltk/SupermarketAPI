@@ -42,8 +42,8 @@ namespace SupermarketAPI.Services.Impl
                 Country = registerDto.Country,
                 HomePhone = registerDto.HomePhone,
                 Mobile = registerDto.Mobile,
-                CreditCardNumber = registerDto.CreditCardNumber,
-                CreditCardExpiry = registerDto.CreditCardExpiry,
+                CreditCardNumber = null,
+                CreditCardExpiry = null,
                 Email = registerDto.Email,
                 Dob = registerDto.Dob,
                 Username = registerDto.Username,
@@ -54,7 +54,7 @@ namespace SupermarketAPI.Services.Impl
             await _customerRepository.AddCustomerAsync(customer);
         }
 
-        public async Task<ResponseObject<AuthResponseDto>> LoginAsync(LoginDto loginDto)
+        public async Task<AuthResponseDto> LoginAsync(LoginDto loginDto)
         {
             var customer = await _customerRepository.GetCustomerByUsernameAsync(loginDto.Username);
             if (customer == null || !BCrypt.Net.BCrypt.Verify(loginDto.Password, customer.Password))
@@ -69,12 +69,7 @@ namespace SupermarketAPI.Services.Impl
                 RefreshToken = refreshToken
             };
 
-            return new ResponseObject<AuthResponseDto>
-            {
-                Code = 200,
-                Message = "Login success",
-                Data = authResponseDto
-            };
+            return authResponseDto;
 
         }
 
@@ -94,14 +89,18 @@ namespace SupermarketAPI.Services.Impl
 
                 return new AuthResponseDto
                 {
-                    AccessToken = newAccessToken,
-                    RefreshToken = newRefreshToken
+                    AccessToken = newAccessToken
                 };
             }
             catch (Exception ex)
             {
                 throw new Exception("Invalid refresh token", ex);
             }
+        }
+
+        public async Task LogoutAsync()
+        {
+            await Task.CompletedTask;
         }
 
         private string GenerateAccessToken(Customer customer)
