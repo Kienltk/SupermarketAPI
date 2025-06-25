@@ -15,7 +15,7 @@ namespace SupermarketAPI.Repositories.Impl
 
         public async Task<Category> GetCategoryBySlugAsync(string slug)
         {
-            return await _context.Categories.FirstOrDefaultAsync(c => c.Slug == slug);
+            return await _context.Categories.FirstAsync(c => c.Slug == slug);
         }
 
         public async Task<List<Category>> GetCategoriesByParentIdAsync(int? parentId)
@@ -30,8 +30,9 @@ namespace SupermarketAPI.Repositories.Impl
             return await _context.ProductCategories
                 .Where(pc => pc.CategoryId == categoryId)
                 .Include(pc => pc.Product)
-                .ThenInclude(p => p.Discounts)
-                .ThenInclude(d => d.Promotion)
+                .ThenInclude(p => p.Brand) 
+                .Include(pc => pc.Product.Discounts) 
+                .ThenInclude(d => d.Promotion) 
                 .Select(pc => pc.Product)
                 .ToListAsync();
         }
@@ -39,9 +40,10 @@ namespace SupermarketAPI.Repositories.Impl
         public async Task<Product> GetProductBySlugAsync(string slug)
         {
             return await _context.Products
+                .Include(p => p.Brand) 
                 .Include(p => p.Discounts)
                 .ThenInclude(d => d.Promotion)
-                .FirstOrDefaultAsync(p => p.Slug == slug);
+                .FirstAsync(p => p.Slug == slug);
         }
 
         public async Task<List<Favorite>> GetFavoritesByCustomerIdAsync(int customerId)
@@ -54,6 +56,7 @@ namespace SupermarketAPI.Repositories.Impl
         public async Task<List<Product>> GetTopRatedProductsAsync(int limit)
         {
             return await _context.Products
+                .Include(p => p.Brand) 
                 .Include(p => p.Discounts)
                 .ThenInclude(d => d.Promotion)
                 .GroupJoin(_context.Ratings,

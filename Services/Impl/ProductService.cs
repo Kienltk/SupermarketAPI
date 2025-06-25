@@ -115,6 +115,7 @@ namespace SupermarketAPI.Services.Impl
             var currentDate = DateTime.Now;
             var promotion = product.Discounts?.FirstOrDefault()?.Promotion;
             var isFavorite = customerId.HasValue && favorites.Any(f => f.ProductId == product.ProductId);
+            var brand = product.Brand?.BrandName;
             Console.WriteLine("IsFavorite:" + isFavorite);
 
             var avgRating = _context.Ratings
@@ -128,7 +129,7 @@ namespace SupermarketAPI.Services.Impl
                 Price = product.Price,
                 Slug = product.Slug,
                 Status = product.Status,
-                Brand = product.BrandId ?? 0,
+                Brand = brand,
                 ImageUrl = product.ImageUrl,
                 Quantity = product.Quantity,
                 isFavorite = isFavorite,

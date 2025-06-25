@@ -12,7 +12,7 @@
 
         public string Status { get; set; } = null!;
 
-        public int Brand { get; set; }
+        public string? Brand { get; set; }
 
         public string ImageUrl { get; set; } = null!;
 
