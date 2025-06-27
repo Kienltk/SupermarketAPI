@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using SupermarketAPI.Data;
 using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Models;
@@ -9,15 +10,23 @@ namespace SupermarketAPI.Services.Impl
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
-        private readonly SupermarketContext _context;
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly IFavoriteRepository _favoriteRepository;
+        private readonly IBrandRepository _brandRepository;
 
-        public ProductService(IProductRepository productRepository, SupermarketContext context)
+        public ProductService(IProductRepository productRepository,
+            ICategoryRepository categoryRepository,
+            IFavoriteRepository favoriteRepository,
+            IBrandRepository brandRepository)
         {
             _productRepository = productRepository;
-            _context = context;
+            _categoryRepository = categoryRepository;
+            _favoriteRepository = favoriteRepository;
+            _brandRepository = brandRepository;
         }
 
-        public async Task<HomeDto> Home(int? customerId) {
+        public async Task<HomeDto> Home(int? customerId)
+        {
             var productsByCategory = await GetProductsByCategoryAsync(customerId, string.Empty);
             var topRatedProducts = await GetTopRatedProductsAsync(customerId, 5);
 
@@ -31,37 +40,49 @@ namespace SupermarketAPI.Services.Impl
         public async Task<List<ProductDto>> GetTopRatedProductsAsync(int? customerId, int limit)
         {
             var products = await _productRepository.GetTopRatedProductsAsync(limit);
-            List<Favorite> favorites = customerId.HasValue
-                ? await _productRepository.GetFavoritesByCustomerIdAsync(customerId.Value)
-                : new List<Favorite>();
 
-            return products.Select(p => MapToProductDto(p, customerId, favorites)).ToList();
+            return products.Select(p => MapToProductDto(p, customerId)).ToList();
         }
 
-        public async Task<Dictionary<string, List<ProductDto>>> GetProductsByCategoryAsync(int? customerId, string slug)
+        public async Task<Dictionary<string, List<ProductDto>>> GetProductsByCategoryAsync(int? customerId, string categorySlug)
         {
             int? categoryId = null;
-            if (!string.IsNullOrEmpty(slug))
+            var categoryProducts = new Dictionary<string, List<ProductDto>>();
+            var uniqueProductIds = new HashSet<int>();
+
+            if (!string.IsNullOrEmpty(categorySlug))
             {
-                var category = await _productRepository.GetCategoryBySlugAsync(slug);
+                var category = await _categoryRepository.GetCategoryBySlugAsync(categorySlug);
                 if (category != null)
                 {
                     categoryId = category.CategoryId;
+                    var products = await _productRepository.GetProductsByCategoryIdAsync(category.CategoryId);
+                    var productDtos = products
+                        .Where(p => !uniqueProductIds.Contains(p.ProductId))
+                        .Select(p => MapToProductDto(p, customerId))
+                        .ToList();
+                    if (productDtos.Any())
+                    {
+                        categoryProducts.Add(category.CategoryName, productDtos);
+                        uniqueProductIds.UnionWith(products.Select(p => p.ProductId));
+                    }
                 }
             }
 
-            var categories = await _productRepository.GetCategoriesByParentIdAsync(categoryId);
-            var categoryProducts = new Dictionary<string, List<ProductDto>>();
-
-            List<Favorite> favorites = customerId.HasValue
-                ? await _productRepository.GetFavoritesByCustomerIdAsync(customerId.Value)
-                : new List<Favorite>();
+            var categories = await _categoryRepository.GetCategoriesByParentIdAsync(categoryId);
 
             foreach (var category in categories)
             {
                 var products = await _productRepository.GetProductsByCategoryIdAsync(category.CategoryId);
-                var productDtos = products.Select(p => MapToProductDto(p, customerId, favorites)).ToList();
-                categoryProducts.Add(category.CategoryName, productDtos);
+                var productDtos = products
+                    .Where(p => !uniqueProductIds.Contains(p.ProductId))
+                    .Select(p => MapToProductDto(p, customerId))
+                    .ToList();
+                if (productDtos.Any())
+                {
+                    categoryProducts.Add(category.CategoryName, productDtos);
+                    uniqueProductIds.UnionWith(products.Select(p => p.ProductId));
+                }
             }
 
             return categoryProducts;
@@ -72,24 +93,14 @@ namespace SupermarketAPI.Services.Impl
             var product = await _productRepository.GetProductBySlugAsync(slug);
             if (product == null)
             {
-                return null;
+                throw new EntryPointNotFoundException("Not found product");
             }
 
-            List<Favorite> favorites = customerId.HasValue
-                ? await _productRepository.GetFavoritesByCustomerIdAsync(customerId.Value)
-                : new List<Favorite>();
+            var productDto = MapToProductDto(product, customerId);
 
-            var productDto = MapToProductDto(product, customerId, favorites);
+            var categoryId = _categoryRepository.GetCategoryIdByProductId(product.ProductId);
 
-            var categoryId = await _context.ProductCategories
-                .Where(pc => pc.ProductId == product.ProductId)
-                .Select(pc => pc.CategoryId)
-                .FirstOrDefaultAsync();
-
-            var parentCategory = await _context.Categories
-                .Where(c => c.CategoryId == categoryId)
-                .Select(c => c.ParentId.HasValue ? _context.Categories.FirstOrDefault(pc => pc.CategoryId == c.ParentId) : c)
-                .FirstOrDefaultAsync();
+            var parentCategory = _categoryRepository.GetParentCategoryByCategoryId(categoryId);
 
             var relatedProducts = new List<ProductDto>();
             if (parentCategory != null)
@@ -109,18 +120,55 @@ namespace SupermarketAPI.Services.Impl
             };
         }
 
+        public async Task<List<ProductDto>> GetProducts(int? customerId)
+        {
+            var products = await _productRepository.GetProductsAsync();
 
-        private ProductDto MapToProductDto(Product product, int? customerId, List<Favorite> favorites)
+            return products.Select(p => MapToProductDto(p, customerId)).ToList();
+        }
+
+        public async Task<List<ProductDto>> GetProductsByProductName(int? customerId, string productName)
+        {
+            var products = await _productRepository.GetProductsByProductNameAsync(productName);
+
+            return products.Select(p => MapToProductDto(p, customerId)).ToList();
+        }
+
+        public async Task<List<ProductDto>> GetProductsByBrand(int? customerId, string brandSlug)
+        {
+            var brandId = _brandRepository.GetBrandBySlugAsync(brandSlug).Result.BrandId;
+
+            var products = await _productRepository.GetProductsByBrandIdAsync(brandId);
+
+            return products.Select(p => MapToProductDto(p, customerId)).ToList();
+        }
+
+        public async Task<List<ProductDto>> GetProductsByPrice(int? customerId, decimal minPrice, decimal maxPrice)
+        {
+            var products = await _productRepository.GetProductsByPriceAsync(minPrice, maxPrice);
+
+            return products.Select(p => MapToProductDto(p, customerId)).ToList();
+        }
+
+        public async Task<List<ProductDto>> GetProductsByProductNameAndPrice(int? customerId, string productName, decimal minPrice, decimal maxPrice)
+        {
+            var products = await _productRepository.GetProductsByProductNameAndPrice(productName, minPrice, maxPrice);
+
+            return products.Select(p => MapToProductDto(p, customerId)).ToList();
+        }
+
+        private ProductDto MapToProductDto(Product product, int? customerId)
         {
             var currentDate = DateTime.Now;
             var promotion = product.Discounts?.FirstOrDefault()?.Promotion;
-            var isFavorite = customerId.HasValue && favorites.Any(f => f.ProductId == product.ProductId);
+            List<Favorite> favorites = customerId.HasValue
+                ? _favoriteRepository.GetFavoritesByCustomerIdAsync(customerId.Value)
+                : new List<Favorite>();
+            var isFavorite = favorites.Any(f => f.ProductId == product.ProductId);
             var brand = product.Brand?.BrandName;
             Console.WriteLine("IsFavorite:" + isFavorite);
 
-            var avgRating = _context.Ratings
-                .Where(r => r.ProductId == product.ProductId)
-                .Average(r => (double?)r.RatingScore) ?? 0;
+            var avgRating = _productRepository.GetAvgRatingProduct(product.ProductId);
 
             var response = new ProductDto
             {
