@@ -13,16 +13,19 @@ namespace SupermarketAPI.Services.Impl
         private readonly ICategoryRepository _categoryRepository;
         private readonly IFavoriteRepository _favoriteRepository;
         private readonly IBrandRepository _brandRepository;
+        private readonly IRatingRepository _ratingRepository;
 
         public ProductService(IProductRepository productRepository,
             ICategoryRepository categoryRepository,
             IFavoriteRepository favoriteRepository,
-            IBrandRepository brandRepository)
+            IBrandRepository brandRepository,
+            IRatingRepository ratingRepository)
         {
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
             _favoriteRepository = favoriteRepository;
             _brandRepository = brandRepository;
+            _ratingRepository = ratingRepository;
         }
 
         public async Task<HomeDto> Home(int? customerId)
@@ -157,6 +160,25 @@ namespace SupermarketAPI.Services.Impl
             return products.Select(p => MapToProductDto(p, customerId)).ToList();
         }
 
+        public async Task<List<ProductDto>> GetProductsByBrandAndCategory(int? customerId, string category, string brand)
+        {
+            int? categoryId = null;
+            int? brandId = null;
+
+            if (!string.IsNullOrEmpty(category))
+            {
+                categoryId = _categoryRepository.GetCategoryBySlugAsync(category).Result.CategoryId;
+            }
+
+            if (!string.IsNullOrEmpty(brand)) { 
+                brandId = _brandRepository.GetBrandBySlugAsync(brand).Result.BrandId;
+            }
+
+            var products = await _productRepository.GetProductsByBrandAndCategory(categoryId, brandId);
+
+            return products.Select(p => MapToProductDto(p, customerId)).ToList();
+        }
+
         private ProductDto MapToProductDto(Product product, int? customerId)
         {
             var currentDate = DateTime.Now;
@@ -168,7 +190,7 @@ namespace SupermarketAPI.Services.Impl
             var brand = product.Brand?.BrandName;
             Console.WriteLine("IsFavorite:" + isFavorite);
 
-            var avgRating = _productRepository.GetAvgRatingProduct(product.ProductId);
+            var avgRating = _ratingRepository.GetAvgRatingProduct(product.ProductId);
 
             var response = new ProductDto
             {

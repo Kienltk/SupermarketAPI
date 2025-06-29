@@ -146,9 +146,8 @@ namespace SupermarketAPI.Controllers
             }
         }
 
-        [HttpGet("")]
-        public async Task<ActionResult<List<ProductDto>>> GetProducts([FromQuery] string? searchName
-                                                                     ,[FromQuery] decimal? minPrice, [FromQuery] decimal? maxPrice)
+        [HttpGet("brand/{brand}")]
+        public async Task<ActionResult<ResponseObject<List<ProductDto>>>> GetProductsByBrand(string brand)
         {
             int? customerId = null;
             if (User?.Identity?.IsAuthenticated == true)
@@ -161,7 +160,52 @@ namespace SupermarketAPI.Controllers
 
             try
             {
-                List <ProductDto> products;
+                var products = await _productService.GetProductsByBrand(customerId, brand);
+                if (products == null || !products.Any())
+                {
+                    return NotFound(new ResponseObject<string>
+                    {
+                        Code = 404,
+                        Message = "No products found",
+                        Data = null
+                    });
+                }
+                var response = new ResponseObject<List<ProductDto>>
+                {
+                    Code = 200,
+                    Message = "Get Products successful",
+                    Data = products
+                };
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                var errorResponse = new ResponseObject<String>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                };
+                return BadRequest(errorResponse);
+            }
+        }
+
+        [HttpGet("")]
+        public async Task<ActionResult<List<ProductDto>>> GetProducts([FromQuery] string? searchName
+                                                                     , [FromQuery] decimal? minPrice, [FromQuery] decimal? maxPrice)
+        {
+            int? customerId = null;
+            if (User?.Identity?.IsAuthenticated == true)
+            {
+                if (int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var id))
+                {
+                    customerId = id;
+                }
+            }
+
+            try
+            {
+                List<ProductDto> products;
                 if (string.IsNullOrEmpty(searchName))
                 {
                     if (minPrice.HasValue || maxPrice.HasValue)
@@ -218,8 +262,9 @@ namespace SupermarketAPI.Controllers
             }
         }
 
-        [HttpGet("brand/{brand}")]
-        public async Task<ActionResult<ResponseObject<List<ProductDto>>>> GetProductsByBrand(string brand)
+        [HttpGet("filter")]
+        public async Task<ActionResult<List<ProductDto>>> GetProductsByBrandAndCategory(
+            [FromQuery] string? category, string? brand)
         {
             int? customerId = null;
             if (User?.Identity?.IsAuthenticated == true)
@@ -232,7 +277,11 @@ namespace SupermarketAPI.Controllers
 
             try
             {
-                var products = await _productService.GetProductsByBrand(customerId, brand);
+                if (string.IsNullOrEmpty(brand)) brand = null;
+                if (string.IsNullOrEmpty(category))  category = null; 
+
+                List<ProductDto> products = await _productService.GetProductsByBrandAndCategory(customerId, category, brand);
+
                 if (products == null || !products.Any())
                 {
                     return NotFound(new ResponseObject<string>
@@ -245,7 +294,7 @@ namespace SupermarketAPI.Controllers
                 var response = new ResponseObject<List<ProductDto>>
                 {
                     Code = 200,
-                    Message = "Get Products successful",
+                    Message = "Get Produts successful",
                     Data = products
                 };
                 return Ok(response);

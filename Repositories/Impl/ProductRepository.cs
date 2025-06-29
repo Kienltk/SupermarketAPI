@@ -60,13 +60,6 @@ namespace SupermarketAPI.Repositories.Impl
                 .ToListAsync();
         }
 
-        public double GetAvgRatingProduct(int productId)
-        {
-            return _context.Ratings
-                .Where(r => r.ProductId == productId)
-                .Average(r => (double?)r.RatingScore) ?? 0;
-        }
-
         public async Task<List<Product>> GetProductsByProductNameAsync(string productName)
         {
             return await _context.Products
@@ -81,6 +74,8 @@ namespace SupermarketAPI.Repositories.Impl
         {
             return await _context.Products
                 .Where(p => p.BrandId == brandId)
+                .Include(p => p.Discounts)
+                .ThenInclude(d => d.Promotion)
                 .ToListAsync();
         }
 
@@ -102,6 +97,26 @@ namespace SupermarketAPI.Repositories.Impl
                 .Include(p => p.Discounts)
                 .ThenInclude(d => d.Promotion)
                 .ToListAsync();
+        }
+
+        public async Task<List<Product>> GetProductsByBrandAndCategory(int? categoryId, int? brandId)
+        {
+            var query = _context.Products.AsQueryable();
+
+            if (brandId.HasValue)
+            {
+                query = query.Where(p => p.BrandId == brandId.Value);
+            }
+
+            if (categoryId.HasValue)
+            {
+                query = query.Where(p => p.ProductCategories.Any(pc => pc.CategoryId == categoryId.Value));
+            }
+
+            return await query
+                .Include(p => p.Brand)
+                .Include(p => p.Discounts)
+                .ThenInclude(d => d.Promotion).ToListAsync();
         }
     }
 }

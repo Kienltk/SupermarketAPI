@@ -233,6 +233,37 @@
   },
   {
     "ContainingType": "SupermarketAPI.Controllers.ProductController",
+    "Method": "GetProductsByBrandAndCategory",
+    "RelativePath": "api/products/filter",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "brand",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.ProductDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.ProductController",
     "Method": "Home",
     "RelativePath": "api/products/home",
     "HttpMethod": "GET",

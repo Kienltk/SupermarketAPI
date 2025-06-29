@@ -9,11 +9,10 @@ namespace SupermarketAPI.Repositories
         Task<List<Product>> GetProductsByCategoryIdAsync(int categoryId);
         Task<Product> GetProductBySlugAsync(string slug);
         Task<List<Product>> GetTopRatedProductsAsync(int limit);
-        double GetAvgRatingProduct(int productId);
         Task<List<Product>> GetProductsByProductNameAsync(string productName);
         Task<List<Product>> GetProductsByBrandIdAsync(int brandId);
         Task<List<Product>> GetProductsByPriceAsync(decimal minPrice, decimal maxPrice);
         Task<List<Product>> GetProductsByProductNameAndPrice(string productName, decimal minPrice, decimal maxPrice);
-
+        Task<List<Product>> GetProductsByBrandAndCategory(int? categoryId, int? brandId);
     }
 }
