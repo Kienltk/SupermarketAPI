@@ -107,9 +107,9 @@ namespace SupermarketAPI.Services.Impl
         {
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier, customer.CustomerId.ToString()),
-                new Claim(ClaimTypes.Name, customer.Username),
-                new Claim(ClaimTypes.Role, customer.Role)
+                new Claim("id", customer.CustomerId.ToString()),
+                new Claim("sub", customer.Username),
+                new Claim("role", customer.Role)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
@@ -130,7 +130,7 @@ namespace SupermarketAPI.Services.Impl
         {
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, customer.Username)
+                new Claim("sub", customer.Username)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
