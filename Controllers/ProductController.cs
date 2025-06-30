@@ -27,7 +27,7 @@ namespace SupermarketAPI.Controllers
             int? customerId = null;
             if (User?.Identity?.IsAuthenticated == true)
             {
-                if (int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var id))
+                if (int.TryParse(User.FindFirst("id")?.Value, out var id))
                 {
                     customerId = id;
                 }
@@ -62,7 +62,7 @@ namespace SupermarketAPI.Controllers
             int? customerId = null;
             if (User?.Identity?.IsAuthenticated == true)
             {
-                if (int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var id))
+                if (int.TryParse(User.FindFirst("id")?.Value, out var id))
                 {
                     customerId = id;
                 }
@@ -107,7 +107,7 @@ namespace SupermarketAPI.Controllers
             int? customerId = null;
             if (User?.Identity?.IsAuthenticated == true)
             {
-                if (int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var id))
+                if (int.TryParse(User.FindFirst("id")?.Value, out var id))
                 {
                     customerId = id;
                 }
@@ -152,7 +152,7 @@ namespace SupermarketAPI.Controllers
             int? customerId = null;
             if (User?.Identity?.IsAuthenticated == true)
             {
-                if (int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var id))
+                if (int.TryParse(User.FindFirst("id")?.Value, out var id))
                 {
                     customerId = id;
                 }
@@ -197,7 +197,7 @@ namespace SupermarketAPI.Controllers
             int? customerId = null;
             if (User?.Identity?.IsAuthenticated == true)
             {
-                if (int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var id))
+                if (int.TryParse(User.FindFirst("id")?.Value, out var id))
                 {
                     customerId = id;
                 }
@@ -269,7 +269,7 @@ namespace SupermarketAPI.Controllers
             int? customerId = null;
             if (User?.Identity?.IsAuthenticated == true)
             {
-                if (int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var id))
+                if (int.TryParse(User.FindFirst("id")?.Value, out var id))
                 {
                     customerId = id;
                 }
@@ -311,69 +311,6 @@ namespace SupermarketAPI.Controllers
             }
         }
 
-        //[HttpGet("search")]
-        //public async Task<ActionResult<ResponseObject<List<ProductDto>>>> SearchProduct([FromQuery] string searchName)
-        //{
-        //    var customerId = User.Identity.IsAuthenticated
-        //        ? int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value)
-        //        : (int?)null;
 
-        //    try
-        //    {
-        //        var products = await _productService.GetProductsByProductName(customerId, searchName);
-        //        var response = new ResponseObject<List<ProductDto>>
-        //        {
-        //            Code = 200,
-        //            Message = "Get Products successful",
-        //            Data = products
-        //        };
-        //        return Ok(response);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        var errorResponse = new ResponseObject<String>
-        //        {
-        //            Code = 400,
-        //            Message = ex.Message,
-        //            Data = null
-        //        };
-        //        return BadRequest(errorResponse);
-        //    }
-        //}
-
-        //[HttpGet("price")]
-        //public async Task<ActionResult<ResponseObject<List<ProductDto>>>> GetProductsByPrice(decimal minPrice, decimal maxPrice)
-        //{
-        //    int? customerId = null;
-        //    if (User?.Identity?.IsAuthenticated == true)
-        //    {
-        //        if (int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var id))
-        //        {
-        //            customerId = id;
-        //        }
-        //    }
-
-        //    try
-        //    {
-        //        var products = await _productService.GetProductsByPrice(customerId, minPrice, maxPrice);
-        //        var response = new ResponseObject<List<ProductDto>>
-        //        {
-        //            Code = 200,
-        //            Message = "Get Products successful",
-        //            Data = products
-        //        };
-        //        return Ok(response);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        var errorResponse = new ResponseObject<String>
-        //        {
-        //            Code = 400,
-        //            Message = ex.Message,
-        //            Data = null
-        //        };
-        //        return BadRequest(errorResponse);
-        //    }
-        //}
     }
 }

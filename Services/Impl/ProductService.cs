@@ -160,7 +160,7 @@ namespace SupermarketAPI.Services.Impl
             return products.Select(p => MapToProductDto(p, customerId)).ToList();
         }
 
-        public async Task<List<ProductDto>> GetProductsByBrandAndCategory(int? customerId, string category, string brand)
+        public async Task<List<ProductDto>> GetProductsByBrandAndCategory(int? customerId, string? category, string? brand)
         {
             int? categoryId = null;
             int? brandId = null;
@@ -179,7 +179,7 @@ namespace SupermarketAPI.Services.Impl
             return products.Select(p => MapToProductDto(p, customerId)).ToList();
         }
 
-        private ProductDto MapToProductDto(Product product, int? customerId)
+        public ProductDto MapToProductDto(Product product, int? customerId)
         {
             var currentDate = DateTime.Now;
             var promotion = product.Discounts?.FirstOrDefault()?.Promotion;

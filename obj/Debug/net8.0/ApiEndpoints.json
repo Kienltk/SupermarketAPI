@@ -118,6 +118,58 @@
     ]
   },
   {
+    "ContainingType": "SupermarketAPI.Controllers.FavoriteController",
+    "Method": "GetFavoriteProducts",
+    "RelativePath": "api/favorites",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.ProductDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.FavoriteController",
+    "Method": "AddFavorite",
+    "RelativePath": "api/favorites/{productId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.FavoriteController",
+    "Method": "DeleteFavorite",
+    "RelativePath": "api/favorites/{productId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SupermarketAPI.Controllers.ProductController",
     "Method": "GetProducts",
     "RelativePath": "api/products",
