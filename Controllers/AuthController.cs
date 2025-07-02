@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SupermarketAPI.DTOs.Request;
 using SupermarketAPI.DTOs.Response;
 using SupermarketSystemAPI.Services;
+using System.Security.Claims;
 
 namespace SupermarketAPI.Controllers
 {
@@ -94,13 +95,29 @@ namespace SupermarketAPI.Controllers
                 return BadRequest(errorResponse);
             }
         }
+
         [Authorize]
         [HttpGet("me")]
         public async Task<IActionResult> GetUserInfo()
         {
+            string? username = null;
+            if (User?.Identity?.IsAuthenticated == true)
+            {
+                username = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                Console.WriteLine("username: " + username);
+            } else
+            {
+                return BadRequest(new ResponseObject<string>
+                {
+                    Code = 400,
+                    Message = "Unauthorize",
+                    Data = null
+                });
+            }
+
             try
             {
-                var result = await _authService.GetUserInfoAsync(User);
+                var result = await _authService.GetUserInfoAsync(username);
                 return Ok(new ResponseObject<UserInfoResponseDto>
                 {
                     Code = 200,
@@ -146,9 +163,25 @@ namespace SupermarketAPI.Controllers
         [HttpPost("change-password")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
         {
+            string? username;
+            if (User?.Identity?.IsAuthenticated == true)
+            {
+                username = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                Console.WriteLine("username: " + username);
+            }
+            else
+            {
+                return BadRequest(new ResponseObject<string>
+                {
+                    Code = 400,
+                    Message = "Unauthorize",
+                    Data = null
+                });
+            }
+
             try
             {
-                await _authService.ChangePasswordAsync(User, dto);
+                await _authService.ChangePasswordAsync(username, dto);
                 return Ok(new ResponseObject<string>
                 {
                     Code = 200,

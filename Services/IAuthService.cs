@@ -11,9 +11,9 @@ namespace SupermarketSystemAPI.Services
         Task<AuthResponseDto> RefreshTokenAsync(string refreshToken);
         Task LogoutAsync();
         Task UpdateUserInfoAsync(UpdateUserInfoDto updateDto);
-        Task ChangePasswordAsync(ClaimsPrincipal user, ChangePasswordDto dto);
+        Task ChangePasswordAsync(string username, ChangePasswordDto dto);
         Task ForgotPasswordAsync(ForgotPasswordDto forgotPasswordDto);
         Task VerifyCodeAsync(VerifyCodeDto dto);
-        Task<UserInfoResponseDto> GetUserInfoAsync(ClaimsPrincipal user);
+        Task<UserInfoResponseDto> GetUserInfoAsync(string username);
     }
 }

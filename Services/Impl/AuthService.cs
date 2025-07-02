@@ -195,18 +195,8 @@ namespace SupermarketAPI.Services.Impl
         }
 
 
-        public async Task ChangePasswordAsync(ClaimsPrincipal user, ChangePasswordDto dto)
+        public async Task ChangePasswordAsync(string username, ChangePasswordDto dto)
         {
-            string? username = null;
-            if (user?.Identity?.IsAuthenticated == true)
-            {
-                username = user?.FindFirst("sub")?.Value;
-            }
-            else
-            {
-                throw new Exception("Unauthorize");
-            }
-
             var customer = await _customerRepository.GetCustomerByUsernameAsync(username);
             if (customer == null)
                 throw new Exception("User not found");
@@ -268,18 +258,8 @@ namespace SupermarketAPI.Services.Impl
             await smtp.SendMailAsync(message);
         }
 
-        public async Task<UserInfoResponseDto> GetUserInfoAsync(ClaimsPrincipal user)
+        public async Task<UserInfoResponseDto> GetUserInfoAsync(string username)
         {
-            string? username = null;
-            if (user?.Identity?.IsAuthenticated == true)
-            {
-                username = user?.FindFirst("sub")?.Value;
-
-            } else
-            {
-                throw new Exception("Unauthorize");
-            }
-
             if (string.IsNullOrEmpty(username))
                 throw new Exception("Invalid token");
 
