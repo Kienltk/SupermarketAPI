@@ -115,8 +115,8 @@ namespace SupermarketAPI.Services.Impl
             var claims = new[]
             {
         new Claim("id", customer.CustomerId.ToString()),
-        new Claim(ClaimTypes.Name, customer.Username),
-        new Claim(ClaimTypes.Role, customer.Role)
+        new Claim("sub", customer.Username),
+        new Claim("role", customer.Role)
     };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
@@ -137,8 +137,8 @@ namespace SupermarketAPI.Services.Impl
         {
             var claims = new[]
             {
-                new Claim("sub", customer.Username)
-            };
+        new Claim("sub", customer.Username)
+    };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -173,7 +173,6 @@ namespace SupermarketAPI.Services.Impl
 
             return principal;
         }
-
 
         public async Task UpdateUserInfoAsync(UpdateUserInfoDto updateDto)
         {
@@ -262,7 +261,7 @@ namespace SupermarketAPI.Services.Impl
 
         public async Task<UserInfoResponseDto> GetUserInfoAsync(ClaimsPrincipal user)
         {
-            var username = user.Identity?.Name;
+            var username = user.Identity?.sub;
             if (string.IsNullOrEmpty(username))
                 throw new Exception("Invalid token");
 
