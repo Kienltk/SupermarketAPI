@@ -21,7 +21,7 @@ namespace SupermarketAPI.Services.Impl
         private readonly IConfiguration _configuration;
         private readonly JwtSecurityTokenHandler _tokenHandler;
 
-        public AuthService(IMemoryCache cache, IConfiguration config,ICustomerRepository customerRepository, IConfiguration configuration)
+        public AuthService(IMemoryCache cache, IConfiguration config, ICustomerRepository customerRepository, IConfiguration configuration)
         {
             _cache = cache;
             _config = config;
@@ -197,9 +197,15 @@ namespace SupermarketAPI.Services.Impl
 
         public async Task ChangePasswordAsync(ClaimsPrincipal user, ChangePasswordDto dto)
         {
-            var username = user.Identity?.Name;
-            if (string.IsNullOrEmpty(username))
-                throw new Exception("Invalid token");
+            string? username = null;
+            if (user?.Identity?.IsAuthenticated == true)
+            {
+                username = user?.FindFirst("sub")?.Value;
+            }
+            else
+            {
+                throw new Exception("Unauthorize");
+            }
 
             var customer = await _customerRepository.GetCustomerByUsernameAsync(username);
             if (customer == null)
@@ -220,11 +226,13 @@ namespace SupermarketAPI.Services.Impl
 
             await SendEmailAsync(dto.Email, verificationCode);
         }
+
         private string Generate6DigitCode()
         {
             Random rnd = new Random();
             return rnd.Next(100000, 999999).ToString();
         }
+
         public Task VerifyCodeAsync(VerifyCodeDto dto)
         {
             if (_cache.TryGetValue(dto.Email, out string cachedCode))
@@ -235,11 +243,12 @@ namespace SupermarketAPI.Services.Impl
 
             throw new Exception("Mã xác nhận không đúng hoặc đã hết hạn.");
         }
+
         private async Task SendEmailAsync(string toEmail, string code)
         {
             var fromAddress = new MailAddress("Ndc7571@gmail.com", "Supermarket Support");
             var toAddress = new MailAddress(toEmail);
-            string fromPassword = "rejdvgxpaheddjgt"; 
+            string fromPassword = "rejdvgxpaheddjgt";
             string subject = "Xác nhận đặt lại mật khẩu";
             string body = $"Mã xác nhận của bạn là: {code}. Mã có hiệu lực trong 10 phút.";
 
@@ -261,7 +270,16 @@ namespace SupermarketAPI.Services.Impl
 
         public async Task<UserInfoResponseDto> GetUserInfoAsync(ClaimsPrincipal user)
         {
-            var username = user.Identity?.sub;
+            string? username = null;
+            if (user?.Identity?.IsAuthenticated == true)
+            {
+                username = user?.FindFirst("sub")?.Value;
+
+            } else
+            {
+                throw new Exception("Unauthorize");
+            }
+
             if (string.IsNullOrEmpty(username))
                 throw new Exception("Invalid token");
 
