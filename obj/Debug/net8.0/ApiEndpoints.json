@@ -1,6 +1,38 @@
 [
   {
     "ContainingType": "SupermarketAPI.Controllers.AuthController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/auth/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SupermarketAPI.DTOs.Request.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.AuthController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/auth/forgot-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SupermarketAPI.DTOs.Request.ForgotPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/auth/login",
     "HttpMethod": "POST",
@@ -30,6 +62,16 @@
     "Method": "Logout",
     "RelativePath": "api/auth/logout",
     "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.AuthController",
+    "Method": "GetUserInfo",
+    "RelativePath": "api/auth/me",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
@@ -72,6 +114,38 @@
       {
         "Name": "registerDto",
         "Type": "SupermarketAPI.DTOs.Request.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.AuthController",
+    "Method": "UpdateUserInfo",
+    "RelativePath": "api/auth/update-info",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SupermarketAPI.DTOs.Request.UpdateUserInfoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.AuthController",
+    "Method": "VerifyCode",
+    "RelativePath": "api/auth/verify-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SupermarketAPI.DTOs.Request.VerifyCodeDto",
         "IsRequired": true
       }
     ],

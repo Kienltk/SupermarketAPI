@@ -94,6 +94,124 @@ namespace SupermarketAPI.Controllers
                 return BadRequest(errorResponse);
             }
         }
+        [Authorize]
+        [HttpGet("me")]
+        public async Task<IActionResult> GetUserInfo()
+        {
+            try
+            {
+                var result = await _authService.GetUserInfoAsync(User);
+                return Ok(new ResponseObject<UserInfoResponseDto>
+                {
+                    Code = 200,
+                    Message = "Lấy thông tin người dùng thành công",
+                    Data = result
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResponseObject<string>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                });
+            }
+        }
+        [Authorize]
+        [HttpPost("update-info")]
+        public async Task<IActionResult> UpdateUserInfo([FromBody] UpdateUserInfoDto dto)
+        {
+            try
+            {
+                await _authService.UpdateUserInfoAsync(dto);
+                return Ok(new ResponseObject<string>
+                {
+                    Code = 200,
+                    Message = "Cập nhật thông tin thành công",
+                    Data = null
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResponseObject<string>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                });
+            }
+        }
+        [Authorize]
+        [HttpPost("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
+        {
+            try
+            {
+                await _authService.ChangePasswordAsync(User, dto);
+                return Ok(new ResponseObject<string>
+                {
+                    Code = 200,
+                    Message = "Đổi mật khẩu thành công",
+                    Data = null
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResponseObject<string>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                });
+            }
+        }
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto dto)
+        {
+            try
+            {
+                await _authService.ForgotPasswordAsync(dto);
+                return Ok(new ResponseObject<string>
+                {
+                    Code = 200,
+                    Message = "Mã xác nhận đã được gửi qua email",
+                    Data = null
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResponseObject<string>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                });
+            }
+        }
+        [HttpPost("verify-code")]
+        public async Task<IActionResult> VerifyCode([FromBody] VerifyCodeDto dto)
+        {
+            try
+            {
+                await _authService.VerifyCodeAsync(dto);
+                return Ok(new ResponseObject<string>
+                {
+                    Code = 200,
+                    Message = "Xác minh mã thành công",
+                    Data = null
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResponseObject<string>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                });
+            }
+        }
 
         [Authorize]
         [HttpPost("logout")]

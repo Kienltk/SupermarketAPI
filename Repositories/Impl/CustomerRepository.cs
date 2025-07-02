@@ -23,5 +23,11 @@ namespace SupermarketAPI.Repositories.Impl
             await _context.Customers.AddAsync(customer);
             await _context.SaveChangesAsync();
         }
+
+        public async Task UpdateCustomerAsync(Customer customer)
+        {
+            _context.Customers.Update(customer);
+            await _context.SaveChangesAsync();
+        }
     }
 }

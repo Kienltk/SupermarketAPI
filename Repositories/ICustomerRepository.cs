@@ -6,5 +6,6 @@ namespace SupermarketAPI.Repositories
     {
         Task<Customer> GetCustomerByUsernameAsync(string username);
         Task AddCustomerAsync(Customer customer);
+        Task UpdateCustomerAsync(Customer customer);
     }
 }
