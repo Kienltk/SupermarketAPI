@@ -100,6 +100,15 @@ namespace SupermarketAPI.Services.Impl
             }
 
             var productDto = MapToProductDto(product, customerId);
+            var ratings = await _ratingRepository.GetRatingsByProductIdAsync(product.ProductId);
+            var ratingDtos = ratings.Select(r => new RatingDto
+            {
+                RatingId = r.RatingId,
+                RatingScore = r.RatingScore,
+                Comment = r.Comment,
+                CustomerName = $"{r.Customer.FirstName} {r.Customer.LastName}",
+                CreatedAt = r.CreatedAt
+            }).ToList();
 
             var categoryId = _categoryRepository.GetCategoryIdByProductId(product.ProductId);
 
@@ -119,7 +128,9 @@ namespace SupermarketAPI.Services.Impl
             return new ProductDetailDto
             {
                 ProductDto = productDto,
-                RelatedProducts = relatedProducts
+                RelatedProducts = relatedProducts,
+                Ratings = ratingDtos
+
             };
         }
 
