@@ -8,21 +8,27 @@ namespace SupermarketAPI.Services.Impl
     public class RatingService : IRatingService
     {
         private readonly IRatingRepository _ratingRepository;
+        private readonly IProductRepository _productRepository;
 
-        public RatingService(IRatingRepository ratingRepository)
+        public RatingService(
+            IRatingRepository ratingRepository,
+            IProductRepository productRepository)
         {
             _ratingRepository = ratingRepository;
+            _productRepository = productRepository;
         }
 
-        public async Task<List<RatingDto>> GetRatingsByProductIdAsync(int productId)
+        public async Task<List<RatingDto>> GetRatingsByProductSlugAsync(string productSlug)
         {
+            int productId = _productRepository.GetProductBySlugAsync(productSlug).Result.ProductId;
             var ratings = await _ratingRepository.GetRatingsByProductIdAsync(productId);
             return ratings.Select(r => new RatingDto
             {
                 RatingId = r.RatingId,
                 RatingScore = r.RatingScore,
                 Comment = r.Comment,
-                CustomerName = r.Customer.FirstName + " " + r.Customer.LastName,
+                CustomerName = string.Join(" ", new[] { r.Customer.FirstName, r.Customer.MiddleName, r.Customer.LastName }
+                                     .Where(s => !string.IsNullOrWhiteSpace(s))),
                 CreatedAt = r.CreatedAt
             }).ToList();
         }

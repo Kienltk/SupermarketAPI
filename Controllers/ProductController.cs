@@ -264,7 +264,9 @@ namespace SupermarketAPI.Controllers
 
         [HttpGet("filter")]
         public async Task<ActionResult<List<ProductDto>>> GetProductsByBrandAndCategory(
-            [FromQuery] string? category, string? brand)
+             [FromQuery] string? category
+            ,[FromQuery] string? brand
+            ,[FromQuery] int? ratingScore)
         {
             int? customerId = null;
             if (User?.Identity?.IsAuthenticated == true)
@@ -278,9 +280,10 @@ namespace SupermarketAPI.Controllers
             try
             {
                 if (string.IsNullOrEmpty(brand)) brand = null;
-                if (string.IsNullOrEmpty(category))  category = null; 
+                if (string.IsNullOrEmpty(category))  category = null;
+                if (!ratingScore.HasValue) ratingScore = null;
 
-                List<ProductDto> products = await _productService.GetProductsByBrandAndCategory(customerId, category, brand);
+                List<ProductDto> products = await _productService.GetProductsByBrandAndCategoryAndRating(customerId, category, brand, ratingScore);
 
                 if (products == null || !products.Any())
                 {
@@ -311,6 +314,48 @@ namespace SupermarketAPI.Controllers
             }
         }
 
+        [HttpGet("rating")]
+        public async Task<ActionResult<ResponseObject<List<ProductDto>>>> GetProductsByRatingScore([FromQuery] int ratingScore)
+        {
+            int? customerId = null;
+            if (User?.Identity?.IsAuthenticated == true)
+            {
+                if (int.TryParse(User.FindFirst("id")?.Value, out var id))
+                {
+                    customerId = id;
+                }
+            }
 
+            try
+            {
+                var products = await _productService.GetProductbyRatingScore(customerId, ratingScore);
+                if (products == null || !products.Any())
+                {
+                    return NotFound(new ResponseObject<string>
+                    {
+                        Code = 404,
+                        Message = "No products found",
+                        Data = null
+                    });
+                }
+                var response = new ResponseObject<List<ProductDto>>
+                {
+                    Code = 200,
+                    Message = "Get Products successful",
+                    Data = products
+                };
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                var errorResponse = new ResponseObject<String>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                };
+                return BadRequest(errorResponse);
+            }
+        }
     }
 }

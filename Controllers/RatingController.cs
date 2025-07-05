@@ -17,12 +17,12 @@ namespace SupermarketAPI.Controllers
             _ratingService = ratingService;
         }
 
-        [HttpGet("product/{productId}")]
-        public async Task<ActionResult<ResponseObject<List<RatingDto>>>> GetRatingsByProduct(int productId)
+        [HttpGet("product/{productSlug}")]
+        public async Task<ActionResult<ResponseObject<List<RatingDto>>>> GetRatingsByProduct(string productSlug)
         {
             try
             {
-                var ratings = await _ratingService.GetRatingsByProductIdAsync(productId);
+                var ratings = await _ratingService.GetRatingsByProductSlugAsync(productSlug);
                 return Ok(new ResponseObject<List<RatingDto>>
                 {
                     Code = 200,
