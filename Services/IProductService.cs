@@ -15,6 +15,7 @@ namespace SupermarketAPI.Services
         Task<List<ProductDto>> GetProductsByBrand(int? customerId, string brandSlug);
         Task<List<ProductDto>> GetProductsByPrice(int? customerId, decimal minPrice, decimal maxPrice);
         Task<List<ProductDto>> GetProductsByProductNameAndPrice(int? customerId, string productName, decimal minPrice, decimal maxPrice);
-        Task<List<ProductDto>> GetProductsByBrandAndCategory(int? customerId, string? categorySlug, string? brandSlug);
+        Task<List<ProductDto>> GetProductsByBrandAndCategoryAndRating(int? customerId, string? categorySlug, string? brandSlug, int? ratingScore);
+        Task<List<ProductDto>> GetProductbyRatingScore(int? customerId, int ratingscore);
     }
 }

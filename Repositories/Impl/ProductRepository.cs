@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using SupermarketAPI.Data;
 using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Models;
@@ -99,9 +100,13 @@ namespace SupermarketAPI.Repositories.Impl
                 .ToListAsync();
         }
 
-        public async Task<List<Product>> GetProductsByBrandAndCategory(int? categoryId, int? brandId)
+        public async Task<List<Product>> GetProductsByBrandAndCategoryAndRating(int? categoryId, int? brandId, int? ratingScore)
         {
-            var query = _context.Products.AsQueryable();
+            var query = _context.Products
+                .Include(p => p.Brand)
+                .Include(p => p.Discounts)
+                .ThenInclude(d => d.Promotion)
+                .AsQueryable();
 
             if (brandId.HasValue)
             {
@@ -113,10 +118,48 @@ namespace SupermarketAPI.Repositories.Impl
                 query = query.Where(p => p.ProductCategories.Any(pc => pc.CategoryId == categoryId.Value));
             }
 
+            if (ratingScore.HasValue)
+            {
+                var ratedProducts = _context.Ratings
+                    .GroupBy(r => r.ProductId)
+                    .Select(g => new
+                    {
+                        ProductId = g.Key,
+                        AvgRating = g.Average(r => (double?)r.RatingScore) ?? 0
+                    });
+
+                if (ratingScore < 5)
+                {
+                    query = query.Where(p =>
+                        ratedProducts.Any(rp => rp.ProductId == p.ProductId && rp.AvgRating >= ratingScore));
+                }
+                else
+                {
+                    query = query.Where(p =>
+                        ratedProducts.Any(rp => rp.ProductId == p.ProductId && rp.AvgRating == ratingScore));
+                }
+            }
+
             return await query
                 .Include(p => p.Brand)
                 .Include(p => p.Discounts)
-                .ThenInclude(d => d.Promotion).ToListAsync();
+                .ThenInclude(d => d.Promotion).ToListAsync(); ;
         }
+
+        public async Task<List<Product>> GetProductsByRatingScore(int ratingScore)
+        {
+            return await _context.Products
+                .Include(p => p.Brand)
+                .Include(p => p.Discounts)
+                .ThenInclude(d => d.Promotion)
+                .GroupJoin(_context.Ratings,
+                    p => p.ProductId,
+                    r => r.ProductId,
+                    (p, ratings) => new { Product = p, AvgRating = ratings.Average(r => (double?)r.RatingScore) ?? 0 })
+                .Where(x => ratingScore < 5? x.AvgRating >= ratingScore : x.AvgRating == ratingScore)
+                .Select(x => x.Product)
+                .ToListAsync();
+        }
+
     }
 }

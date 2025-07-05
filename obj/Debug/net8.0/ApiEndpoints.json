@@ -172,6 +172,52 @@
     ]
   },
   {
+    "ContainingType": "SupermarketAPI.Controllers.CartController",
+    "Method": "GetCartItems",
+    "RelativePath": "api/carts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.CartItemDTO, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.CartController",
+    "Method": "AddCartItems",
+    "RelativePath": "api/carts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cartItems",
+        "Type": "System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.CartItemDTO, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SupermarketAPI.Controllers.CategoryController",
     "Method": "GetBrand",
     "RelativePath": "api/categories",
@@ -374,6 +420,11 @@
         "Name": "brand",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "ratingScore",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -399,6 +450,32 @@
     "ReturnTypes": [
       {
         "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[SupermarketAPI.DTOs.Response.HomeDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.ProductController",
+    "Method": "GetProductsByRatingScore",
+    "RelativePath": "api/products/rating",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ratingScore",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.ProductDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -464,14 +541,14 @@
   {
     "ContainingType": "SupermarketAPI.Controllers.RatingController",
     "Method": "GetRatingsByProduct",
-    "RelativePath": "api/ratings/product/{productId}",
+    "RelativePath": "api/ratings/product/{productSlug}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "productId",
-        "Type": "System.Int32",
+        "Name": "productSlug",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

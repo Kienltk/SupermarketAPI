@@ -53,7 +53,7 @@ public partial class SupermarketContext : DbContext
     {
         modelBuilder.Entity<Bill>(entity =>
         {
-            entity.HasKey(e => e.BillId).HasName("PK__Bill__11F2FC4A5A8FB824");
+            entity.HasKey(e => e.BillId).HasName("PK__Bill__11F2FC4AA8BC1CC2");
 
             entity.ToTable("Bill");
 
@@ -71,7 +71,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<BillDetail>(entity =>
         {
-            entity.HasKey(e => e.BillDetailId).HasName("PK__Bill_Det__793CAF759BA96420");
+            entity.HasKey(e => e.BillDetailId).HasName("PK__Bill_Det__793CAF75B6ACD7F4");
 
             entity.ToTable("Bill_Details");
 
@@ -94,11 +94,11 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Brand>(entity =>
         {
-            entity.HasKey(e => e.BrandId).HasName("PK__Brands__DAD4F3BE4E577760");
+            entity.HasKey(e => e.BrandId).HasName("PK__Brands__DAD4F3BE04A8FF07");
 
-            entity.HasIndex(e => e.BrandName, "UQ__Brands__2206CE9BEBCF4C95").IsUnique();
+            entity.HasIndex(e => e.BrandName, "UQ__Brands__2206CE9B96F78922").IsUnique();
 
-            entity.HasIndex(e => e.Slug, "UQ__Brands__BC7B5FB6C30DC078").IsUnique();
+            entity.HasIndex(e => e.Slug, "UQ__Brands__BC7B5FB67BE45394").IsUnique();
 
             entity.Property(e => e.BrandId).HasColumnName("BrandID");
             entity.Property(e => e.BrandName).HasMaxLength(100);
@@ -107,9 +107,11 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Cart>(entity =>
         {
-            entity.HasKey(e => e.CartId).HasName("PK__Cart__51BCD7971598ECB8");
+            entity.HasKey(e => e.CartId).HasName("PK__Cart__51BCD797DD90A417");
 
             entity.ToTable("Cart");
+
+            entity.HasIndex(e => new { e.CartId, e.CustomerId }, "UQ_Cart").IsUnique();
 
             entity.Property(e => e.CartId).HasColumnName("CartID");
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
@@ -121,16 +123,14 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<CartItem>(entity =>
         {
-            entity.HasKey(e => e.CartItemId).HasName("PK__Cart_Ite__488B0B2A3A1056F0");
+            entity.HasKey(e => e.CartItemId).HasName("PK__Cart_Ite__488B0B2A935EE5FB");
 
             entity.ToTable("Cart_Items");
 
             entity.HasIndex(e => new { e.CartId, e.ProductId }, "UQ_Cart_Items").IsUnique();
 
             entity.Property(e => e.CartItemId).HasColumnName("CartItemID");
-            entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.CartId).HasColumnName("CartID");
-            entity.Property(e => e.DiscountId).HasColumnName("DiscountID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.Quantity).HasDefaultValue(1);
 
@@ -138,10 +138,6 @@ public partial class SupermarketContext : DbContext
                 .HasForeignKey(d => d.CartId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Cart_Items_CartID");
-
-            entity.HasOne(d => d.Discount).WithMany(p => p.CartItems)
-                .HasForeignKey(d => d.DiscountId)
-                .HasConstraintName("FK_Cart_Items_DiscountID");
 
             entity.HasOne(d => d.Product).WithMany(p => p.CartItems)
                 .HasForeignKey(d => d.ProductId)
@@ -151,9 +147,9 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__Categori__19093A2B39536F26");
+            entity.HasKey(e => e.CategoryId).HasName("PK__Categori__19093A2BA2F4C4EA");
 
-            entity.HasIndex(e => e.Slug, "UQ__Categori__BC7B5FB666FCE0EB").IsUnique();
+            entity.HasIndex(e => e.Slug, "UQ__Categori__BC7B5FB6D9E09733").IsUnique();
 
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.CategoryName).HasMaxLength(100);
@@ -167,19 +163,17 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B8C00CD07E");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B8D2A3FEE7");
 
-            entity.HasIndex(e => e.Username, "UQ__Customer__536C85E4B3F73809").IsUnique();
+            entity.HasIndex(e => e.Username, "UQ__Customer__536C85E434396C51").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__Customer__A9D10534F240B2B8").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Customer__A9D1053433F99905").IsUnique();
 
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.City).HasMaxLength(50);
             entity.Property(e => e.Country).HasMaxLength(50);
             entity.Property(e => e.CreditCardNumber).HasMaxLength(16);
-            entity.Property(e => e.Dob)
-                .HasColumnType("date")
-                .HasColumnName("DOB");
+            entity.Property(e => e.Dob).HasColumnName("DOB");
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.HomePhone).HasMaxLength(15);
@@ -195,7 +189,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Discount>(entity =>
         {
-            entity.HasKey(e => e.DiscountId).HasName("PK__Discount__E43F6DF61BD02EEC");
+            entity.HasKey(e => e.DiscountId).HasName("PK__Discount__E43F6DF6D4CEE6CB");
 
             entity.Property(e => e.DiscountId).HasColumnName("DiscountID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
@@ -214,7 +208,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Favorite>(entity =>
         {
-            entity.HasKey(e => e.FavoriteId).HasName("PK__Favorite__CE74FAF5E1D35CD3");
+            entity.HasKey(e => e.FavoriteId).HasName("PK__Favorite__CE74FAF57E7C9177");
 
             entity.HasIndex(e => new { e.CustomerId, e.ProductId }, "UQ_Favorites").IsUnique();
 
@@ -235,7 +229,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF49DE8612");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF3046CD71");
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
@@ -252,7 +246,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.OrderDetailId).HasName("PK__Order_De__D3B9D30C00CCC935");
+            entity.HasKey(e => e.OrderDetailId).HasName("PK__Order_De__D3B9D30C3110E75C");
 
             entity.ToTable("Order_Details");
 
@@ -274,9 +268,9 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6ED311A6113");
+            entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6ED1C656BE1");
 
-            entity.HasIndex(e => e.Slug, "UQ__Products__BC7B5FB61194A527").IsUnique();
+            entity.HasIndex(e => e.Slug, "UQ__Products__BC7B5FB6560E2165").IsUnique();
 
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.BrandId).HasColumnName("BrandID");
@@ -297,7 +291,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<ProductCategory>(entity =>
         {
-            entity.HasKey(e => e.ProductCategoryId).HasName("PK__Product___3224ECEE8B21231E");
+            entity.HasKey(e => e.ProductCategoryId).HasName("PK__Product___3224ECEE5A9A4A6B");
 
             entity.ToTable("Product_Categories");
 
@@ -320,7 +314,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Promotion>(entity =>
         {
-            entity.HasKey(e => e.PromotionId).HasName("PK__Promotio__52C42F2F73245278");
+            entity.HasKey(e => e.PromotionId).HasName("PK__Promotio__52C42F2FF4B5702E");
 
             entity.Property(e => e.PromotionId).HasColumnName("PromotionID");
             entity.Property(e => e.Description).HasMaxLength(255);
@@ -339,7 +333,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Rating>(entity =>
         {
-            entity.HasKey(e => e.RatingId).HasName("PK__Ratings__FCCDF85CC345F189");
+            entity.HasKey(e => e.RatingId).HasName("PK__Ratings__FCCDF85C1008949D");
 
             entity.HasIndex(e => new { e.CustomerId, e.ProductId }, "UQ_Ratings").IsUnique();
 

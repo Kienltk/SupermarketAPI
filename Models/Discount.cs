@@ -11,8 +11,6 @@ public partial class Discount
 
     public int PromotionId { get; set; }
 
-    public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
-
     public virtual Product Product { get; set; } = null!;
 
     public virtual Promotion Promotion { get; set; } = null!;

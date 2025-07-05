@@ -106,7 +106,8 @@ namespace SupermarketAPI.Services.Impl
                 RatingId = r.RatingId,
                 RatingScore = r.RatingScore,
                 Comment = r.Comment,
-                CustomerName = $"{r.Customer.FirstName} {r.Customer.LastName}",
+                CustomerName = string.Join(" ", new[] { r.Customer.FirstName, r.Customer.MiddleName, r.Customer.LastName }
+                                     .Where(s => !string.IsNullOrWhiteSpace(s))),
                 CreatedAt = r.CreatedAt
             }).ToList();
 
@@ -171,7 +172,7 @@ namespace SupermarketAPI.Services.Impl
             return products.Select(p => MapToProductDto(p, customerId)).ToList();
         }
 
-        public async Task<List<ProductDto>> GetProductsByBrandAndCategory(int? customerId, string? category, string? brand)
+        public async Task<List<ProductDto>> GetProductsByBrandAndCategoryAndRating(int? customerId, string? category, string? brand, int? ratingScore)
         {
             int? categoryId = null;
             int? brandId = null;
@@ -185,7 +186,14 @@ namespace SupermarketAPI.Services.Impl
                 brandId = _brandRepository.GetBrandBySlugAsync(brand).Result.BrandId;
             }
 
-            var products = await _productRepository.GetProductsByBrandAndCategory(categoryId, brandId);
+            var products = await _productRepository.GetProductsByBrandAndCategoryAndRating(categoryId, brandId, ratingScore);
+
+            return products.Select(p => MapToProductDto(p, customerId)).ToList();
+        }
+
+        public async Task<List<ProductDto>> GetProductbyRatingScore(int? customerId, int ratingscore)
+        {
+            var products = await _productRepository.GetProductsByRatingScore(ratingscore);
 
             return products.Select(p => MapToProductDto(p, customerId)).ToList();
         }
