@@ -11,6 +11,8 @@ public partial class Discount
 
     public int PromotionId { get; set; }
 
+    public bool IsActive { get; set; }
+
     public virtual Product Product { get; set; } = null!;
 
     public virtual Promotion Promotion { get; set; } = null!;

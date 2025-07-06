@@ -53,7 +53,7 @@ public partial class SupermarketContext : DbContext
     {
         modelBuilder.Entity<Bill>(entity =>
         {
-            entity.HasKey(e => e.BillId).HasName("PK__Bill__11F2FC4AA8BC1CC2");
+            entity.HasKey(e => e.BillId).HasName("PK__Bill__11F2FC4A907DBE22");
 
             entity.ToTable("Bill");
 
@@ -71,7 +71,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<BillDetail>(entity =>
         {
-            entity.HasKey(e => e.BillDetailId).HasName("PK__Bill_Det__793CAF75B6ACD7F4");
+            entity.HasKey(e => e.BillDetailId).HasName("PK__Bill_Det__793CAF7538ACEED7");
 
             entity.ToTable("Bill_Details");
 
@@ -94,11 +94,11 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Brand>(entity =>
         {
-            entity.HasKey(e => e.BrandId).HasName("PK__Brands__DAD4F3BE04A8FF07");
+            entity.HasKey(e => e.BrandId).HasName("PK__Brands__DAD4F3BE2912DD58");
 
-            entity.HasIndex(e => e.BrandName, "UQ__Brands__2206CE9B96F78922").IsUnique();
+            entity.HasIndex(e => e.BrandName, "UQ__Brands__2206CE9B0E8C71B2").IsUnique();
 
-            entity.HasIndex(e => e.Slug, "UQ__Brands__BC7B5FB67BE45394").IsUnique();
+            entity.HasIndex(e => e.Slug, "UQ__Brands__BC7B5FB673C00C27").IsUnique();
 
             entity.Property(e => e.BrandId).HasColumnName("BrandID");
             entity.Property(e => e.BrandName).HasMaxLength(100);
@@ -107,7 +107,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Cart>(entity =>
         {
-            entity.HasKey(e => e.CartId).HasName("PK__Cart__51BCD797DD90A417");
+            entity.HasKey(e => e.CartId).HasName("PK__Cart__51BCD79794AC8518");
 
             entity.ToTable("Cart");
 
@@ -123,7 +123,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<CartItem>(entity =>
         {
-            entity.HasKey(e => e.CartItemId).HasName("PK__Cart_Ite__488B0B2A935EE5FB");
+            entity.HasKey(e => e.CartItemId).HasName("PK__Cart_Ite__488B0B2A3FAFE982");
 
             entity.ToTable("Cart_Items");
 
@@ -147,9 +147,9 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__Categori__19093A2BA2F4C4EA");
+            entity.HasKey(e => e.CategoryId).HasName("PK__Categori__19093A2BE4719481");
 
-            entity.HasIndex(e => e.Slug, "UQ__Categori__BC7B5FB6D9E09733").IsUnique();
+            entity.HasIndex(e => e.Slug, "UQ__Categori__BC7B5FB6CA1F045B").IsUnique();
 
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.CategoryName).HasMaxLength(100);
@@ -163,11 +163,11 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B8D2A3FEE7");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B86A176761");
 
-            entity.HasIndex(e => e.Username, "UQ__Customer__536C85E434396C51").IsUnique();
+            entity.HasIndex(e => e.Username, "UQ__Customer__536C85E4AEDEAD6E").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__Customer__A9D1053433F99905").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Customer__A9D1053484DC0862").IsUnique();
 
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.City).HasMaxLength(50);
@@ -189,9 +189,10 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Discount>(entity =>
         {
-            entity.HasKey(e => e.DiscountId).HasName("PK__Discount__E43F6DF6D4CEE6CB");
+            entity.HasKey(e => e.DiscountId).HasName("PK__Discount__E43F6DF6697039BF");
 
             entity.Property(e => e.DiscountId).HasColumnName("DiscountID");
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.PromotionId).HasColumnName("PromotionID");
 
@@ -208,7 +209,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Favorite>(entity =>
         {
-            entity.HasKey(e => e.FavoriteId).HasName("PK__Favorite__CE74FAF57E7C9177");
+            entity.HasKey(e => e.FavoriteId).HasName("PK__Favorite__CE74FAF56B296AF7");
 
             entity.HasIndex(e => new { e.CustomerId, e.ProductId }, "UQ_Favorites").IsUnique();
 
@@ -229,7 +230,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF3046CD71");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF628E842E");
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
@@ -246,14 +247,13 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.OrderDetailId).HasName("PK__Order_De__D3B9D30C3110E75C");
+            entity.HasKey(e => e.OrderDetailId).HasName("PK__Order_De__D3B9D30C2FF8C79B");
 
             entity.ToTable("Order_Details");
 
             entity.Property(e => e.OrderDetailId).HasColumnName("OrderDetailID");
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
-            entity.Property(e => e.UnitPrice).HasColumnType("decimal(18, 2)");
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
@@ -268,9 +268,9 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6ED1C656BE1");
+            entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6EDED966F66");
 
-            entity.HasIndex(e => e.Slug, "UQ__Products__BC7B5FB6560E2165").IsUnique();
+            entity.HasIndex(e => e.Slug, "UQ__Products__BC7B5FB6D2648367").IsUnique();
 
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.BrandId).HasColumnName("BrandID");
@@ -291,7 +291,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<ProductCategory>(entity =>
         {
-            entity.HasKey(e => e.ProductCategoryId).HasName("PK__Product___3224ECEE5A9A4A6B");
+            entity.HasKey(e => e.ProductCategoryId).HasName("PK__Product___3224ECEEE16ED5AA");
 
             entity.ToTable("Product_Categories");
 
@@ -314,7 +314,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Promotion>(entity =>
         {
-            entity.HasKey(e => e.PromotionId).HasName("PK__Promotio__52C42F2FF4B5702E");
+            entity.HasKey(e => e.PromotionId).HasName("PK__Promotio__52C42F2F83C3D333");
 
             entity.Property(e => e.PromotionId).HasColumnName("PromotionID");
             entity.Property(e => e.Description).HasMaxLength(255);
@@ -322,6 +322,7 @@ public partial class SupermarketContext : DbContext
             entity.Property(e => e.DiscountPercent).HasColumnType("decimal(5, 2)");
             entity.Property(e => e.EndDate).HasColumnType("datetime");
             entity.Property(e => e.GiftProductId).HasColumnName("GiftProductID");
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
             entity.Property(e => e.MinOrderValue).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.PromotionType).HasMaxLength(20);
             entity.Property(e => e.StartDate).HasColumnType("datetime");
@@ -333,7 +334,7 @@ public partial class SupermarketContext : DbContext
 
         modelBuilder.Entity<Rating>(entity =>
         {
-            entity.HasKey(e => e.RatingId).HasName("PK__Ratings__FCCDF85C1008949D");
+            entity.HasKey(e => e.RatingId).HasName("PK__Ratings__FCCDF85CD4B2EA23");
 
             entity.HasIndex(e => new { e.CustomerId, e.ProductId }, "UQ_Ratings").IsUnique();
 

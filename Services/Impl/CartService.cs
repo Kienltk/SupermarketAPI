@@ -75,6 +75,7 @@ namespace SupermarketAPI.Services.Impl
                 ImageUrl = cartItem.Product.ImageUrl,
                 Stock = cartItem.Product.Quantity,
                 Quantity = cartItem.Quantity,
+                PromotionId = promotion?.PromotionId,
                 PromotionType = promotion?.PromotionType,
                 DiscountPercent = promotion?.DiscountPercent,
                 DiscountAmount = promotion?.DiscountAmount,

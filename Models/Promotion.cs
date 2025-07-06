@@ -24,6 +24,7 @@ public partial class Promotion
     public decimal? MinOrderValue { get; set; }
 
     public int? MinOrderQuantity { get; set; }
+    public bool IsActive { get; set; }
 
     public virtual ICollection<BillDetail> BillDetails { get; set; } = new List<BillDetail>();
 

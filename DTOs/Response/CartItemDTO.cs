@@ -18,6 +18,8 @@
 
         public int Quantity { get; set; }
 
+        public int? PromotionId { get; set; }
+
         public string? PromotionType { get; set; }
 
         public decimal? DiscountPercent { get; set; }
