@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "D:\\Project\\SupermarketAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\data\\supermarketcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:data\\supermarketcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\dtos\\response\\cartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:dtos\\response\\cartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\services\\impl\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:services\\impl\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\services\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:services\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\repositories\\impl\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\repositories\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:repositories\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\services\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:services\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\repositories\\impl\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\data\\supermarketcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:data\\supermarketcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|d:\\project\\supermarketapi\\repositories\\impl\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -251,32 +255,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CartController.cs",
-              "ToolTip": "D:\\Project\\SupermarketAPI\\Controllers\\CartController.cs",
-              "RelativeToolTip": "Controllers\\CartController.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAowFEAAABoAAAAAAAAAA==",
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "Models\\OrderDetail.cs",
+              "ToolTip": "D:\\Project\\SupermarketAPI\\Models\\OrderDetail.cs",
+              "RelativeToolTip": "Models\\OrderDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T11:26:13.727Z",
+              "WhenOpened": "2025-07-05T17:20:05.4Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CustomerRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\Impl\\CustomerRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Impl\\CustomerRepository.cs",
-              "ToolTip": "D:\\Project\\SupermarketAPI\\Repositories\\Impl\\CustomerRepository.cs",
-              "RelativeToolTip": "Repositories\\Impl\\CustomerRepository.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAASwBsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:32:06.063Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\Impl\\AuthService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\AuthService.cs",
@@ -284,12 +275,11 @@
               "RelativeToolTip": "Services\\Impl\\AuthService.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAADwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:35:06.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T14:35:06.646Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "CartRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\Impl\\CartRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\CartRepository.cs",
@@ -297,12 +287,11 @@
               "RelativeToolTip": "Repositories\\Impl\\CartRepository.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAIwCEAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T11:01:46.005Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T11:01:46.005Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ICartRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\ICartRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\ICartRepository.cs",
@@ -310,51 +299,85 @@
               "RelativeToolTip": "Repositories\\ICartRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T10:57:57.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T10:57:57.357Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "ICartService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\ICartService.cs",
               "RelativeDocumentMoniker": "Services\\ICartService.cs",
               "ToolTip": "D:\\Project\\SupermarketAPI\\Services\\ICartService.cs",
               "RelativeToolTip": "Services\\ICartService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T11:21:58.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T11:21:58.028Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CartService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\Impl\\CartService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\CartService.cs",
               "ToolTip": "D:\\Project\\SupermarketAPI\\Services\\Impl\\CartService.cs",
               "RelativeToolTip": "Services\\Impl\\CartService.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAowD4AAABYAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAApwC8AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T11:22:26.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T11:22:26.433Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "CartItemDTO.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\CartItemDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\CartItemDTO.cs",
-              "ToolTip": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\CartItemDTO.cs*",
-              "RelativeToolTip": "DTOs\\Response\\CartItemDTO.cs*",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAcwCAAAAAwAAAAAAAAAA==",
+              "ToolTip": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\CartItemDTO.cs",
+              "RelativeToolTip": "DTOs\\Response\\CartItemDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T11:09:19.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SupermarketContext.cs",
+              "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Data\\SupermarketContext.cs",
+              "RelativeDocumentMoniker": "Data\\SupermarketContext.cs",
+              "ToolTip": "D:\\Project\\SupermarketAPI\\Data\\SupermarketContext.cs",
+              "RelativeToolTip": "Data\\SupermarketContext.cs",
+              "ViewState": "AgIAAMoAAAAAAAAAAIAwwN4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T12:11:54.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "CustomerRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\Impl\\CustomerRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Impl\\CustomerRepository.cs",
+              "ToolTip": "D:\\Project\\SupermarketAPI\\Repositories\\Impl\\CustomerRepository.cs",
+              "RelativeToolTip": "Repositories\\Impl\\CustomerRepository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAASwBsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T14:32:06.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CartController.cs",
+              "ToolTip": "D:\\Project\\SupermarketAPI\\Controllers\\CartController.cs",
+              "RelativeToolTip": "Controllers\\CartController.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAwwGsAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T11:26:13.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -362,12 +385,11 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAACUAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:08:16.952Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T14:08:16.952Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "Controllers\\CategoryController.cs",
@@ -375,12 +397,11 @@
               "RelativeToolTip": "Controllers\\CategoryController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T15:40:44.991Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T15:40:44.991Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "BrandController.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Controllers\\BrandController.cs",
               "RelativeDocumentMoniker": "Controllers\\BrandController.cs",
@@ -388,25 +409,11 @@
               "RelativeToolTip": "Controllers\\BrandController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T15:35:45.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T15:35:45.819Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SupermarketContext.cs",
-              "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Data\\SupermarketContext.cs",
-              "RelativeDocumentMoniker": "Data\\SupermarketContext.cs",
-              "ToolTip": "D:\\Project\\SupermarketAPI\\Data\\SupermarketContext.cs",
-              "RelativeToolTip": "Data\\SupermarketContext.cs",
-              "ViewState": "AgIAAEgBAAAAAAAAAIAwwGYBAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T12:11:54.59Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "CategoryRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\Impl\\CategoryRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\CategoryRepository.cs",
@@ -414,12 +421,11 @@
               "RelativeToolTip": "Repositories\\Impl\\CategoryRepository.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAASwAIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T09:52:13.254Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T09:52:13.254Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "BrandRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\Impl\\BrandRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\BrandRepository.cs",
@@ -427,12 +433,11 @@
               "RelativeToolTip": "Repositories\\Impl\\BrandRepository.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAASwA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T14:00:20.281Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T14:00:20.281Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "CartItem.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\CartItem.cs",
               "RelativeDocumentMoniker": "Models\\CartItem.cs",
@@ -440,12 +445,11 @@
               "RelativeToolTip": "Models\\CartItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T11:13:43.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T11:13:43.884Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "FavoriteRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\Impl\\FavoriteRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\FavoriteRepository.cs",
@@ -453,12 +457,11 @@
               "RelativeToolTip": "Repositories\\Impl\\FavoriteRepository.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAowCAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T10:06:17.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T10:06:17.521Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "RatingService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\Impl\\RatingService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\RatingService.cs",
@@ -466,12 +469,11 @@
               "RelativeToolTip": "Services\\Impl\\RatingService.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwBkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T07:14:05.065Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T07:14:05.065Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "ProductService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\Impl\\ProductService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\ProductService.cs",
@@ -479,12 +481,11 @@
               "RelativeToolTip": "Services\\Impl\\ProductService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:53:17.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:53:17.457Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "FavoriteService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\Impl\\FavoriteService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\FavoriteService.cs",
@@ -492,12 +493,11 @@
               "RelativeToolTip": "Services\\Impl\\FavoriteService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T15:16:23.055Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T15:16:23.055Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "BrandService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\Impl\\BrandService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\BrandService.cs",
@@ -505,12 +505,11 @@
               "RelativeToolTip": "Services\\Impl\\BrandService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T14:05:16.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T14:05:16.68Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\Impl\\ProductRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\ProductRepository.cs",
@@ -518,12 +517,11 @@
               "RelativeToolTip": "Repositories\\Impl\\ProductRepository.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAA7wJsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:51:07.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:51:07.724Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "RatingRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\Impl\\RatingRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\RatingRepository.cs",
@@ -531,12 +529,11 @@
               "RelativeToolTip": "Repositories\\Impl\\RatingRepository.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAQwD0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T09:10:30.565Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-29T09:10:30.565Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "IBrandRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\IBrandRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\IBrandRepository.cs",
@@ -544,12 +541,11 @@
               "RelativeToolTip": "Repositories\\IBrandRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T13:58:53.107Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T13:58:53.107Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": ".env",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\.env",
               "RelativeDocumentMoniker": ".env",
@@ -557,12 +553,11 @@
               "RelativeToolTip": ".env",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-06-29T13:06:05.304Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-29T13:06:05.304Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "ProductController.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
@@ -570,12 +565,11 @@
               "RelativeToolTip": "Controllers\\ProductController.cs",
               "ViewState": "AgIAADUBAAAAAAAAAAAUwGUBAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:59:12.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:59:12.848Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Promotion.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\Promotion.cs",
               "RelativeDocumentMoniker": "Models\\Promotion.cs",
@@ -583,12 +577,11 @@
               "RelativeToolTip": "Models\\Promotion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:25:34.127Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:25:34.127Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\Product.cs",
               "RelativeDocumentMoniker": "Models\\Product.cs",
@@ -596,12 +589,11 @@
               "RelativeToolTip": "Models\\Product.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:22:36.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:22:36.934Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "Discount.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\Discount.cs",
               "RelativeDocumentMoniker": "Models\\Discount.cs",
@@ -609,12 +601,11 @@
               "RelativeToolTip": "Models\\Discount.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:25:17.705Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:25:17.705Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "Cart.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\Cart.cs",
               "RelativeDocumentMoniker": "Models\\Cart.cs",
@@ -622,12 +613,11 @@
               "RelativeToolTip": "Models\\Cart.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T10:54:24.702Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T10:54:24.702Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "IProductRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\IProductRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\IProductRepository.cs",
@@ -635,12 +625,11 @@
               "RelativeToolTip": "Repositories\\IProductRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:50:32.199Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:50:32.199Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "ProductDto.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\ProductDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\ProductDto.cs",
@@ -648,12 +637,11 @@
               "RelativeToolTip": "DTOs\\Response\\ProductDto.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAxwCYAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:15:01.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:15:01.677Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "RatingDto.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\RatingDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\RatingDto.cs",
@@ -661,12 +649,11 @@
               "RelativeToolTip": "DTOs\\Response\\RatingDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T07:23:16.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T07:23:16.403Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "ProductDetailDto.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\ProductDetailDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\ProductDetailDto.cs",
@@ -674,12 +661,11 @@
               "RelativeToolTip": "DTOs\\Response\\ProductDetailDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:47:50.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:47:50.099Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "IRatingRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\IRatingRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\IRatingRepository.cs",
@@ -687,12 +673,11 @@
               "RelativeToolTip": "Repositories\\IRatingRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T09:09:51.287Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-29T09:09:51.287Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "IRatingService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\IRatingService.cs",
               "RelativeDocumentMoniker": "Services\\IRatingService.cs",
@@ -700,12 +685,11 @@
               "RelativeToolTip": "Services\\IRatingService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T07:12:03.817Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T07:12:03.817Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "IProductService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\IProductService.cs",
               "RelativeDocumentMoniker": "Services\\IProductService.cs",
@@ -713,12 +697,11 @@
               "RelativeToolTip": "Services\\IProductService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:52:06.855Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:52:06.855Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "RatingController.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Controllers\\RatingController.cs",
               "RelativeDocumentMoniker": "Controllers\\RatingController.cs",
@@ -726,12 +709,11 @@
               "RelativeToolTip": "Controllers\\RatingController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwCAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T07:11:59.945Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T07:11:59.945Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "ResponseObject.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\ResponseObject.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\ResponseObject.cs",
@@ -739,12 +721,11 @@
               "RelativeToolTip": "DTOs\\Response\\ResponseObject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:35:40.043Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T15:35:40.043Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\IAuthService.cs",
               "RelativeDocumentMoniker": "Services\\IAuthService.cs",
@@ -752,12 +733,11 @@
               "RelativeToolTip": "Services\\IAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:33:06.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T14:33:06.698Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "FavoriteController.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Controllers\\FavoriteController.cs",
               "RelativeDocumentMoniker": "Controllers\\FavoriteController.cs",
@@ -765,12 +745,11 @@
               "RelativeToolTip": "Controllers\\FavoriteController.cs",
               "ViewState": "AgIAAHcAAAAAAAAAAAAwwI0AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T15:36:01.133Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T15:36:01.133Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -778,12 +757,11 @@
               "RelativeToolTip": "Controllers\\AuthController.cs",
               "ViewState": "AgIAAJ8AAAAAAAAAAAAkwLQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:45:43.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T14:45:43.512Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "Customer.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\Customer.cs",
               "RelativeDocumentMoniker": "Models\\Customer.cs",
@@ -791,12 +769,11 @@
               "RelativeToolTip": "Models\\Customer.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAYwCEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:31:42.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T15:31:42.457Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "Favorite.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\Favorite.cs",
               "RelativeDocumentMoniker": "Models\\Favorite.cs",
@@ -804,12 +781,11 @@
               "RelativeToolTip": "Models\\Favorite.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T16:19:24.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T16:19:24.781Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "IFavoriteRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\IFavoriteRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\IFavoriteRepository.cs",
@@ -817,12 +793,11 @@
               "RelativeToolTip": "Repositories\\IFavoriteRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T10:05:48.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T10:05:48.376Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "ICustomerRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\ICustomerRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\ICustomerRepository.cs",
@@ -830,12 +805,11 @@
               "RelativeToolTip": "Repositories\\ICustomerRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:30:45.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T14:30:45.944Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -843,12 +817,11 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-22T14:05:15.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T14:05:15.144Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "ICategoryRepository.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Repositories\\ICategoryRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\ICategoryRepository.cs",
@@ -856,12 +829,11 @@
               "RelativeToolTip": "Repositories\\ICategoryRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T09:51:10.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T09:51:10.273Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "CategoryService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\Impl\\CategoryService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\CategoryService.cs",
@@ -869,12 +841,11 @@
               "RelativeToolTip": "Services\\Impl\\CategoryService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBUAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T10:27:05.258Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T10:27:05.258Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "BrandDto.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\BrandDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\BrandDto.cs",
@@ -882,12 +853,11 @@
               "RelativeToolTip": "DTOs\\Response\\BrandDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T14:01:33.879Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T14:01:33.879Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "CategoriesDto.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\CategoriesDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\CategoriesDto.cs",
@@ -895,12 +865,11 @@
               "RelativeToolTip": "DTOs\\Response\\CategoriesDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T10:25:51.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T10:25:51.367Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "Brand.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\Brand.cs",
               "RelativeDocumentMoniker": "Models\\Brand.cs",
@@ -908,12 +877,11 @@
               "RelativeToolTip": "Models\\Brand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T18:05:23.036Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-25T18:05:23.036Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "IBrandService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\IBrandService.cs",
               "RelativeDocumentMoniker": "Services\\IBrandService.cs",
@@ -921,12 +889,11 @@
               "RelativeToolTip": "Services\\IBrandService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T14:03:30.99Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T14:03:30.99Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "ICategoryService.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Services\\ICategoryService.cs",
               "RelativeDocumentMoniker": "Services\\ICategoryService.cs",
@@ -934,12 +901,11 @@
               "RelativeToolTip": "Services\\ICategoryService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T10:24:09.392Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T10:24:09.392Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "AuthResponseDto.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\AuthResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\AuthResponseDto.cs",
@@ -947,12 +913,11 @@
               "RelativeToolTip": "DTOs\\Response\\AuthResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:30:15.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T14:30:15.877Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "Category.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\Category.cs",
               "RelativeDocumentMoniker": "Models\\Category.cs",
@@ -960,12 +925,11 @@
               "RelativeToolTip": "Models\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T13:25:19.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T13:25:19.647Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "RegisterDto.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Request\\RegisterDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Request\\RegisterDto.cs",
@@ -973,12 +937,11 @@
               "RelativeToolTip": "DTOs\\Request\\RegisterDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:24:53.094Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T14:24:53.094Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "HomeDto.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Response\\HomeDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\HomeDto.cs",
@@ -986,12 +949,11 @@
               "RelativeToolTip": "DTOs\\Response\\HomeDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T10:14:49.121Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T10:14:49.121Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": "Rating.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\Models\\Rating.cs",
               "RelativeDocumentMoniker": "Models\\Rating.cs",
@@ -999,12 +961,11 @@
               "RelativeToolTip": "Models\\Rating.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:36:03.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:36:03.177Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "D:\\Project\\SupermarketAPI\\DTOs\\Request\\LoginDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Request\\LoginDto.cs",
@@ -1012,8 +973,7 @@
               "RelativeToolTip": "DTOs\\Request\\LoginDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:28:52.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T14:28:52.126Z"
             }
           ]
         }
