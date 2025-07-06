@@ -8,6 +8,7 @@ namespace SupermarketAPI.Repositories
         Task<List<Category>> GetCategoriesByParentIdAsync(int? parentId);
         Task<List<Category>> GetCategoriesAsync();
         int GetCategoryIdByProductId(int productId);
+        Task<List<Category>> GetCategoriesByProductId(int productId);
         Category GetParentCategoryByCategoryId(int categoryId);
     }
 }

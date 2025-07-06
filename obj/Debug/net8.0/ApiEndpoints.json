@@ -181,7 +181,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.CartItemDTO, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.CartItemDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -201,7 +201,7 @@
     "Parameters": [
       {
         "Name": "cartItems",
-        "Type": "System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.CartItemDTO, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.CartItemDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],

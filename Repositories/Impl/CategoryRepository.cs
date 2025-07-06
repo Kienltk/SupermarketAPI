@@ -46,6 +46,17 @@ namespace SupermarketAPI.Repositories.Impl
                 .FirstOrDefault();
         }
 
+        public async Task<List<Category>> GetCategoriesByProductId(int productId)
+        {
+            return await _context.ProductCategories
+                .Where(pc => pc.ProductId == productId)
+                .Join(_context.Categories,
+                      pc => pc.CategoryId,
+                      c => c.CategoryId,
+                      (pc, c) => c)
+                .ToListAsync();
+        }
+
         public Category GetParentCategoryByCategoryId(int categoryId)
         {
             var category = _context.Categories

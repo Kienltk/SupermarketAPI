@@ -329,17 +329,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CartItemDTOListResponseObject"
+                  "$ref": "#/components/schemas/CartItemDtoListResponseObject"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CartItemDTOListResponseObject"
+                  "$ref": "#/components/schemas/CartItemDtoListResponseObject"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CartItemDTOListResponseObject"
+                  "$ref": "#/components/schemas/CartItemDtoListResponseObject"
                 }
               }
             }
@@ -356,7 +356,7 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/CartItemDTO"
+                  "$ref": "#/components/schemas/CartItemDto"
                 }
               }
             },
@@ -364,7 +364,7 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/CartItemDTO"
+                  "$ref": "#/components/schemas/CartItemDto"
                 }
               }
             },
@@ -372,7 +372,7 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/CartItemDTO"
+                  "$ref": "#/components/schemas/CartItemDto"
                 }
               }
             }
@@ -1008,7 +1008,7 @@
         },
         "additionalProperties": false
       },
-      "CartItemDTO": {
+      "CartItemDto": {
         "type": "object",
         "properties": {
           "productId": {
@@ -1083,7 +1083,7 @@
         },
         "additionalProperties": false
       },
-      "CartItemDTOListResponseObject": {
+      "CartItemDtoListResponseObject": {
         "type": "object",
         "properties": {
           "code": {
@@ -1097,7 +1097,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CartItemDTO"
+              "$ref": "#/components/schemas/CartItemDto"
             },
             "nullable": true
           }
@@ -1105,6 +1105,22 @@
         "additionalProperties": false
       },
       "CategoriesDto": {
+        "type": "object",
+        "properties": {
+          "categoryDto": {
+            "$ref": "#/components/schemas/CategoryDto"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CategoriesDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CategoryDto": {
         "type": "object",
         "properties": {
           "id": {
@@ -1117,13 +1133,6 @@
           },
           "slug": {
             "type": "string",
-            "nullable": true
-          },
-          "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CategoriesDto"
-            },
             "nullable": true
           }
         },
@@ -1212,6 +1221,13 @@
         "properties": {
           "productDto": {
             "$ref": "#/components/schemas/ProductDto"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CategoryDto"
+            },
+            "nullable": true
           },
           "relatedProducts": {
             "type": "array",
@@ -1365,6 +1381,10 @@
           "comment": {
             "type": "string",
             "nullable": true
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int32"
           },
           "customerName": {
             "type": "string",
