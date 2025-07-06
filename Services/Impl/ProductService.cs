@@ -127,12 +127,21 @@ namespace SupermarketAPI.Services.Impl
                     .ToList();
             }
 
+            List<CategoryDto> categories = _categoryRepository.GetCategoriesByProductId(product.ProductId)
+                .Result
+                .Select(c => new CategoryDto
+                {
+                    Id = c.CategoryId,
+                    CategoryName = c.CategoryName,
+                    slug = c.Slug,
+                }).ToList();
+
             return new ProductDetailDto
             {
                 ProductDto = productDto,
                 RelatedProducts = relatedProducts,
-                Ratings = ratingDtos
-
+                Ratings = ratingDtos,
+                Categories = categories
             };
         }
 

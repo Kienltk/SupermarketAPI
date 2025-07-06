@@ -13,10 +13,10 @@ namespace SupermarketAPI.Services.Impl
             _cartRepository = cartRepository;
         }
 
-        public async Task<List<CartItemDTO>> GetCartItemsByUserIdAsync(int customerId)
+        public async Task<List<CartItemDto>> GetCartItemsByUserIdAsync(int customerId)
         {
             var cartItems = await _cartRepository.GetCartItemsByUserIdAsync(customerId);
-            var cartItemDtos = new List<CartItemDTO>();
+            var cartItemDtos = new List<CartItemDto>();
 
             foreach (var cartItem in cartItems)
             {
@@ -30,7 +30,7 @@ namespace SupermarketAPI.Services.Impl
             return cartItemDtos;
         }
 
-        public async Task<bool> AddCartItemsAsync(int customerId, List<CartItemDTO> cartItems)
+        public async Task<bool> AddCartItemsAsync(int customerId, List<CartItemDto> cartItems)
         {
             var cart = await _cartRepository.GetCartByCustomerIdAsync(customerId);
             if (cart == null)
@@ -56,7 +56,7 @@ namespace SupermarketAPI.Services.Impl
             return true;
         }
 
-        private CartItemDTO MapToCartItemDto(CartItem cartItem)
+        private CartItemDto MapToCartItemDto(CartItem cartItem)
         {
             if (cartItem == null || cartItem.Product == null)
             {
@@ -65,7 +65,7 @@ namespace SupermarketAPI.Services.Impl
 
             var promotion = cartItem.Product.Discounts?.FirstOrDefault()?.Promotion;
 
-            return new CartItemDTO
+            return new CartItemDto
             {
                 ProductId = cartItem.ProductId,
                 ProductName = cartItem.Product.ProductName,

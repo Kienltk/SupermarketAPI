@@ -21,7 +21,7 @@ namespace SupermarketAPI.Controllers
 
         [Authorize]
         [HttpGet("")]
-        public async Task<ActionResult<ResponseObject<List<CartItemDTO>>>> GetCartItems()
+        public async Task<ActionResult<ResponseObject<List<CartItemDto>>>> GetCartItems()
         {
             if (!User?.Identity?.IsAuthenticated == true)
             {
@@ -36,7 +36,7 @@ namespace SupermarketAPI.Controllers
 
             try
             {
-                List<CartItemDTO> products;
+                List<CartItemDto> products;
                 int customerId;
                 if (int.TryParse(User?.FindFirst("id")?.Value, out int id))
                 {
@@ -55,7 +55,7 @@ namespace SupermarketAPI.Controllers
 
                 products = await _cartService.GetCartItemsByUserIdAsync(customerId);
 
-                var response = new ResponseObject<List<CartItemDTO>>
+                var response = new ResponseObject<List<CartItemDto>>
                 {
                     Code = 200,
                     Message = "Get Products successful",
@@ -79,7 +79,7 @@ namespace SupermarketAPI.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult<ResponseObject<string>>> AddCartItems([FromBody] List<CartItemDTO> cartItems)
+        public async Task<ActionResult<ResponseObject<string>>> AddCartItems([FromBody] List<CartItemDto> cartItems)
         {
             if (!User?.Identity?.IsAuthenticated == true)
             {

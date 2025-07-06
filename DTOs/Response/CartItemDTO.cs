@@ -1,6 +1,6 @@
 ﻿namespace SupermarketAPI.DTOs.Response
 {
-    public class CartItemDTO
+    public class CartItemDto
     {
         public int ProductId { get; set; }
 

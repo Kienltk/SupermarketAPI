@@ -23,9 +23,12 @@ namespace SupermarketAPI.Services.Impl
         {
             return categories.Select(c => new CategoriesDto
             {
-                Id = c.CategoryId,
-                CategoryName = c.CategoryName,
-                slug = c.Slug,
+                CategoryDto = new CategoryDto
+                {
+                    Id = c.CategoryId,
+                    CategoryName = c.CategoryName,
+                    slug = c.Slug,
+                },
                 Children = MapToCategoryDTOs(c.InverseParent.ToList())
             }).ToList();
         }
