@@ -112,12 +112,15 @@ namespace SupermarketAPI.Services.Impl
 
         private string GenerateAccessToken(Customer customer)
         {
+            string fullName = string.Join(" ", new[] { customer.FirstName, customer.MiddleName, customer.LastName }
+                                     .Where(s => !string.IsNullOrWhiteSpace(s)));
             var claims = new[]
             {
-        new Claim("id", customer.CustomerId.ToString()),
-        new Claim("sub", customer.Username),
-        new Claim("role", customer.Role)
-    };
+                new Claim("id", customer.CustomerId.ToString()),
+                new Claim("sub", customer.Username),
+                new Claim("fullName", fullName),
+                new Claim("role", customer.Role)
+            };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

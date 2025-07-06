@@ -105,6 +105,7 @@ namespace SupermarketAPI.Services.Impl
             {
                 RatingId = r.RatingId,
                 RatingScore = r.RatingScore,
+                CustomerId = r.CustomerId,
                 Comment = r.Comment,
                 CustomerName = string.Join(" ", new[] { r.Customer.FirstName, r.Customer.MiddleName, r.Customer.LastName }
                                      .Where(s => !string.IsNullOrWhiteSpace(s))),
