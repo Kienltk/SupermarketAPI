@@ -36,6 +36,15 @@ namespace SupermarketAPI.Repositories.Impl
                 .FirstAsync(p => p.Slug == slug);
         }
 
+        public async Task<Product> GetProductByIdAsync(int id)
+        {
+            return await _context.Products
+                .Include(p => p.Brand)
+                .Include(p => p.Discounts)
+                .ThenInclude(d => d.Promotion)
+                .FirstAsync(p => p.ProductId == id);
+        }
+
         public async Task<List<Product>> GetTopRatedProductsAsync(int limit)
         {
             return await _context.Products

@@ -217,7 +217,6 @@ namespace SupermarketAPI.Services.Impl
                 : new List<Favorite>();
             var isFavorite = favorites.Any(f => f.ProductId == product.ProductId);
             var brand = product.Brand?.BrandName;
-            Console.WriteLine("IsFavorite:" + isFavorite);
 
             var avgRating = _ratingRepository.GetAvgRatingProduct(product.ProductId);
 
@@ -234,9 +233,13 @@ namespace SupermarketAPI.Services.Impl
                 isFavorite = isFavorite,
                 RatingScore = avgRating,
                 PromotionType = promotion?.PromotionType,
+                PromotionDescription = promotion?.Description,
                 DiscountPercent = promotion?.DiscountPercent,
                 DiscountAmount = promotion?.DiscountAmount,
                 GiftProductId = promotion?.GiftProductId,
+                GiftProductName = promotion?.GiftProduct?.ProductName,
+                GiftProductSlug = promotion?.GiftProduct?.Slug,
+                GiftProductImg = promotion?.GiftProduct?.ImageUrl,
                 MinOrderValue = promotion?.MinOrderValue,
                 MinOrderQuantity = promotion?.MinOrderQuantity,
                 StartDate = promotion?.StartDate ?? DateTime.MinValue,

@@ -702,3 +702,4 @@ D:\Project\SupermarketAPI\obj\Debug\net8.0\refint\SupermarketAPI.dll
 D:\Project\SupermarketAPI\obj\Debug\net8.0\SupermarketAPI.pdb
 D:\Project\SupermarketAPI\obj\Debug\net8.0\SupermarketAPI.genruntimeconfig.cache
 D:\Project\SupermarketAPI\obj\Debug\net8.0\ref\SupermarketAPI.dll
+D:\Project\SupermarketAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

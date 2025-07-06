@@ -1,5 +1,4 @@
-﻿using SupermarketAPI.DTOs.Response;
-using SupermarketAPI.Models;
+﻿using SupermarketAPI.Models;
 
 namespace SupermarketAPI.Repositories
 {
@@ -8,6 +7,7 @@ namespace SupermarketAPI.Repositories
         Task<List<Product>> GetProductsAsync();
         Task<List<Product>> GetProductsByCategoryIdAsync(int categoryId);
         Task<Product> GetProductBySlugAsync(string slug);
+        Task<Product> GetProductByIdAsync(int id);
         Task<List<Product>> GetTopRatedProductsAsync(int limit);
         Task<List<Product>> GetProductsByProductNameAsync(string productName);
         Task<List<Product>> GetProductsByBrandIdAsync(int brandId);
