@@ -13,6 +13,8 @@ public partial class Order
 
     public decimal Amount { get; set; }
 
+    public string Status { get; set; }
+
     public virtual ICollection<Bill> Bills { get; set; } = new List<Bill>();
 
     public virtual Customer Customer { get; set; } = null!;

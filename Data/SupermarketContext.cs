@@ -80,16 +80,11 @@ public partial class SupermarketContext : DbContext
             entity.Property(e => e.BillId).HasColumnName("BillID");
             entity.Property(e => e.Description).HasMaxLength(255);
             entity.Property(e => e.ItemType).HasMaxLength(20);
-            entity.Property(e => e.PromotionId).HasColumnName("PromotionID");
 
             entity.HasOne(d => d.Bill).WithMany(p => p.BillDetails)
                 .HasForeignKey(d => d.BillId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Bill_Details_BillID");
-
-            entity.HasOne(d => d.Promotion).WithMany(p => p.BillDetails)
-                .HasForeignKey(d => d.PromotionId)
-                .HasConstraintName("FK_Bill_Details_PromotionID");
         });
 
         modelBuilder.Entity<Brand>(entity =>
@@ -234,6 +229,7 @@ public partial class SupermarketContext : DbContext
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.Status).HasMaxLength(20);
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.DateOfPurchase)
                 .HasDefaultValueSql("(getdate())")
@@ -254,6 +250,8 @@ public partial class SupermarketContext : DbContext
             entity.Property(e => e.OrderDetailId).HasColumnName("OrderDetailID");
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
+            entity.Property(e => e.UnitPrice).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.PromotionId).HasColumnName("PromotionID");
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
@@ -264,6 +262,11 @@ public partial class SupermarketContext : DbContext
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Order_Details_ProductID");
+
+            entity.HasOne(d => d.Promotion).WithMany(p => p.OrderDetail)
+                .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Order_Details_PromotionID");
         });
 
         modelBuilder.Entity<Product>(entity =>

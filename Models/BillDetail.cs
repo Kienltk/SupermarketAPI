@@ -15,9 +15,5 @@ public partial class BillDetail
 
     public decimal Amount { get; set; }
 
-    public int? PromotionId { get; set; }
-
     public virtual Bill Bill { get; set; } = null!;
-
-    public virtual Promotion? Promotion { get; set; }
 }

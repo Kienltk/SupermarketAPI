@@ -18,11 +18,16 @@
 
         public string? PromotionType { get; set; }
 
+        public string? PromotionDescription { get; set; }
+
         public decimal? DiscountPercent { get; set; }
 
         public decimal? DiscountAmount { get; set; }
 
         public int? GiftProductId { get; set; }
+        public string? GiftProductName { get; set; }
+        public string? GiftProductImg { get; set; }
+        public string? GiftProductSlug { get; set; }
 
         public decimal? MinOrderValue { get; set; }
 

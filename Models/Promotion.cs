@@ -26,9 +26,8 @@ public partial class Promotion
     public int? MinOrderQuantity { get; set; }
     public bool IsActive { get; set; }
 
-    public virtual ICollection<BillDetail> BillDetails { get; set; } = new List<BillDetail>();
-
     public virtual ICollection<Discount> Discounts { get; set; } = new List<Discount>();
 
     public virtual Product? GiftProduct { get; set; }
+    public virtual ICollection<OrderDetail> OrderDetail { get; set; } = new List<OrderDetail>();
 }

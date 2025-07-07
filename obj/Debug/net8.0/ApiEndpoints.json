@@ -290,6 +290,104 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SupermarketAPI.Controllers.OrderController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/orders",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderRequestDto",
+        "Type": "SupermarketAPI.DTOs.Request.OrderRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.OrderController",
+    "Method": "GetOrdersByCustomerId",
+    "RelativePath": "api/orders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.OrderDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.OrderController",
+    "Method": "UpdateOrder",
+    "RelativePath": "api/orders",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderUpdateDto",
+        "Type": "SupermarketAPI.DTOs.Request.OrderUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.OrderController",
+    "Method": "UpdateBill",
+    "RelativePath": "api/orders/bill",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "billUpdateDto",
+        "Type": "SupermarketAPI.DTOs.Request.BillUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SupermarketAPI.Controllers.ProductController",
     "Method": "GetProducts",
     "RelativePath": "api/products",
