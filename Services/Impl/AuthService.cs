@@ -10,6 +10,7 @@ using SupermarketSystemAPI.Services;
 using System.Net.Mail;
 using System.Net;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.EntityFrameworkCore;
 
 namespace SupermarketAPI.Services.Impl
 {
@@ -276,48 +277,58 @@ namespace SupermarketAPI.Services.Impl
 
         public async Task<UserInfoResponseDto> UpdateUserInfoAsync(string username, UpdateUserInfoDto updateDto)
         {
-            var customer = await _customerRepository.GetCustomerByUsernameAsync(username);
-            if (customer == null)
-                throw new Exception("User not found");
-
-            customer.FirstName = updateDto.FirstName;
-            customer.LastName = updateDto.LastName;
-            customer.Email = updateDto.Email;
-
-            customer.MiddleName = updateDto.MiddleName ?? customer.MiddleName;
-            customer.Mobile = updateDto.Mobile ?? customer.Mobile;
-            customer.Country = updateDto.Country ?? customer.Country;
-            customer.HomePhone = updateDto.HomePhone ?? customer.HomePhone;
-            customer.CreditCardNumber = updateDto.CreditCardNumber ?? customer.CreditCardNumber;
-            customer.CreditCardExpiry = updateDto.CreditCardExpiry ?? customer.CreditCardExpiry;
-            customer.CardHolderName = updateDto.CardHolderName ?? customer.CardHolderName;
-            customer.CVV = updateDto.CVV ?? customer.CVV;
-            customer.Dob = updateDto.Dob ?? customer.Dob;
-            customer.Street = updateDto.Street ?? customer.Street;
-            customer.City = updateDto.City ?? customer.City;
-            customer.State = updateDto.State ?? customer.State;
-
-            await _customerRepository.UpdateCustomerAsync(customer);
-
-            return new UserInfoResponseDto
+            try
             {
-                Email = customer.Email,
-                FirstName = customer.FirstName,
-                MiddleName = customer.MiddleName ?? "",
-                LastName = customer.LastName,
-                HomePhone = customer.HomePhone,
-                CreditCardNumber = customer.CreditCardNumber,
-                CreditCardExpiry = customer.CreditCardExpiry,
-                CardHolderName = customer.CardHolderName,
-                CVV = customer.CVV,
-                State = customer.State,
-                City = customer.City,
-                Street = customer.Street,
-                Mobile = customer.Mobile,
-                Country = customer.Country,
-                Dob = customer.Dob
-            };
+                var customer = await _customerRepository.GetCustomerByUsernameAsync(username);
+                if (customer == null)
+                    throw new Exception("User not found");
+
+                customer.FirstName = updateDto.FirstName ?? customer.FirstName;
+                customer.LastName = updateDto.LastName ?? customer.LastName;
+                customer.Email = updateDto.Email ?? customer.Email;
+
+
+                customer.MiddleName = updateDto.MiddleName ?? customer.MiddleName;
+                customer.Mobile = updateDto.Mobile ?? customer.Mobile;
+                customer.Country = updateDto.Country ?? customer.Country;
+                customer.HomePhone = updateDto.HomePhone ?? customer.HomePhone;
+                customer.CreditCardNumber = updateDto.CreditCardNumber ?? customer.CreditCardNumber;
+                customer.CreditCardExpiry = updateDto.CreditCardExpiry ?? customer.CreditCardExpiry;
+                customer.CardHolderName = updateDto.CardHolderName ?? customer.CardHolderName;
+                customer.CVV = updateDto.CVV ?? customer.CVV;
+                customer.Dob = updateDto.Dob ?? customer.Dob;
+                customer.Street = updateDto.Street ?? customer.Street;
+                customer.City = updateDto.City ?? customer.City;
+                customer.State = updateDto.State ?? customer.State;
+
+                await _customerRepository.UpdateCustomerAsync(customer);
+
+                return new UserInfoResponseDto
+                {
+                    Email = customer.Email,
+                    FirstName = customer.FirstName,
+                    MiddleName = customer.MiddleName ?? "",
+                    LastName = customer.LastName,
+                    HomePhone = customer.HomePhone,
+                    CreditCardNumber = customer.CreditCardNumber,
+                    CreditCardExpiry = customer.CreditCardExpiry,
+                    CardHolderName = customer.CardHolderName,
+                    CVV = customer.CVV,
+                    State = customer.State,
+                    City = customer.City,
+                    Street = customer.Street,
+                    Mobile = customer.Mobile,
+                    Country = customer.Country,
+                    Dob = customer.Dob
+                };
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine("Save error: " + ex.InnerException?.Message);
+                throw; 
+            }
         }
+
 
         public async Task ResetPasswordAsync(ResetPasswordDto dto)
         {

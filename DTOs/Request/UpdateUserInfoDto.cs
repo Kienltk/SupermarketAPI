@@ -30,7 +30,6 @@ namespace SupermarketAPI.DTOs.Request
         public string? HomePhone { get; set; }
         [StringLength(100)]
         public string? CreditCardNumber { get; set; }
-        [StringLength(100)]
         public DateOnly? CreditCardExpiry { get; set; }
         public string? CardHolderName { get; set; }
         public string? CVV { get; set; }
