@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "SupermarketAPI.Controllers.AuthController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/auth/auth/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SupermarketAPI.DTOs.Request.ResetPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.AuthController",
     "Method": "ChangePassword",
     "RelativePath": "api/auth/change-password",
     "HttpMethod": "POST",
