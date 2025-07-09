@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SupermarketAPI.DTOs.Request;
 using SupermarketAPI.DTOs.Response;
-using SupermarketAPI.Models;
 using SupermarketSystemAPI.Services;
 using System.Security.Claims;
 
@@ -106,7 +105,8 @@ namespace SupermarketAPI.Controllers
             {
                 username = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 Console.WriteLine("username: " + username);
-            } else
+            }
+            else
             {
                 return BadRequest(new ResponseObject<string>
                 {
@@ -136,30 +136,13 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
-
         [Authorize]
         [HttpPost("update-info")]
         public async Task<IActionResult> UpdateUserInfo([FromBody] UpdateUserInfoDto dto)
         {
-            string? username;
-            if (User?.Identity?.IsAuthenticated == true)
-            {
-                username = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                Console.WriteLine("username: " + username);
-            }
-            else
-            {
-                return BadRequest(new ResponseObject<string>
-                {
-                    Code = 400,
-                    Message = "Unauthorize",
-                    Data = null
-                });
-            }
-
             try
             {
-                await _authService.UpdateUserInfoAsync(username, dto);
+                await _authService.UpdateUserInfoAsync(dto);
                 return Ok(new ResponseObject<string>
                 {
                     Code = 200,
@@ -216,6 +199,12 @@ namespace SupermarketAPI.Controllers
                     Data = null
                 });
             }
+        }
+        [HttpPost("auth/reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
+        {
+            await _authService.ResetPasswordAsync(dto);
+            return Ok(new { message = "Password reset successfully." });
         }
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto dto)

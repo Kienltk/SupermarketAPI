@@ -206,6 +206,37 @@
         }
       }
     },
+    "/api/auth/auth/reset-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/auth/forgot-password": {
       "post": {
         "tags": [
@@ -1306,6 +1337,11 @@
             "type": "string",
             "nullable": true
           },
+          "giftProductPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "minOrderValue": {
             "type": "number",
             "format": "double",
@@ -1754,6 +1790,11 @@
             "type": "string",
             "nullable": true
           },
+          "giftProductPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "minOrderValue": {
             "type": "number",
             "format": "double",
@@ -1919,6 +1960,20 @@
             "nullable": true
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResetPasswordDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
             "type": "string",
             "nullable": true
           }

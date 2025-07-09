@@ -47,7 +47,6 @@ namespace SupermarketAPI.Services.Impl
                 City = null,
                 State = null,
                 Country = registerDto.Country,
-                Address = null,
                 HomePhone = null,
                 Mobile = registerDto.Mobile,
                 CreditCardNumber = null,
@@ -113,15 +112,12 @@ namespace SupermarketAPI.Services.Impl
 
         private string GenerateAccessToken(Customer customer)
         {
-            string fullName = string.Join(" ", new[] { customer.FirstName, customer.MiddleName, customer.LastName }
-                                     .Where(s => !string.IsNullOrWhiteSpace(s)));
             var claims = new[]
             {
-                new Claim("id", customer.CustomerId.ToString()),
-                new Claim("sub", customer.Username),
-                new Claim("fullName", fullName),
-                new Claim("role", customer.Role)
-            };
+        new Claim("id", customer.CustomerId.ToString()),
+        new Claim("sub", customer.Username),
+        new Claim("role", customer.Role)
+    };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -141,8 +137,8 @@ namespace SupermarketAPI.Services.Impl
         {
             var claims = new[]
             {
-                new Claim("sub", customer.Username)
-            };
+        new Claim("sub", customer.Username)
+    };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -215,11 +211,16 @@ namespace SupermarketAPI.Services.Impl
             if (_cache.TryGetValue(dto.Email, out string cachedCode))
             {
                 if (cachedCode == dto.Code)
+                {
+                    _cache.Remove(dto.Email);
+                    _cache.Set(dto.Email + "_verified", true, TimeSpan.FromMinutes(15));
                     return Task.CompletedTask;
+                }
             }
 
             throw new Exception("Mã xác nhận không đúng hoặc đã hết hạn.");
         }
+
 
         private async Task SendEmailAsync(string toEmail, string code)
         {
@@ -268,31 +269,27 @@ namespace SupermarketAPI.Services.Impl
                 Street = customer.Street,
                 Mobile = customer.Mobile,
                 Country = customer.Country,
-                Address = customer.Address,
                 Dob = customer.Dob
             };
         }
 
-        public async Task<UserInfoResponseDto> UpdateUserInfoAsync(string username, UpdateUserInfoDto updateDto)
+        public async Task<UserInfoResponseDto> UpdateUserInfoAsync(UpdateUserInfoDto updateDto)
         {
-            var customer = await _customerRepository.GetCustomerByUsernameAsync(username);
+            var customer = await _customerRepository.GetCustomerByUsernameAsync(updateDto.Email);
             if (customer == null)
                 throw new Exception("User not found");
 
-            customer.FirstName = updateDto.FirstName ?? customer.FirstName;
+            customer.FirstName = updateDto.FirstName;
+            customer.LastName = updateDto.LastName;
+            customer.Email = updateDto.Email;
+
             customer.MiddleName = updateDto.MiddleName ?? customer.MiddleName;
-            customer.LastName = updateDto.LastName ?? customer.LastName;
-            customer.Email = updateDto.Email ?? customer.Email;
             customer.Mobile = updateDto.Mobile ?? customer.Mobile;
             customer.Country = updateDto.Country ?? customer.Country;
-            customer.HomePhone = updateDto.HomePhone ?? customer.HomePhone;
-            customer.CreditCardNumber = updateDto.CreditCardNumber ?? customer.CreditCardNumber;
-            customer.CreditCardExpiry = updateDto.CreditCardExpiry ?? customer.CreditCardExpiry;
             customer.Dob = updateDto.Dob ?? customer.Dob;
             customer.Street = updateDto.Street ?? customer.Street;
             customer.City = updateDto.City ?? customer.City;
             customer.State = updateDto.State ?? customer.State;
-            customer.Address = updateDto.Address ?? customer.Address;
 
             await _customerRepository.UpdateCustomerAsync(customer);
 
@@ -310,9 +307,29 @@ namespace SupermarketAPI.Services.Impl
                 Street = customer.Street,
                 Mobile = customer.Mobile,
                 Country = customer.Country,
-                Dob = customer.Dob,
-                Address = customer.Address,
+                Dob = customer.Dob
             };
+        }
+
+        Task IAuthService.UpdateUserInfoAsync(UpdateUserInfoDto updateDto)
+        {
+            return UpdateUserInfoAsync(updateDto);
+        }
+
+        public async Task ResetPasswordAsync(ResetPasswordDto dto)
+        {
+            if (!_cache.TryGetValue(dto.Email + "_verified", out bool verified) || !verified)
+                throw new Exception("Email chưa được xác minh hoặc mã đã hết hạn.");
+
+            var customer = await _customerRepository.GetCustomerByUsernameAsync(dto.Email);
+            if (customer == null)
+                throw new Exception("Không tìm thấy người dùng.");
+
+            customer.Password = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
+            await _customerRepository.UpdateCustomerAsync(customer);
+
+            _cache.Remove(dto.Email);
+            _cache.Remove(dto.Email + "_verified");
         }
     }
 }
