@@ -206,7 +206,7 @@
         }
       }
     },
-    "/api/auth/auth/reset-password": {
+    "/api/auth/reset-password": {
       "post": {
         "tags": [
           "Auth"
@@ -2073,10 +2073,16 @@
             "nullable": true
           },
           "creditCardExpiry": {
-            "maxLength": 100,
-            "minLength": 0,
             "type": "string",
             "format": "date",
+            "nullable": true
+          },
+          "cardHolderName": {
+            "type": "string",
+            "nullable": true
+          },
+          "cvv": {
+            "type": "string",
             "nullable": true
           },
           "dob": {

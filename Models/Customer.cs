@@ -29,8 +29,8 @@ public partial class Customer
     public string? CreditCardNumber { get; set; }
 
     public DateOnly? CreditCardExpiry { get; set; }
-    public string CardHolderName { get; set; }
-    public string CVV { get; set; }
+    public string? CardHolderName { get; set; }
+    public string? CVV { get; set; }
 
     public string Email { get; set; } = null!;
 
