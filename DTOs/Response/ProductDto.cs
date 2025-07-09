@@ -34,6 +34,7 @@
         public string? GiftProductName { get; set; }
         public string? GiftProductImg { get; set; }
         public string? GiftProductSlug { get; set; }
+        public decimal? GiftProductPrice { get; set; }
 
         public decimal? MinOrderValue { get; set; }
 

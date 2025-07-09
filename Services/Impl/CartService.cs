@@ -84,6 +84,7 @@ namespace SupermarketAPI.Services.Impl
                 GiftProductName = promotion?.GiftProduct?.ProductName,
                 GiftProductSlug = promotion?.GiftProduct?.Slug,
                 GiftProductImg = promotion?.GiftProduct?.ImageUrl,
+                GiftProductPrice = promotion?.GiftProduct?.Price,
                 MinOrderValue = promotion?.MinOrderValue,
                 MinOrderQuantity = promotion?.MinOrderQuantity,
                 StartDate = promotion?.StartDate ?? DateTime.MinValue,
