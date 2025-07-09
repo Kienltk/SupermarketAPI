@@ -1306,6 +1306,11 @@
             "type": "string",
             "nullable": true
           },
+          "giftProductPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "minOrderValue": {
             "type": "number",
             "format": "double",
@@ -1752,6 +1757,11 @@
           },
           "giftProductSlug": {
             "type": "string",
+            "nullable": true
+          },
+          "giftProductPrice": {
+            "type": "number",
+            "format": "double",
             "nullable": true
           },
           "minOrderValue": {

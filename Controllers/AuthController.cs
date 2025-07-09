@@ -177,6 +177,7 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
+
         [Authorize]
         [HttpPost("change-password")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
@@ -217,6 +218,8 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
+
+
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto dto)
         {
@@ -240,6 +243,8 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
+
+
         [HttpPost("verify-code")]
         public async Task<IActionResult> VerifyCode([FromBody] VerifyCodeDto dto)
         {

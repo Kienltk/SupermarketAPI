@@ -263,6 +263,8 @@ namespace SupermarketAPI.Services.Impl
                 HomePhone = customer.HomePhone,
                 CreditCardNumber = customer.CreditCardNumber,
                 CreditCardExpiry = customer.CreditCardExpiry,
+                CardHolderName = customer.CardHolderName,
+                CVV = customer.CVV,
                 State = customer.State,
                 City = customer.City,
                 Street = customer.Street,
@@ -288,6 +290,8 @@ namespace SupermarketAPI.Services.Impl
             customer.HomePhone = updateDto.HomePhone ?? customer.HomePhone;
             customer.CreditCardNumber = updateDto.CreditCardNumber ?? customer.CreditCardNumber;
             customer.CreditCardExpiry = updateDto.CreditCardExpiry ?? customer.CreditCardExpiry;
+            customer.CardHolderName = updateDto.CardHolderName ?? customer.CardHolderName;
+            customer.CVV = updateDto.CVV ?? customer.CVV;
             customer.Dob = updateDto.Dob ?? customer.Dob;
             customer.Street = updateDto.Street ?? customer.Street;
             customer.City = updateDto.City ?? customer.City;
@@ -305,6 +309,8 @@ namespace SupermarketAPI.Services.Impl
                 HomePhone = customer.HomePhone,
                 CreditCardNumber = customer.CreditCardNumber,
                 CreditCardExpiry = customer.CreditCardExpiry,
+                CardHolderName = customer.CardHolderName,
+                CVV = customer.CVV,
                 State = customer.State,
                 City = customer.City,
                 Street = customer.Street,

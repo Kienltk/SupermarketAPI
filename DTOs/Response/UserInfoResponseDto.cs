@@ -9,6 +9,8 @@
         public string? HomePhone { get; set; }
         public string? CreditCardNumber { get; set; }
         public DateOnly? CreditCardExpiry { get; set; }
+        public string? CardHolderName { get; set; }
+        public string? CVV { get; set; }
         public string? State { get; set; }
         public string? City {  get; set; }
         public string? Street { get; set; }

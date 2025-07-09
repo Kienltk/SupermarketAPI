@@ -100,6 +100,7 @@ namespace SupermarketAPI.Controllers
                     Data = null
                 });
             }
+
             try
             {
                 var orders = await _orderService.GetOrdersByCustomerId(customerId);

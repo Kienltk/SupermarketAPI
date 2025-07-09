@@ -169,6 +169,8 @@ public partial class SupermarketContext : DbContext
             entity.Property(e => e.Country).HasMaxLength(50);
             entity.Property(e => e.Address).HasMaxLength(255);
             entity.Property(e => e.CreditCardNumber).HasMaxLength(16);
+            entity.Property(e => e.CardHolderName).HasMaxLength(150);
+            entity.Property(e => e.CVV).HasMaxLength(3);
             entity.Property(e => e.Dob).HasColumnName("DOB");
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.FirstName).HasMaxLength(50);

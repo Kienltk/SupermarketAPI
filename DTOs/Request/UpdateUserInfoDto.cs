@@ -32,6 +32,8 @@ namespace SupermarketAPI.DTOs.Request
         public string? CreditCardNumber { get; set; }
         [StringLength(100)]
         public DateOnly? CreditCardExpiry { get; set; }
+        public string? CardHolderName { get; set; }
+        public string? CVV { get; set; }
 
         public DateOnly? Dob { get; set; }
 
