@@ -6,20 +6,20 @@ namespace SupermarketAPI.DTOs.Request
     {
 
 
-        [Required]
+        //[Required]
         [StringLength(50, MinimumLength = 1)]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         [StringLength(50)]
         public string? MiddleName { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(50, MinimumLength = 1)]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
-        [Required]
+        //[Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         [Phone]
         public string? Mobile { get; set; }
@@ -31,7 +31,7 @@ namespace SupermarketAPI.DTOs.Request
         [StringLength(100)]
         public string? CreditCardNumber { get; set; }
         [StringLength(100)]
-        public string? CreditCardExpiry { get; set; }
+        public DateOnly? CreditCardExpiry { get; set; }
 
         public DateOnly? Dob { get; set; }
 
@@ -43,5 +43,8 @@ namespace SupermarketAPI.DTOs.Request
 
         [StringLength(100)]
         public string? State { get; set; }
+
+        [StringLength(255)]
+        public string? Address { get; set; }
     }
 }

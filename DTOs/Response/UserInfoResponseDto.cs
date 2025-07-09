@@ -15,5 +15,6 @@
         public string? Mobile { get; set; }
         public string? Country { get; set; }
         public DateOnly? Dob { get; set; }
+        public string? Address { get; set; }
     }
 }

@@ -1969,17 +1969,13 @@
         "additionalProperties": false
       },
       "UpdateUserInfoDto": {
-        "required": [
-          "email",
-          "firstName",
-          "lastName"
-        ],
         "type": "object",
         "properties": {
           "firstName": {
             "maxLength": 50,
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "middleName": {
             "maxLength": 50,
@@ -1990,12 +1986,13 @@
           "lastName": {
             "maxLength": 50,
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "email": {
-            "minLength": 1,
             "type": "string",
-            "format": "email"
+            "format": "email",
+            "nullable": true
           },
           "mobile": {
             "type": "string",
@@ -2024,6 +2021,7 @@
             "maxLength": 100,
             "minLength": 0,
             "type": "string",
+            "format": "date",
             "nullable": true
           },
           "dob": {
@@ -2045,6 +2043,12 @@
           },
           "state": {
             "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true

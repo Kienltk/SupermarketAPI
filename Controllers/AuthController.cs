@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SupermarketAPI.DTOs.Request;
 using SupermarketAPI.DTOs.Response;
+using SupermarketAPI.Models;
 using SupermarketSystemAPI.Services;
 using System.Security.Claims;
 
@@ -135,13 +136,30 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
+
         [Authorize]
         [HttpPost("update-info")]
         public async Task<IActionResult> UpdateUserInfo([FromBody] UpdateUserInfoDto dto)
         {
+            string? username;
+            if (User?.Identity?.IsAuthenticated == true)
+            {
+                username = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                Console.WriteLine("username: " + username);
+            }
+            else
+            {
+                return BadRequest(new ResponseObject<string>
+                {
+                    Code = 400,
+                    Message = "Unauthorize",
+                    Data = null
+                });
+            }
+
             try
             {
-                await _authService.UpdateUserInfoAsync(dto);
+                await _authService.UpdateUserInfoAsync(username, dto);
                 return Ok(new ResponseObject<string>
                 {
                     Code = 200,
