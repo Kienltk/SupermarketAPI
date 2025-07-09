@@ -29,5 +29,11 @@ namespace SupermarketAPI.Repositories.Impl
             _context.Customers.Update(customer);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<Customer> GetCustomerByEmailAsync(string email)
+        {
+            return await _context.Customers.FirstOrDefaultAsync(c => c.Email == email);
+
+        }
     }
 }

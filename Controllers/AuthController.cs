@@ -181,7 +181,7 @@ namespace SupermarketAPI.Controllers
         [HttpPost("change-password")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
         {
-            string? username;
+            string username;
             if (User?.Identity?.IsAuthenticated == true)
             {
                 username = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -217,7 +217,7 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
-        [HttpPost("auth/reset-password")]
+        [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
         {
             await _authService.ResetPasswordAsync(dto);

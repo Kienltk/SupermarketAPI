@@ -140,8 +140,8 @@ namespace SupermarketAPI.Services.Impl
         {
             var claims = new[]
             {
-        new Claim("sub", customer.Username)
-    };
+                new Claim("sub", customer.Username)
+            };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -176,10 +176,6 @@ namespace SupermarketAPI.Services.Impl
 
             return principal;
         }
-
-
-
-
 
         public async Task ChangePasswordAsync(string username, ChangePasswordDto dto)
         {
@@ -278,9 +274,9 @@ namespace SupermarketAPI.Services.Impl
             };
         }
 
-        public async Task<UserInfoResponseDto> UpdateUserInfoAsync(UpdateUserInfoDto updateDto)
+        public async Task<UserInfoResponseDto> UpdateUserInfoAsync(string username, UpdateUserInfoDto updateDto)
         {
-            var customer = await _customerRepository.GetCustomerByUsernameAsync(updateDto.Email);
+            var customer = await _customerRepository.GetCustomerByUsernameAsync(username);
             if (customer == null)
                 throw new Exception("User not found");
 
@@ -323,17 +319,12 @@ namespace SupermarketAPI.Services.Impl
             };
         }
 
-        Task IAuthService.UpdateUserInfoAsync(UpdateUserInfoDto updateDto)
-        {
-            return UpdateUserInfoAsync(updateDto);
-        }
-
         public async Task ResetPasswordAsync(ResetPasswordDto dto)
         {
             if (!_cache.TryGetValue(dto.Email + "_verified", out bool verified) || !verified)
                 throw new Exception("Email chưa được xác minh hoặc mã đã hết hạn.");
 
-            var customer = await _customerRepository.GetCustomerByUsernameAsync(dto.Email);
+            var customer = await _customerRepository.GetCustomerByEmailAsync(dto.Email);
             if (customer == null)
                 throw new Exception("Không tìm thấy người dùng.");
 
