@@ -7,6 +7,34 @@
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:dtos\\request\\updateuserinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\dtos\\response\\userinforesponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:dtos\\response\\userinforesponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\services\\impl\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:services\\impl\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\supermarketapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:supermarketapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\SupermarketAPI\\SupermarketAPI.csproj.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SupermarketAPI.csproj.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\dtos\\request\\ratingupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:dtos\\request\\ratingupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -67,10 +95,6 @@
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\repositories\\impl\\ratingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:repositories\\impl\\ratingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -107,22 +131,6 @@
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:dtos\\response\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\supermarketapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:supermarketapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\SupermarketAPI\\SupermarketAPI.csproj.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SupermarketAPI.csproj.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\services\\impl\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:services\\impl\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -137,10 +145,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\models\\favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:models\\favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|solutionrelative:models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{828EC23A-EB2D-41C3-93E0-F0579671FAD2}|SupermarketAPI.csproj|c:\\users\\admin\\downloads\\supermarketapi\\repositories\\impl\\favoriterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -238,8 +242,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserInfoResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Response\\UserInfoResponseDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Response\\UserInfoResponseDto.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Response\\UserInfoResponseDto.cs*",
+              "RelativeToolTip": "DTOs\\Response\\UserInfoResponseDto.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T08:41:20.954Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -248,26 +265,53 @@
               "RelativeDocumentMoniker": "DTOs\\Request\\UpdateUserInfoDto.cs",
               "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Request\\UpdateUserInfoDto.cs",
               "RelativeToolTip": "DTOs\\Request\\UpdateUserInfoDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAA7wCYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-04T12:53:25.258Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RatingService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\RatingService.cs",
-              "RelativeDocumentMoniker": "Services\\Impl\\RatingService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\RatingService.cs",
-              "RelativeToolTip": "Services\\Impl\\RatingService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Customer.cs",
+              "RelativeDocumentMoniker": "Models\\Customer.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Customer.cs",
+              "RelativeToolTip": "Models\\Customer.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA9wB0AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T12:32:09.36Z"
+              "WhenOpened": "2025-06-22T15:31:42.457Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Services\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\IAuthService.cs",
+              "RelativeToolTip": "Services\\IAuthService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwBAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T14:33:06.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\Impl\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\AuthService.cs*",
+              "RelativeToolTip": "Services\\Impl\\AuthService.cs*",
+              "ViewState": "AgIAAPIAAAAAAAAAAAAswBgBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T14:35:06.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "RatingController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Controllers\\RatingController.cs",
               "RelativeDocumentMoniker": "Controllers\\RatingController.cs",
@@ -279,7 +323,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
+              "Title": "RatingService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\RatingService.cs",
+              "RelativeDocumentMoniker": "Services\\Impl\\RatingService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\RatingService.cs",
+              "RelativeToolTip": "Services\\Impl\\RatingService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T12:32:09.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SupermarketAPI.http",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\SupermarketAPI.http",
+              "RelativeDocumentMoniker": "SupermarketAPI.http",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\SupermarketAPI.http",
+              "RelativeToolTip": "SupermarketAPI.http",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-07-04T12:14:23.699Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Request\\LoginDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Request\\LoginDto.cs",
@@ -291,7 +359,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": ".env",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\.env",
+              "RelativeDocumentMoniker": ".env",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\.env",
+              "RelativeToolTip": ".env",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-29T13:06:05.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "RatingCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Request\\RatingCreateDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Request\\RatingCreateDto.cs",
@@ -303,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "RatingUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Request\\RatingUpdateDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Request\\RatingUpdateDto.cs",
@@ -315,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "ProductService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\ProductService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\ProductService.cs",
@@ -327,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "IRatingService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\IRatingService.cs",
               "RelativeDocumentMoniker": "Services\\IRatingService.cs",
@@ -339,7 +419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -351,7 +431,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -363,7 +443,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 19,
               "Title": "FavoriteController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Controllers\\FavoriteController.cs",
               "RelativeDocumentMoniker": "Controllers\\FavoriteController.cs",
@@ -375,7 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "RatingDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Response\\RatingDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\RatingDto.cs",
@@ -387,19 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": ".env",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\.env",
-              "RelativeDocumentMoniker": ".env",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\.env",
-              "RelativeToolTip": ".env",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-06-29T13:06:05.304Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 23,
               "Title": "RatingRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\Impl\\RatingRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\RatingRepository.cs",
@@ -411,7 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 20,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "Controllers\\CategoryController.cs",
@@ -423,7 +491,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "IRatingRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\IRatingRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\IRatingRepository.cs",
@@ -435,7 +503,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 21,
               "Title": "BrandController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Controllers\\BrandController.cs",
               "RelativeDocumentMoniker": "Controllers\\BrandController.cs",
@@ -447,7 +515,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 22,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -459,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "ProductDetailDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Response\\ProductDetailDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\ProductDetailDto.cs",
@@ -471,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "CustomerRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\Impl\\CustomerRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\CustomerRepository.cs",
@@ -483,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "IProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\IProductRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\IProductRepository.cs",
@@ -495,7 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "IProductService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\IProductService.cs",
               "RelativeDocumentMoniker": "Services\\IProductService.cs",
@@ -507,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 29,
               "Title": "IBrandService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\IBrandService.cs",
               "RelativeDocumentMoniker": "Services\\IBrandService.cs",
@@ -519,7 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\Impl\\ProductRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\ProductRepository.cs",
@@ -531,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 30,
               "Title": "RegisterDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Request\\RegisterDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Request\\RegisterDto.cs",
@@ -543,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 31,
               "Title": "ProductDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Response\\ProductDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\ProductDto.cs",
@@ -555,31 +623,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "SupermarketAPI.http",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\SupermarketAPI.http",
-              "RelativeDocumentMoniker": "SupermarketAPI.http",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\SupermarketAPI.http",
-              "RelativeToolTip": "SupermarketAPI.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-07-04T12:14:23.699Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\AuthService.cs",
-              "RelativeDocumentMoniker": "Services\\Impl\\AuthService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\AuthService.cs",
-              "RelativeToolTip": "Services\\Impl\\AuthService.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwMYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:35:06.646Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 7,
               "Title": "SupermarketAPI.csproj.user",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\SupermarketAPI.csproj.user",
               "RelativeDocumentMoniker": "SupermarketAPI.csproj.user",
@@ -591,7 +635,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
@@ -603,19 +647,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Services\\IAuthService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\IAuthService.cs",
-              "RelativeToolTip": "Services\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:33:06.698Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "IFavoriteService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\IFavoriteService.cs",
               "RelativeDocumentMoniker": "Services\\IFavoriteService.cs",
@@ -627,7 +659,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "FavoriteService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\FavoriteService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\FavoriteService.cs",
@@ -639,19 +671,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Customer.cs",
-              "RelativeDocumentMoniker": "Models\\Customer.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Customer.cs",
-              "RelativeToolTip": "Models\\Customer.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAYwCEAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:31:42.457Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "Favorite.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Favorite.cs",
               "RelativeDocumentMoniker": "Models\\Favorite.cs",
@@ -663,7 +683,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "FavoriteRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\Impl\\FavoriteRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\FavoriteRepository.cs",
@@ -675,7 +695,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "IFavoriteRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\IFavoriteRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\IFavoriteRepository.cs",
@@ -687,7 +707,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "ICustomerRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\ICustomerRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\ICustomerRepository.cs",
@@ -699,7 +719,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "BrandService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\BrandService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\BrandService.cs",
@@ -711,7 +731,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Product.cs",
               "RelativeDocumentMoniker": "Models\\Product.cs",
@@ -723,7 +743,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "ICategoryRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\ICategoryRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\ICategoryRepository.cs",
@@ -735,7 +755,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "CategoryRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\Impl\\CategoryRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\CategoryRepository.cs",
@@ -747,7 +767,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "BrandRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\Impl\\BrandRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Impl\\BrandRepository.cs",
@@ -759,7 +779,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "CategoryService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\CategoryService.cs",
               "RelativeDocumentMoniker": "Services\\Impl\\CategoryService.cs",
@@ -771,7 +791,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "IBrandRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Repositories\\IBrandRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\IBrandRepository.cs",
@@ -783,7 +803,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "BrandDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Response\\BrandDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\BrandDto.cs",
@@ -795,7 +815,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "CategoriesDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Response\\CategoriesDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\CategoriesDto.cs",
@@ -807,7 +827,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "Brand.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Brand.cs",
               "RelativeDocumentMoniker": "Models\\Brand.cs",
@@ -819,7 +839,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "ICategoryService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\ICategoryService.cs",
               "RelativeDocumentMoniker": "Services\\ICategoryService.cs",
@@ -831,7 +851,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "AuthResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Response\\AuthResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\AuthResponseDto.cs",
@@ -843,7 +863,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Category.cs",
               "RelativeDocumentMoniker": "Models\\Category.cs",
@@ -855,7 +875,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "SupermarketContext.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Data\\SupermarketContext.cs",
               "RelativeDocumentMoniker": "Data\\SupermarketContext.cs",
@@ -867,7 +887,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "HomeDto.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Response\\HomeDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\HomeDto.cs",
@@ -879,7 +899,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "Rating.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Rating.cs",
               "RelativeDocumentMoniker": "Models\\Rating.cs",
@@ -891,7 +911,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "Discount.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Discount.cs",
               "RelativeDocumentMoniker": "Models\\Discount.cs",
@@ -903,7 +923,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "Promotion.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Models\\Promotion.cs",
               "RelativeDocumentMoniker": "Models\\Promotion.cs",
@@ -915,7 +935,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "ResponseObject.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Response\\ResponseObject.cs",
               "RelativeDocumentMoniker": "DTOs\\Response\\ResponseObject.cs",

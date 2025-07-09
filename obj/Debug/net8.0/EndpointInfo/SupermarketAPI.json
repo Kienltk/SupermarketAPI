@@ -1261,15 +1261,10 @@
         "required": [
           "email",
           "firstName",
-          "lastName",
-          "username"
+          "lastName"
         ],
         "type": "object",
         "properties": {
-          "username": {
-            "minLength": 1,
-            "type": "string"
-          },
           "firstName": {
             "maxLength": 50,
             "minLength": 1,
@@ -1297,6 +1292,24 @@
             "nullable": true
           },
           "country": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "homePhone": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "creditCardNumber": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "creditCardExpiry": {
             "maxLength": 100,
             "minLength": 0,
             "type": "string",

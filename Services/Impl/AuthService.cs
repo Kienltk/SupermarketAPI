@@ -174,25 +174,8 @@ namespace SupermarketAPI.Services.Impl
             return principal;
         }
 
-        public async Task UpdateUserInfoAsync(UpdateUserInfoDto updateDto)
-        {
-            var customer = await _customerRepository.GetCustomerByUsernameAsync(updateDto.Username);
-            if (customer == null)
-                throw new Exception("User not found");
 
-            customer.FirstName = updateDto.FirstName ?? customer.FirstName;
-            customer.MiddleName = updateDto.MiddleName ?? customer.MiddleName;
-            customer.LastName = updateDto.LastName ?? customer.LastName;
-            customer.Mobile = updateDto.Mobile ?? customer.Mobile;
-            customer.Email = updateDto.Email ?? customer.Email;
-            customer.Dob = updateDto.Dob ?? customer.Dob;
-            customer.Country = updateDto.Country ?? customer.Country;
-            customer.Street = updateDto.Street ?? customer.Street;
-            customer.City = updateDto.City ?? customer.City;
-            customer.State = updateDto.State ?? customer.State;
 
-            await _customerRepository.UpdateCustomerAsync(customer);
-        }
 
 
         public async Task ChangePasswordAsync(string username, ChangePasswordDto dto)
@@ -269,15 +252,63 @@ namespace SupermarketAPI.Services.Impl
 
             return new UserInfoResponseDto
             {
-                CustomerId = customer.CustomerId,
-                Username = customer.Username,
                 Email = customer.Email,
-                Role = customer.Role,
-                FullName = $"{customer.FirstName} {(customer.MiddleName ?? "")} {customer.LastName}".Trim(),
+                FirstName = customer.FirstName,
+                MiddleName = customer.MiddleName ?? "",
+                LastName = customer.LastName,
+                HomePhone = customer.HomePhone,
+                CreditCardNumber = customer.CreditCardNumber,
+                CreditCardExpiry = customer.CreditCardExpiry,
+                State = customer.State,
+                City = customer.City,
+                Street = customer.Street,
                 Mobile = customer.Mobile,
                 Country = customer.Country,
                 Dob = customer.Dob
             };
+        }
+
+        public async Task<UserInfoResponseDto> UpdateUserInfoAsync(UpdateUserInfoDto updateDto)
+        {
+            var customer = await _customerRepository.GetCustomerByUsernameAsync(updateDto.Email);
+            if (customer == null)
+                throw new Exception("User not found");
+
+            customer.FirstName = updateDto.FirstName;
+            customer.LastName = updateDto.LastName;
+            customer.Email = updateDto.Email;
+
+            customer.MiddleName = updateDto.MiddleName ?? customer.MiddleName;
+            customer.Mobile = updateDto.Mobile ?? customer.Mobile;
+            customer.Country = updateDto.Country ?? customer.Country;
+            customer.Dob = updateDto.Dob ?? customer.Dob;
+            customer.Street = updateDto.Street ?? customer.Street;
+            customer.City = updateDto.City ?? customer.City;
+            customer.State = updateDto.State ?? customer.State;
+
+            await _customerRepository.UpdateCustomerAsync(customer);
+
+            return new UserInfoResponseDto
+            {
+                Email = customer.Email,
+                FirstName = customer.FirstName,
+                MiddleName = customer.MiddleName ?? "",
+                LastName = customer.LastName,
+                HomePhone = customer.HomePhone,
+                CreditCardNumber = customer.CreditCardNumber,
+                CreditCardExpiry = customer.CreditCardExpiry,
+                State = customer.State,
+                City = customer.City,
+                Street = customer.Street,
+                Mobile = customer.Mobile,
+                Country = customer.Country,
+                Dob = customer.Dob
+            };
+        }
+
+        Task IAuthService.UpdateUserInfoAsync(UpdateUserInfoDto updateDto)
+        {
+            return UpdateUserInfoAsync(updateDto);
         }
     }
 }

@@ -4,8 +4,7 @@ namespace SupermarketAPI.DTOs.Request
 {
     public class UpdateUserInfoDto
     {
-        [Required]
-        public string Username { get; set; }
+
 
         [Required]
         [StringLength(50, MinimumLength = 1)]
@@ -27,6 +26,12 @@ namespace SupermarketAPI.DTOs.Request
 
         [StringLength(100)]
         public string? Country { get; set; }
+        [StringLength(100)]
+        public string? HomePhone { get; set; }
+        [StringLength(100)]
+        public string? CreditCardNumber { get; set; }
+        [StringLength(100)]
+        public string? CreditCardExpiry { get; set; }
 
         public DateOnly? Dob { get; set; }
 
