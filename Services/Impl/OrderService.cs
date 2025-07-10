@@ -26,7 +26,13 @@ namespace SupermarketAPI.Services.Impl
                 CustomerId = customerId,
                 DateOfPurchase = DateTime.Now,
                 Status = "PENDING",
-                Amount = orderRequestDto.Items.Sum(item => item.Price * item.Quantity)
+                //Amount = orderRequestDto.Items.Sum(item =>
+                //{
+                //    var itemAmount = Math.Round((item.Price - (item.Price * (item.DiscountPercent ?? 0) / 100)) * item.Quantity - (item.DiscountAmount ?? 0), 2);
+                //    Console.WriteLine($"Item: Price={item.Price}, Discount={item.DiscountPercent}%, Quantity={item.Quantity}, DiscountAmount={item.DiscountAmount}, Total={itemAmount}");
+                //    return itemAmount;
+                //})
+                Amount = orderRequestDto.TotalAmount,
             };
             await _orderRepository.CreateOrder(order);
 
@@ -43,7 +49,7 @@ namespace SupermarketAPI.Services.Impl
                 await _orderRepository.CreateOrderDetail(orderDetail);
             }
 
-            decimal taxAmount = order.Amount * (TAX_PERCENT/100); 
+            decimal taxAmount = Math.Round(order.Amount * (TAX_PERCENT/100), 2); 
             decimal shippingFee = 1; 
 
             var bill = new Bill
@@ -53,6 +59,7 @@ namespace SupermarketAPI.Services.Impl
                 PaymentMethod = orderRequestDto.PaymentMethod,
                 PaymentStatus = orderRequestDto.IsPay ? "COMPLETED" : "PENDING"
             };
+            Console.WriteLine($"Order Amount={order.Amount}, Tax Amount={taxAmount}%, Shipping Fee={shippingFee}");
             await _billRepository.CreateBill(bill);
 
             var taxDetail = new BillDetail
