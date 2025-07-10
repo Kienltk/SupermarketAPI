@@ -258,21 +258,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ForgotPasswordDto.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Request\\ForgotPasswordDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\Request\\ForgotPasswordDto.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Request\\ForgotPasswordDto.cs",
-              "RelativeToolTip": "DTOs\\Request\\ForgotPasswordDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T02:19:15.605Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 7,
@@ -330,9 +317,22 @@
               "RelativeDocumentMoniker": "Services\\Impl\\AuthService.cs",
               "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\Services\\Impl\\AuthService.cs",
               "RelativeToolTip": "Services\\Impl\\AuthService.cs",
-              "ViewState": "AgIAAMIAAAAAAAAAAAAqwNcAAABjAAAAAAAAAA==",
+              "ViewState": "AgIAANEAAAAAAAAAAADwv9cAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-08T04:55:02.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ForgotPasswordDto.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Request\\ForgotPasswordDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Request\\ForgotPasswordDto.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\SupermarketAPI\\DTOs\\Request\\ForgotPasswordDto.cs",
+              "RelativeToolTip": "DTOs\\Request\\ForgotPasswordDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T02:19:15.605Z",
               "EditorCaption": ""
             },
             {

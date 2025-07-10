@@ -11,7 +11,7 @@ namespace SupermarketAPI.Services.Impl
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IBillRepository _billRepository;
-        private int TAX_PERCENT = 8;
+        private decimal TAX_PERCENT = 8;
 
         public OrderService(IOrderRepository orderRepository, IBillRepository billRepository)
         {
