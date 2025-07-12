@@ -55,7 +55,28 @@ namespace SupermarketAPI.Controllers
                 return BadRequest(errorResponse);
             }
         }
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct([FromBody] Product product)
+        {
+            var result = await _productService.CreateProductAsync(product);
+            return Ok(result);
+        }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProduct(int id, [FromBody] Product product)
+        {
+            var result = await _productService.UpdateProductAsync(id, product);
+            if (result == null) return NotFound();
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var success = await _productService.DeleteProductAsync(id);
+            if (!success) return NotFound();
+            return NoContent();
+        }
         [HttpGet("{slug}")]
         public async Task<ActionResult<ProductDetailDto>> GetProductDetails(string slug)
         {

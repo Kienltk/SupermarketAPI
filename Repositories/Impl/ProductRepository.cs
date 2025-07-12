@@ -170,5 +170,37 @@ namespace SupermarketAPI.Repositories.Impl
                 .ToListAsync();
         }
 
+        public async Task<Product> CreateProductAsync(Product product)
+        {
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return product;
+        }
+
+        public async Task<Product?> UpdateProductAsync(int id, Product product)
+        {
+            var existingProduct = await _context.Products.FindAsync(id);
+            if (existingProduct == null) return null;
+
+            existingProduct.ProductName = product.ProductName;
+            existingProduct.Price = product.Price;
+            existingProduct.Status = product.Status;
+            existingProduct.Quantity = product.Quantity;
+            existingProduct.BrandId = product.BrandId;
+            existingProduct.ImageUrl = product.ImageUrl;
+
+            await _context.SaveChangesAsync();
+            return existingProduct;
+        }
+
+        public async Task<bool> DeleteProductAsync(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            if (product == null) return false;
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

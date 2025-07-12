@@ -249,5 +249,25 @@ namespace SupermarketAPI.Services.Impl
 
             return response;
         }
+
+        public ProductService(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
+        public async Task<Product> CreateProductAsync(Product product)
+        {
+            return await _productRepository.CreateProductAsync(product);
+        }
+
+        public async Task<Product?> UpdateProductAsync(int id, Product product)
+        {
+            return await _productRepository.UpdateProductAsync(id, product);
+        }
+
+        public async Task<bool> DeleteProductAsync(int id)
+        {
+            return await _productRepository.DeleteProductAsync(id);
+        }
     }
 }
