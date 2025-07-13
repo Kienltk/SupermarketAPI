@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using SupermarketAPI.Data;
 using SupermarketAPI.DTOs.Response;
@@ -217,7 +217,7 @@ namespace SupermarketAPI.Services.Impl
                 : new List<Favorite>();
             var isFavorite = favorites.Any(f => f.ProductId == product.ProductId);
             var brand = product.Brand?.BrandName;
-
+            var categoryId = _categoryRepository.GetCategoryIdByProductId(product.ProductId);
             var avgRating = _ratingRepository.GetAvgRatingProduct(product.ProductId);
 
             var response = new ProductDto
@@ -244,6 +244,7 @@ namespace SupermarketAPI.Services.Impl
                 MinOrderValue = promotion?.MinOrderValue,
                 MinOrderQuantity = promotion?.MinOrderQuantity,
                 StartDate = promotion?.StartDate ?? DateTime.MinValue,
+                CategoryId = categoryId,
                 EndDate = promotion?.EndDate ?? DateTime.MinValue
             };
 
