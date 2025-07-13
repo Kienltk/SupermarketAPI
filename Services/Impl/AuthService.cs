@@ -193,6 +193,10 @@ namespace SupermarketAPI.Services.Impl
 
         public async Task ForgotPasswordAsync(ForgotPasswordDto dto)
         {
+            var customer = await _customerRepository.GetCustomerByEmailAsync(dto.Email);
+            if (customer == null)
+                throw new Exception("Không tìm thấy người dùng với email này.");
+
             string verificationCode = Generate6DigitCode();
 
             _cache.Set(dto.Email, verificationCode, TimeSpan.FromMinutes(10));
