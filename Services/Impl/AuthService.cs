@@ -213,7 +213,7 @@ namespace SupermarketAPI.Services.Impl
                 if (cachedCode == dto.Code)
                 {
                     _cache.Remove(dto.Email);
-                    _cache.Set(dto.Email + "_verified", true, TimeSpan.FromMinutes(15));
+                    _cache.Set(dto.Email + "_verified", DateTime.UtcNow, TimeSpan.FromMinutes(15));
                     return Task.CompletedTask;
                 }
             }
@@ -332,8 +332,11 @@ namespace SupermarketAPI.Services.Impl
 
         public async Task ResetPasswordAsync(ResetPasswordDto dto)
         {
-            if (!_cache.TryGetValue(dto.Email + "_verified", out bool verified) || !verified)
+            if (!_cache.TryGetValue(dto.Email + "_verified", out DateTime verifiedTime) ||
+                DateTime.UtcNow - verifiedTime > TimeSpan.FromMinutes(15))
+            {
                 throw new Exception("Email chưa được xác minh hoặc mã đã hết hạn.");
+            }
 
             var customer = await _customerRepository.GetCustomerByEmailAsync(dto.Email);
             if (customer == null)
