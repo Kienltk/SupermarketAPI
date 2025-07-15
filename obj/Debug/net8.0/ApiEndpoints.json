@@ -392,6 +392,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SupermarketAPI.Controllers.DashboardController",
+    "Method": "GetDashboardData",
+    "RelativePath": "api/dashboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[SupermarketAPI.DTOs.Response.DashboardDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SupermarketAPI.Controllers.FavoriteController",
     "Method": "GetFavoriteProducts",
     "RelativePath": "api/favorites",
@@ -781,6 +801,176 @@
     "ReturnTypes": [
       {
         "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.ProductDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.PromotionController",
+    "Method": "CreatePromotion",
+    "RelativePath": "api/promotions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "promotionRequest",
+        "Type": "SupermarketAPI.DTOs.Response.PromotionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[SupermarketAPI.DTOs.Response.PromotionDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.PromotionController",
+    "Method": "GetAllPromotions",
+    "RelativePath": "api/promotions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Collections.Generic.List\u00601[[SupermarketAPI.DTOs.Response.PromotionDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.PromotionController",
+    "Method": "GetPromotionById",
+    "RelativePath": "api/promotions/{promotionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "promotionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[SupermarketAPI.DTOs.Response.PromotionDto, SupermarketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.PromotionController",
+    "Method": "UpdatePromotion",
+    "RelativePath": "api/promotions/{promotionId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "promotionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "isActive",
+        "Type": "System.Boolean",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.PromotionController",
+    "Method": "AddProductToPromotion",
+    "RelativePath": "api/promotions/{promotionId}/products/{productId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "promotionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.PromotionController",
+    "Method": "UpdateProductPromotion",
+    "RelativePath": "api/promotions/{promotionId}/products/{productId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "promotionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "isActive",
+        "Type": "System.Boolean",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SupermarketAPI.DTOs.Response.ResponseObject\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
