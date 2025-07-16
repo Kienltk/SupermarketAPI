@@ -2,8 +2,14 @@
 {
     public class CategoryDto
     {
-        public int Id { get; set; }
-        public string CategoryName { get; set; }
-        public string slug { get; set; }
+       public int Id { get; set; }
+
+       [Required]
+       public string CategoryName { get; set; }
+
+       [Required]
+       public string slug { get; set; }
+
+       public int? ParentId { get; set; }
     }
 }
