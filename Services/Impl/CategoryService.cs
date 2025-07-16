@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SupermarketAPI.Data;
 using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Models;
@@ -29,7 +29,7 @@ namespace SupermarketAPI.Services.Impl
             {
                 CategoryName = dto.CategoryName,
                 Slug = dto.slug,
-                ParentId = null 
+                ParentId = dto.ParentId 
             };
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
@@ -47,7 +47,9 @@ namespace SupermarketAPI.Services.Impl
             {
                 Id = category.CategoryId,
                 CategoryName = category.CategoryName,
-                slug = category.Slug
+                slug = category.Slug,
+                ParentId = category.ParentId,
+                 
             };
         }
         public async Task<CategoryDto> UpdateCategoryAsync(int id, CategoryDto dto)
@@ -58,6 +60,7 @@ namespace SupermarketAPI.Services.Impl
 
             category.CategoryName = dto.CategoryName;
             category.Slug = dto.slug;
+            category.ParentId = dto.ParentId;
             await _context.SaveChangesAsync();
 
             return dto;
