@@ -49,8 +49,8 @@ namespace SupermarketAPI.Services.Impl
                 await _orderRepository.CreateOrderDetail(orderDetail);
             }
 
-            decimal taxAmount = Math.Round(order.Amount * (TAX_PERCENT/100), 2); 
-            decimal shippingFee = 1; 
+            decimal taxAmount = Math.Round(order.Amount * (TAX_PERCENT / 100), 2);
+            decimal shippingFee = 1;
 
             var bill = new Bill
             {
@@ -83,6 +83,28 @@ namespace SupermarketAPI.Services.Impl
             return true;
         }
 
+        public async Task<List<OrderDto>> GetOrders()
+        {
+            var orders = await _orderRepository.GetOrders();
+
+            var orderDtos = new List<OrderDto>();
+
+            foreach (var order in orders)
+            {
+                var orderDto = MapToOrderDto(order);
+
+                if (orderDto == null)
+                {
+                    Console.WriteLine("Sai ở đây");
+                }
+
+                Console.WriteLine("OrderDto" + orderDto.ToString);
+                orderDtos.Add(orderDto);
+            }
+
+            return orderDtos;
+        }
+
         public async Task<List<OrderDto>> GetOrdersByCustomerId(int customerId)
         {
             var orders = await _orderRepository.GetOrderByUserId(customerId);
@@ -90,44 +112,8 @@ namespace SupermarketAPI.Services.Impl
 
             foreach (var order in orders)
             {
-                var bill = await _billRepository.GetBillByOrderId(order.OrderId);
-                var orderDto = new OrderDto
-                {
-                    BillId = bill.BillId,
-                    OrderId = order.OrderId,
-                    OrderStatus = order.Status,
-                    DateOfPurchase = order.DateOfPurchase,
-                    OrderAmount = order.Amount,
-                    BillAmount = bill.BillAmount,
-                    PaymentMethod = bill.PaymentMethod,
-                    PaymentStatus = bill.PaymentStatus,
-                    OrderItems = order.OrderDetails.Select(od => new OrderItemDto
-                    {
-                        ProductId = od.ProductId,
-                        ProductName = od.Product.ProductName,
-                        Price = od.UnitPrice,
-                        Slug = od.Product.Slug,
-                        ImageUrl = od.Product.ImageUrl,
-                        Quantity = od.Quantity,
-                        PromotionId = od.PromotionId ?? null,
-                        PromotionType = od.Promotion.PromotionType ?? null,
-                        PromotionDescription = od.Promotion.Description ?? null,
-                        DiscountPercent = od.Promotion.DiscountPercent ?? null,
-                        DiscountAmount = od.Promotion.DiscountAmount ?? null,
-                        GiftProductId = od.Promotion.GiftProductId ?? null,
-                        GiftProductName = od.Promotion.GiftProduct?.ProductName ?? null,
-                        GiftProductSlug = od.Promotion.GiftProduct?.Slug ?? null,
-                        GiftProductImg = od.Promotion.GiftProduct?.ImageUrl ?? null,
-                        MinOrderValue = od.Promotion.MinOrderValue ?? null,
-                        MinOrderQuantity = od.Promotion.MinOrderQuantity ?? null,
-                    }).ToList() ?? new List<OrderItemDto>(),
-                    BillDetails = bill.BillDetails.Select(bd => new BillDetailDto
-                    {
-                        ItemType = bd.ItemType,
-                        Amount = bd.Amount,
-                        Description = bd.Description,
-                    }).ToList()
-                };
+                var orderDto = MapToOrderDto(order);
+
                 Console.WriteLine("OrderDto" + orderDto.ToString);
                 orderDtos.Add(orderDto);
             }
@@ -158,6 +144,62 @@ namespace SupermarketAPI.Services.Impl
             order.Status = orderRequestDto.OrderStatus;
             await _orderRepository.UpdateOrder(order);
             return true;
+        }
+
+
+        private OrderDto MapToOrderDto(Order order)
+        {
+            Console.WriteLine("Order id: " + order.OrderId);
+            var bill = _billRepository.GetBillByOrderId(order.OrderId);
+            Console.WriteLine("Bill Id: " + bill.Result.BillId);
+            var orderDto = new OrderDto
+            {
+                BillId = bill.Result.BillId,
+                OrderId = order.OrderId,
+                Customer = order.Customer != null
+            ? string.Join(" ", new[] { order.Customer.FirstName, order.Customer.MiddleName, order.Customer.LastName }
+                             .Where(s => !string.IsNullOrWhiteSpace(s)))
+            : string.Empty,
+                PhoneNumber = order.Customer?.Mobile ?? string.Empty,
+                Address = order.Customer != null
+            ? string.Join(" ", new[] { order.Customer.Address, order.Customer.Street, order.Customer.City, order.Customer.State, order.Customer.Country }
+                             .Where(s => !string.IsNullOrWhiteSpace(s)))
+            : string.Empty,
+                OrderStatus = order.Status,
+                DateOfPurchase = order.DateOfPurchase,
+                OrderAmount = order.Amount,
+                BillAmount = bill.Result.BillAmount,
+                PaymentMethod = bill.Result.PaymentMethod,
+                PaymentStatus = bill.Result.PaymentStatus,
+                OrderItems = order.OrderDetails.Select(od => new OrderItemDto
+                {
+                    ProductId = od.ProductId,
+                    ProductName = od.Product.ProductName,
+                    Price = od.UnitPrice,
+                    Slug = od.Product.Slug,
+                    ImageUrl = od.Product.ImageUrl,
+                    Quantity = od.Quantity,
+                    PromotionId = od.PromotionId ?? null,
+                    PromotionType = od.Promotion.PromotionType ?? null,
+                    PromotionDescription = od.Promotion.Description ?? null,
+                    DiscountPercent = od.Promotion.DiscountPercent ?? null,
+                    DiscountAmount = od.Promotion.DiscountAmount ?? null,
+                    GiftProductId = od.Promotion.GiftProductId ?? null,
+                    GiftProductName = od.Promotion.GiftProduct?.ProductName ?? null,
+                    GiftProductSlug = od.Promotion.GiftProduct?.Slug ?? null,
+                    GiftProductImg = od.Promotion.GiftProduct?.ImageUrl ?? null,
+                    MinOrderValue = od.Promotion.MinOrderValue ?? null,
+                    MinOrderQuantity = od.Promotion.MinOrderQuantity ?? null,
+                }).ToList() ?? new List<OrderItemDto>(),
+                BillDetails = bill.Result.BillDetails.Select(bd => new BillDetailDto
+                {
+                    ItemType = bd.ItemType,
+                    Amount = bd.Amount,
+                    Description = bd.Description,
+                }).ToList()
+            };
+
+            return orderDto;
         }
     }
 }

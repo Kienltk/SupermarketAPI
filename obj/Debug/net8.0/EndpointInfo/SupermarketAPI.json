@@ -2231,6 +2231,11 @@
           "slug": {
             "type": "string",
             "nullable": true
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2621,6 +2626,18 @@
           "orderId": {
             "type": "integer",
             "format": "int32"
+          },
+          "customer": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
           },
           "orderStatus": {
             "type": "string",

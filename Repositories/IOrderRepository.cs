@@ -8,6 +8,7 @@ namespace SupermarketAPI.Repositories
         Task UpdateOrder(Order order);
         Task CreateOrderDetail(OrderDetail orderDetail);
         Task<List<Order>> GetOrderByUserId(int  userId);
+        Task<List<Order>> GetOrders();
         Task<decimal> GetTotalIncome();
         Task<int> GetTotalOrder();
         Task<List<(Product Product, int TotalQuantity)>> GetTopProductsByCategoryIdAsync(int categoryId, int limit);

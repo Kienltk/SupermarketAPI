@@ -37,6 +37,18 @@ namespace SupermarketAPI.Repositories.Impl
                 .ToListAsync();
         }
 
+        public async Task<List<Order>> GetOrders()
+        {
+            return await _context.Orders
+                .Include(o => o.OrderDetails)
+                    .ThenInclude(od => od.Product)
+                .Include(o => o.OrderDetails)
+                    .ThenInclude(od => od.Promotion)
+                    .ThenInclude(p => p.GiftProduct)
+                .Include(o => o.Customer)
+                .ToListAsync();
+        }
+
         public async Task<decimal> GetTotalIncome()
         {
             return await _context.Orders

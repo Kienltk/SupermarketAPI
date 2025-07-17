@@ -9,5 +9,6 @@ namespace SupermarketAPI.Services
         Task<bool> UpdateOrder(int customerId, OrderUpdateDto orderRequestDto);
         Task<bool> UpdateBill(BillUpdateDto billUpdateDto);
         Task<List<OrderDto>> GetOrdersByCustomerId(int customerId);
+        Task<List<OrderDto>> GetOrders();
     }
 }

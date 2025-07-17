@@ -76,7 +76,8 @@ namespace SupermarketAPI.Controllers
         [HttpGet()]
         public async Task<ActionResult<ResponseObject<List<OrderDto>>>> GetOrdersByCustomerId()
         {
-            int customerId;
+            int customerId = 0;
+            string role = "USER";
             if (User?.Identity?.IsAuthenticated == false)
             {
                 return Unauthorized(new ResponseObject<string>
@@ -87,8 +88,14 @@ namespace SupermarketAPI.Controllers
                 });
             }
 
-            if (int.TryParse(User?.FindFirst("id")?.Value, out var id))
+            if (string.Equals(User?.FindFirst(ClaimTypes.Role)?.Value, "ADMIN"))
             {
+                 role = "ADMIN";
+
+            } else if (int.TryParse(User?.FindFirst("id")?.Value, out var id))
+            {
+                Console.WriteLine("Role: " + role);
+                Console.WriteLine("Id: " + id);
                 customerId = id;
             }
             else
@@ -103,7 +110,18 @@ namespace SupermarketAPI.Controllers
 
             try
             {
-                var orders = await _orderService.GetOrdersByCustomerId(customerId);
+                List<OrderDto> orders = new List<OrderDto>();
+
+                if (string.Equals(role, "ADMIN"))
+                {
+                    Console.WriteLine("Role: " + role);
+                    orders = await _orderService.GetOrders();
+                }
+                else 
+                {
+                    Console.WriteLine("Id: " + customerId);
+                    orders = await _orderService.GetOrdersByCustomerId(customerId);
+                }
                 var response = new ResponseObject<List<OrderDto>>
                 {
                     Code = 200,
