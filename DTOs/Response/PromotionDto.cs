@@ -24,6 +24,6 @@
 
         public int? MinOrderQuantity { get; set; }
         public bool? IsActive { get; set; }
-        public List<ProductDto> Products { get; set; }
+        public List<ProductDto>? Products { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace SupermarketAPI.DTOs.Response
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SupermarketAPI.DTOs.Response
 {
     public class CategoryDto
     {
