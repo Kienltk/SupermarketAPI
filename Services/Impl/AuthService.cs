@@ -1,4 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
+using Microsoft.IdentityModel.Tokens;
 using SupermarketAPI.DTOs.Request;
 using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Models;
@@ -11,6 +11,7 @@ using System.Net.Mail;
 using System.Net;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.EntityFrameworkCore;
+using SupermarketAPI.Data;
 
 namespace SupermarketAPI.Services.Impl
 {
@@ -20,10 +21,12 @@ namespace SupermarketAPI.Services.Impl
         private readonly IMemoryCache _cache;
         private readonly ICustomerRepository _customerRepository;
         private readonly IConfiguration _configuration;
+        private readonly SupermarketContext _context;
         private readonly JwtSecurityTokenHandler _tokenHandler;
 
-        public AuthService(IMemoryCache cache, IConfiguration config, ICustomerRepository customerRepository, IConfiguration configuration)
+        public AuthService(IMemoryCache cache, SupermarketContext context, IConfiguration config, ICustomerRepository customerRepository, IConfiguration configuration)
         {
+            _context = context;
             _cache = cache;
             _config = config;
             _customerRepository = customerRepository;
@@ -351,6 +354,11 @@ namespace SupermarketAPI.Services.Impl
 
             _cache.Remove(dto.Email);
             _cache.Remove(dto.Email + "_verified");
+        }
+
+        public async Task<List<Customer>> GetAllUsersAsync()
+        {
+            return await _context.Customers.ToListAsync();
         }
     }
 }
