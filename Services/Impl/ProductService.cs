@@ -255,11 +255,6 @@ namespace SupermarketAPI.Services.Impl
             return response;
         }
 
-        public ProductService(IProductRepository productRepository)
-        {
-            _productRepository = productRepository;
-        }
-
         public async Task<Product> CreateProductAsync(ProductCreateDto dto)
         {
             var existingProduct = await _context.Products
