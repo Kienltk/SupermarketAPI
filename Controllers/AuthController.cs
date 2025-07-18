@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SupermarketAPI.DTOs.Request;
 using SupermarketAPI.DTOs.Response;
+using SupermarketAPI.Models;
 using SupermarketSystemAPI.Services;
 using System.Security.Claims;
 
@@ -273,6 +275,31 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
+        [Authorize]
+        [HttpGet("users")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            try
+            {
+                var result = await _authService.GetAllUsersAsync();
+                return Ok(new ResponseObject<List<Customer>>
+                {
+                    Code = 200,
+                    Message = "Lấy danh sách người dùng thành công",
+                    Data = result
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResponseObject<string>
+                {
+                    Code = 400,
+                    Message = ex.Message,
+                    Data = null
+                });
+            }
+        }
+
 
         [Authorize]
         [HttpPost("logout")]
@@ -294,5 +321,6 @@ namespace SupermarketAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
     }
 }
