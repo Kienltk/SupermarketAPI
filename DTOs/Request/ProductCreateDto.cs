@@ -12,5 +12,6 @@ namespace SupermarketAPI.DTOs.Request
         public decimal? UnitCost { get; set; }
         public decimal? TotalAmount { get; set; }
         public List<int>? PromotionIds { get; set; }
+        public List<int>? CategoryIds { get; set; }
     }
 }
