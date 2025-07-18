@@ -1,4 +1,5 @@
-﻿using SupermarketAPI.DTOs.Response;
+﻿using SupermarketAPI.DTOs.Request;
+using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -17,7 +18,7 @@ namespace SupermarketAPI.Services
         Task<List<ProductDto>> GetProductsByProductNameAndPrice(int? customerId, string productName, decimal minPrice, decimal maxPrice);
         Task<List<ProductDto>> GetProductsByBrandAndCategoryAndRating(int? customerId, string? categorySlug, string? brandSlug, int? ratingScore);
         Task<List<ProductDto>> GetProductbyRatingScore(int? customerId, int ratingscore);
-        Task<Product> CreateProductAsync(Product product);
+        Task<Product> CreateProductAsync(ProductCreateDto dto);
         Task<Product?> UpdateProductAsync(int id, Product product);
         Task<bool> DeleteProductAsync(int id);
     }

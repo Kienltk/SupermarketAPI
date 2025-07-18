@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using SupermarketAPI.Data;
+using SupermarketAPI.DTOs.Request;
 using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Models;
 using SupermarketAPI.Repositories;
@@ -14,13 +15,16 @@ namespace SupermarketAPI.Services.Impl
         private readonly IFavoriteRepository _favoriteRepository;
         private readonly IBrandRepository _brandRepository;
         private readonly IRatingRepository _ratingRepository;
+        private readonly SupermarketContext _context;
 
         public ProductService(IProductRepository productRepository,
             ICategoryRepository categoryRepository,
             IFavoriteRepository favoriteRepository,
             IBrandRepository brandRepository,
-            IRatingRepository ratingRepository)
+            IRatingRepository ratingRepository,
+            SupermarketContext context)
         {
+            _context = context;
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
             _favoriteRepository = favoriteRepository;
@@ -256,10 +260,40 @@ namespace SupermarketAPI.Services.Impl
             _productRepository = productRepository;
         }
 
-        public async Task<Product> CreateProductAsync(Product product)
+        public async Task<Product> CreateProductAsync(ProductCreateDto dto)
         {
-            return await _productRepository.CreateProductAsync(product);
+            var existingProduct = await _context.Products
+                .FirstOrDefaultAsync(p => p.ProductName == dto.ProductName || p.Slug == dto.Slug);
+
+            if (existingProduct != null)
+            {
+                throw new Exception("Product name or slug already exists.");
+            }
+
+            var product = new Product
+            {
+                ProductName = dto.ProductName,
+                Price = dto.Price,
+                Slug = dto.Slug,
+                Status = dto.Status,
+                Quantity = dto.Quantity,
+                BrandId = dto.BrandId,
+                ImageUrl = dto.ImageUrl,
+                UnitCost = dto.UnitCost,
+                TotalAmount = dto.TotalAmount
+            };
+
+            if (dto.PromotionIds != null && dto.PromotionIds.Any())
+            {
+                var promotions = await _context.Promotions.Where(p => dto.PromotionIds.Contains(p.PromotionId)).ToListAsync();
+                product.Promotions = promotions;
+            }
+
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return product;
         }
+
 
         public async Task<Product?> UpdateProductAsync(int id, Product product)
         {

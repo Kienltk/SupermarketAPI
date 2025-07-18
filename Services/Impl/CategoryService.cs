@@ -25,12 +25,21 @@ namespace SupermarketAPI.Services.Impl
 
         public async Task<CategoryDto> CreateCategoryAsync(CategoryDto dto)
         {
+            var existingCategory = await _context.Categories
+                .FirstOrDefaultAsync(c => c.CategoryName == dto.CategoryName || c.Slug == dto.slug);
+
+            if (existingCategory != null)
+            {
+                throw new Exception("Category name or slug already exists.");
+            }
+
             var category = new Category
             {
                 CategoryName = dto.CategoryName,
                 Slug = dto.slug,
-                ParentId = dto.ParentId 
+                ParentId = dto.ParentId
             };
+
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
@@ -85,7 +94,6 @@ namespace SupermarketAPI.Services.Impl
                     Id = c.CategoryId,
                     CategoryName = c.CategoryName,
                     slug = c.Slug,
-                    ParentId = c.ParentId,
                 },
                 Children = MapToCategoryDTOs(c.InverseParent.ToList())
             }).ToList();

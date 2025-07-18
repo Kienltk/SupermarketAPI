@@ -20,11 +20,20 @@ namespace SupermarketAPI.Services.Impl
 
         public async Task<BrandDto> CreateBrandAsync(BrandDto dto)
         {
+            var existingBrand = await _context.Brands
+                .FirstOrDefaultAsync(b => b.BrandName == dto.BrandName || b.Slug == dto.Slug);
+
+            if (existingBrand != null)
+            {
+                throw new Exception("Brand name or slug already exists.");
+            }
+
             var brand = new Brand
             {
                 BrandName = dto.BrandName,
                 Slug = dto.Slug,
             };
+
             _context.Brands.Add(brand);
             await _context.SaveChangesAsync();
 
