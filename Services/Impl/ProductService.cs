@@ -285,8 +285,22 @@ namespace SupermarketAPI.Services.Impl
 
             if (dto.PromotionIds != null && dto.PromotionIds.Any())
             {
-                var promotions = await _context.Promotions.Where(p => dto.PromotionIds.Contains(p.PromotionId)).ToListAsync();
+                var promotions = await _context.Promotions
+                    .Where(p => dto.PromotionIds.Contains(p.PromotionId))
+                    .ToListAsync();
                 product.Promotions = promotions;
+            }
+
+            if (dto.CategoryIds != null && dto.CategoryIds.Any())
+            {
+                var categories = await _context.Categories
+                    .Where(c => dto.CategoryIds.Contains(c.CategoryId))
+                    .ToListAsync();
+
+                product.ProductCategories = categories.Select(c => new ProductCategory
+                {
+                    CategoryId = c.CategoryId
+                }).ToList();
             }
 
             _context.Products.Add(product);
