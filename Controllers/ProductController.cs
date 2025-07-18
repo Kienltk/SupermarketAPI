@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SupermarketAPI.DTOs.Request;
 using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Models;
 using SupermarketAPI.Services;
@@ -56,10 +57,17 @@ namespace SupermarketAPI.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> CreateProduct([FromBody] Product product)
+        public async Task<IActionResult> CreateProduct([FromBody] ProductCreateDto dto)
         {
-            var result = await _productService.CreateProductAsync(product);
-            return Ok(result);
+            try
+            {
+                var createdProduct = await _productService.CreateProductAsync(dto);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
         [HttpPut("{id}")]
@@ -286,8 +294,8 @@ namespace SupermarketAPI.Controllers
         [HttpGet("filter")]
         public async Task<ActionResult<List<ProductDto>>> GetProductsByBrandAndCategory(
              [FromQuery] string? category
-            ,[FromQuery] string? brand
-            ,[FromQuery] int? ratingScore)
+            , [FromQuery] string? brand
+            , [FromQuery] int? ratingScore)
         {
             int? customerId = null;
             if (User?.Identity?.IsAuthenticated == true)
@@ -301,7 +309,7 @@ namespace SupermarketAPI.Controllers
             try
             {
                 if (string.IsNullOrEmpty(brand)) brand = null;
-                if (string.IsNullOrEmpty(category))  category = null;
+                if (string.IsNullOrEmpty(category)) category = null;
                 if (!ratingScore.HasValue) ratingScore = null;
 
                 List<ProductDto> products = await _productService.GetProductsByBrandAndCategoryAndRating(customerId, category, brand, ratingScore);
