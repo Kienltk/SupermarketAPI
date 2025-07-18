@@ -1,5 +1,6 @@
-﻿using SupermarketAPI.DTOs.Request;
+using SupermarketAPI.DTOs.Request;
 using SupermarketAPI.DTOs.Response;
+using SupermarketAPI.Models;
 using System.Security.Claims;
 
 namespace SupermarketSystemAPI.Services
@@ -16,5 +17,6 @@ namespace SupermarketSystemAPI.Services
         Task VerifyCodeAsync(VerifyCodeDto dto);
         Task<UserInfoResponseDto> GetUserInfoAsync(string username);
         Task ResetPasswordAsync(ResetPasswordDto resetPasswordDto);
+        Task<List<Customer>> GetAllUsersAsync();
     }
 }
