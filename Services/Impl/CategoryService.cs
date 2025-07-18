@@ -94,6 +94,7 @@ namespace SupermarketAPI.Services.Impl
                     Id = c.CategoryId,
                     CategoryName = c.CategoryName,
                     slug = c.Slug,
+                    ParentId = c.ParentId
                 },
                 Children = MapToCategoryDTOs(c.InverseParent.ToList())
             }).ToList();
