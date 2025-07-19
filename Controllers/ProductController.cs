@@ -56,6 +56,7 @@ namespace SupermarketAPI.Controllers
                 return BadRequest(errorResponse);
             }
         }
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] ProductCreateDto dto)
         {
@@ -69,7 +70,7 @@ namespace SupermarketAPI.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-
+        [Authorize(Roles = "ADMIN")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductUpdateDto product)
         {
@@ -77,7 +78,7 @@ namespace SupermarketAPI.Controllers
             if (result == null) return NotFound();
             return Ok(result);
         }
-
+           [Authorize(Roles = "ADMIN")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
@@ -218,7 +219,7 @@ namespace SupermarketAPI.Controllers
                 return BadRequest(errorResponse);
             }
         }
-
+        [Authorize]
         [HttpGet("")]
         public async Task<ActionResult<List<ProductDto>>> GetProducts([FromQuery] string? searchName
                                                                      , [FromQuery] decimal? minPrice, [FromQuery] decimal? maxPrice)
