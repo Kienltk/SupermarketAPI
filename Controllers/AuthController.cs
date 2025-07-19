@@ -139,7 +139,7 @@ namespace SupermarketAPI.Controllers
             }
         }
         [Authorize]
-        [HttpPost("update-info")]
+        [HttpPut("update-info")]
         public async Task<IActionResult> UpdateUserInfo([FromBody] UpdateUserInfoDto dto)
         {
             string? username;
@@ -170,10 +170,12 @@ namespace SupermarketAPI.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine("❌ Lỗi cập nhật user: " + ex.InnerException?.Message ?? ex.Message);
+
                 return BadRequest(new ResponseObject<string>
                 {
                     Code = 400,
-                    Message = ex.Message,
+                    Message = ex.InnerException?.Message ?? ex.Message,
                     Data = null
                 });
             }
