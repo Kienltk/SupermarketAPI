@@ -289,6 +289,12 @@ namespace SupermarketAPI.Services.Impl
                 var customer = await _customerRepository.GetCustomerByUsernameAsync(username);
                 if (customer == null)
                     throw new Exception("User not found");
+                               if (!string.IsNullOrEmpty(updateDto.Email) && updateDto.Email != customer.Email)
+                {
+                    var emailExist = await _customerRepository.GetCustomerByEmailAsync(updateDto.Email);
+                    if (emailExist != null)
+                        throw new Exception("Email đã tồn tại. Vui lòng chọn email khác.");
+                }
 
                 customer.FirstName = updateDto.FirstName ?? customer.FirstName;
                 customer.LastName = updateDto.LastName ?? customer.LastName;
