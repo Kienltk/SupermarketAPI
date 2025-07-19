@@ -6,6 +6,7 @@ using SupermarketAPI.Services;
 namespace SupermarketAPI.Controllers
 {
     [ApiController]
+    [Authorize(Roles = "ADMIN")]
     [Route("api/brands")]
     public class BrandController : Controller
     {
