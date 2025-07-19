@@ -5,6 +5,7 @@ using SupermarketAPI.Services;
 namespace SupermarketAPI.Controllers
 {
     [ApiController]
+    [Authorize(Roles = "ADMIN")]
     [Route("api/categories")]
     public class CategoryController : Controller
     {
