@@ -1,4 +1,5 @@
-﻿using SupermarketAPI.Models;
+﻿using SupermarketAPI.DTOs.Request;
+using SupermarketAPI.Models;
 
 namespace SupermarketAPI.Repositories
 {
@@ -16,7 +17,6 @@ namespace SupermarketAPI.Repositories
         Task<List<Product>> GetProductsByBrandAndCategoryAndRating(int? categoryId, int? brandId, int? ratingScore);
         Task<List<Product>> GetProductsByRatingScore(int ratingScore);
         Task<Product> CreateProductAsync(Product product);
-        Task<Product?> UpdateProductAsync(int id, Product product);
         Task<bool> DeleteProductAsync(int id);
     }
 }

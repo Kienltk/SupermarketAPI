@@ -275,14 +275,14 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
-        [Authorize]
+        [Authorize(Roles = "ADMIN")]
         [HttpGet("users")]
         public async Task<IActionResult> GetAllUsers()
         {
             try
             {
                 var result = await _authService.GetAllUsersAsync();
-                return Ok(new ResponseObject<List<Customer>>
+                return Ok(new ResponseObject<List<UserInfoResponseDto>>
                 {
                     Code = 200,
                     Message = "Lấy danh sách người dùng thành công",

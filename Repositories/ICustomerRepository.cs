@@ -8,6 +8,5 @@ namespace SupermarketAPI.Repositories
         Task<Customer> GetCustomerByEmailAsync(string email);
         Task AddCustomerAsync(Customer customer);
         Task UpdateCustomerAsync(Customer customer);
-        Task<List<Customer>> GetAllCustomersAsync();
     }
 }

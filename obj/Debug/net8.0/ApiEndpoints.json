@@ -153,6 +153,16 @@
   },
   {
     "ContainingType": "SupermarketAPI.Controllers.AuthController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/auth/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermarketAPI.Controllers.AuthController",
     "Method": "VerifyCode",
     "RelativePath": "api/auth/verify-code",
     "HttpMethod": "POST",
@@ -570,8 +580,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "product",
-        "Type": "SupermarketAPI.Models.Product",
+        "Name": "dto",
+        "Type": "SupermarketAPI.DTOs.Request.ProductCreateDto",
         "IsRequired": true
       }
     ],
@@ -628,7 +638,7 @@
       },
       {
         "Name": "product",
-        "Type": "SupermarketAPI.Models.Product",
+        "Type": "SupermarketAPI.DTOs.Request.ProductUpdateDto",
         "IsRequired": true
       }
     ],

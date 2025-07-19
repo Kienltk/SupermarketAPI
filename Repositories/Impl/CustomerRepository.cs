@@ -35,9 +35,6 @@ namespace SupermarketAPI.Repositories.Impl
             return await _context.Customers.FirstOrDefaultAsync(c => c.Email == email);
 
         }
-        public async Task<List<Customer>> GetAllCustomersAsync()
-        {
-            return await _context.Customers.ToListAsync();
-        }
+
     }
 }

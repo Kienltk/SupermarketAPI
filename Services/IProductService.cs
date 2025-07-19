@@ -19,7 +19,7 @@ namespace SupermarketAPI.Services
         Task<List<ProductDto>> GetProductsByBrandAndCategoryAndRating(int? customerId, string? categorySlug, string? brandSlug, int? ratingScore);
         Task<List<ProductDto>> GetProductbyRatingScore(int? customerId, int ratingscore);
         Task<Product> CreateProductAsync(ProductCreateDto dto);
-        Task<Product?> UpdateProductAsync(int id, Product product);
+        Task<ProductDto?> UpdateProductAsync(int id, ProductUpdateDto productUpdate);
         Task<bool> DeleteProductAsync(int id);
     }
 }

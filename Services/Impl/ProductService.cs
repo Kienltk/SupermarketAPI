@@ -304,14 +304,59 @@ namespace SupermarketAPI.Services.Impl
         }
 
 
-        public async Task<Product?> UpdateProductAsync(int id, Product product)
-        {
-            return await _productRepository.UpdateProductAsync(id, product);
-        }
+
 
         public async Task<bool> DeleteProductAsync(int id)
         {
             return await _productRepository.DeleteProductAsync(id);
         }
+
+        async Task<ProductDto?> IProductService.UpdateProductAsync(int id, ProductUpdateDto productUpdate)
+        {
+            var existingProduct = await _context.Products
+                .Include(p => p.ProductCategories)
+                .Include(p => p.Promotions)
+                .Include(p => p.Brand)
+                .FirstOrDefaultAsync(p => p.ProductId == id);
+
+            if (existingProduct == null) return null;
+
+            existingProduct.ProductName = productUpdate.ProductName ?? existingProduct.ProductName;
+            existingProduct.Price = productUpdate.Price ?? existingProduct.Price;
+            existingProduct.Slug = productUpdate.Slug ?? existingProduct.Slug;
+            existingProduct.Status = productUpdate.Status ?? existingProduct.Status;
+            existingProduct.Quantity = productUpdate.Quantity ?? existingProduct.Quantity;
+            existingProduct.BrandId = productUpdate.BrandId ?? existingProduct.BrandId;
+            existingProduct.ImageUrl = productUpdate.ImageUrl ?? existingProduct.ImageUrl;
+            existingProduct.UnitCost = productUpdate.UnitCost ?? existingProduct.UnitCost;
+            existingProduct.TotalAmount = productUpdate.TotalAmount ?? existingProduct.TotalAmount;
+
+            if (productUpdate.PromotionIds != null)
+            {
+                var promotions = await _context.Promotions
+                    .Where(p => productUpdate.PromotionIds.Contains(p.PromotionId))
+                    .ToListAsync();
+                existingProduct.Promotions = promotions;
+            }
+
+            if (productUpdate.CategoryIds != null)
+            {
+                var categories = await _context.Categories
+                    .Where(c => productUpdate.CategoryIds.Contains(c.CategoryId))
+                    .ToListAsync();
+
+                existingProduct.ProductCategories = categories
+                    .Select(c => new ProductCategory
+                    {
+                        ProductId = existingProduct.ProductId,
+                        CategoryId = c.CategoryId
+                    }).ToList();
+            }
+
+            await _context.SaveChangesAsync();
+
+            return MapToProductDto(existingProduct, null);
+        }
+
     }
 }

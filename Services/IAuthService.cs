@@ -17,6 +17,6 @@ namespace SupermarketSystemAPI.Services
         Task VerifyCodeAsync(VerifyCodeDto dto);
         Task<UserInfoResponseDto> GetUserInfoAsync(string username);
         Task ResetPasswordAsync(ResetPasswordDto resetPasswordDto);
-        Task<List<Customer>> GetAllUsersAsync();
+        Task<List<UserInfoResponseDto>> GetAllUsersAsync();
     }
 }

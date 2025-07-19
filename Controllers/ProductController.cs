@@ -71,7 +71,7 @@ namespace SupermarketAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, [FromBody] Product product)
+        public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductUpdateDto product)
         {
             var result = await _productService.UpdateProductAsync(id, product);
             if (result == null) return NotFound();

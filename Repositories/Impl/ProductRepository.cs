@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using SupermarketAPI.Data;
+using SupermarketAPI.DTOs.Request;
 using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Models;
 
@@ -177,21 +178,7 @@ namespace SupermarketAPI.Repositories.Impl
             return product;
         }
 
-        public async Task<Product?> UpdateProductAsync(int id, Product product)
-        {
-            var existingProduct = await _context.Products.FindAsync(id);
-            if (existingProduct == null) return null;
 
-            existingProduct.ProductName = product.ProductName;
-            existingProduct.Price = product.Price;
-            existingProduct.Status = product.Status;
-            existingProduct.Quantity = product.Quantity;
-            existingProduct.BrandId = product.BrandId;
-            existingProduct.ImageUrl = product.ImageUrl;
-
-            await _context.SaveChangesAsync();
-            return existingProduct;
-        }
 
         public async Task<bool> DeleteProductAsync(int id)
         {

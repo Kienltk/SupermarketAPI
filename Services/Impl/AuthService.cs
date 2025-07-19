@@ -356,9 +356,30 @@ namespace SupermarketAPI.Services.Impl
             _cache.Remove(dto.Email + "_verified");
         }
 
-        public async Task<List<Customer>> GetAllUsersAsync()
+        public async Task<List<UserInfoResponseDto>> GetAllUsersAsync()
         {
-            return await _context.Customers.ToListAsync();
+            var customers = await _context.Customers.ToListAsync();
+
+            return customers.Select(c => new UserInfoResponseDto
+            {
+                Email = c.Email,
+                FirstName = c.FirstName,
+                MiddleName = c.MiddleName ?? "",
+                LastName = c.LastName,
+                HomePhone = c.HomePhone,
+                CreditCardNumber = c.CreditCardNumber,
+                CreditCardExpiry = c.CreditCardExpiry,
+                CardHolderName = c.CardHolderName,
+                CVV = c.CVV,
+                State = c.State,
+                City = c.City,
+                Street = c.Street,
+                Mobile = c.Mobile,
+                Country = c.Country,
+                Dob = c.Dob,
+                Address = c.Address
+            }).ToList();
         }
+
     }
 }
