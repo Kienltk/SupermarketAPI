@@ -265,6 +265,8 @@ namespace SupermarketAPI.Services.Impl
                 throw new Exception("Product name or slug already exists.");
             }
 
+            var TotalAmount = dto.UnitCost * dto.Quantity;
+
             var product = new Product
             {
                 ProductName = dto.ProductName,
@@ -275,7 +277,7 @@ namespace SupermarketAPI.Services.Impl
                 BrandId = dto.BrandId,
                 ImageUrl = dto.ImageUrl,
                 UnitCost = dto.UnitCost,
-                TotalAmount = dto.TotalAmount
+                TotalAmount = TotalAmount
             };
 
             if (dto.PromotionId != null && dto.PromotionId.Any())
@@ -304,8 +306,6 @@ namespace SupermarketAPI.Services.Impl
         }
 
 
-
-
         public async Task<bool> DeleteProductAsync(int id)
         {
             return await _productRepository.DeleteProductAsync(id);
@@ -321,6 +321,8 @@ namespace SupermarketAPI.Services.Impl
 
             if (existingProduct == null) return null;
 
+            var TotalAmount = productUpdate.UnitCost ?? existingProduct.UnitCost * productUpdate.Quantity ?? existingProduct.Quantity;
+
             existingProduct.ProductName = productUpdate.ProductName ?? existingProduct.ProductName;
             existingProduct.Price = productUpdate.Price ?? existingProduct.Price;
             existingProduct.Slug = productUpdate.Slug ?? existingProduct.Slug;
@@ -329,7 +331,7 @@ namespace SupermarketAPI.Services.Impl
             existingProduct.BrandId = productUpdate.BrandId ?? existingProduct.BrandId;
             existingProduct.ImageUrl = productUpdate.ImageUrl ?? existingProduct.ImageUrl;
             existingProduct.UnitCost = productUpdate.UnitCost ?? existingProduct.UnitCost;
-            existingProduct.TotalAmount = productUpdate.TotalAmount ?? existingProduct.TotalAmount;
+            existingProduct.TotalAmount = TotalAmount;
 
             if (productUpdate.PromotionId != null)
             {

@@ -189,5 +189,12 @@ namespace SupermarketAPI.Repositories.Impl
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<bool> UpdateProduct(Product product)
+        {
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

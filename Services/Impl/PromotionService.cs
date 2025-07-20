@@ -13,12 +13,14 @@ namespace SupermarketAPI.Services.Impl
     public class PromotionService : IPromotionService
     {
         private readonly IPromotionRepository _promotionRepository;
+        private readonly IProductRepository _productRepository;
         private readonly ProductService _productService;
 
-        public PromotionService(IPromotionRepository promotionRepository, ProductService productService)
+        public PromotionService(IPromotionRepository promotionRepository, ProductService productService, IProductRepository productRepository)
         {
             _promotionRepository = promotionRepository;
             _productService = productService;
+            _productRepository = productRepository;
         }
 
         public async Task<PromotionDto> CreatePromotionAsync(PromotionDto promotionRequest)
@@ -27,9 +29,9 @@ namespace SupermarketAPI.Services.Impl
             {
                 PromotionType = promotionRequest.PromotionType,
                 Description = promotionRequest.Description,
-                StartDate = promotionRequest.StartDate??DateTime.Now,
-                EndDate = promotionRequest.EndDate ??DateTime.Now,
-                DiscountPercent = promotionRequest.DiscountPercent??null,
+                StartDate = promotionRequest.StartDate ?? DateTime.Now,
+                EndDate = promotionRequest.EndDate ?? DateTime.Now,
+                DiscountPercent = promotionRequest.DiscountPercent ?? null,
                 DiscountAmount = promotionRequest.DiscountAmount ?? null,
                 GiftProductId = promotionRequest.GiftProductId ?? null,
                 MinOrderValue = promotionRequest.MinOrderValue ?? null,
@@ -87,20 +89,44 @@ namespace SupermarketAPI.Services.Impl
                 return false;
             }
 
-            var product = await _promotionRepository.GetProductByIdAsync(productId);
+            var product = await _productRepository.GetProductByIdAsync(productId);
             if (product == null)
             {
                 return false;
             }
 
-            var discount = new Discount
-            {
-                ProductId = productId,
-                PromotionId = promotionId,
-                IsActive = true
-            };
+            var oldPromotions = await _promotionRepository.GetPromotionByProductIdAsync(productId);
 
-            await _promotionRepository.AddDiscountAsync(discount);
+            // Deactivate all existing promotions
+            if (oldPromotions?.Any() == true)
+            {
+                foreach (var oldPromotion in oldPromotions)
+                {
+                    if (oldPromotion.IsActive)
+                    {
+                        await UpdateProductPromotionAsync(productId, oldPromotion.PromotionId, false);
+                    }
+                }
+            }
+
+            // Check if promotionId already exists
+            var existingPromotion = oldPromotions?.FirstOrDefault(p => p.PromotionId == promotionId);
+
+            if (existingPromotion == null)
+            {
+                var discount = new Discount
+                {
+                    ProductId = productId,
+                    PromotionId = promotionId,
+                    IsActive = true
+                };
+                await _promotionRepository.AddDiscountAsync(discount);
+            }
+            else if (!existingPromotion.IsActive)
+            {
+                await UpdateProductPromotionAsync(productId, promotionId, true);
+            }
+
             return true;
         }
 
@@ -111,6 +137,7 @@ namespace SupermarketAPI.Services.Impl
             {
                 return false;
             }
+            Console.WriteLine("Is Active: " + isActive);
 
             discount.IsActive = isActive;
             await _promotionRepository.UpdateDiscountAsync(discount);

@@ -2405,14 +2405,13 @@
       "ProductCreateDto": {
         "required": [
           "brandId",
-          "categoryIds",
+          "categoryId",
           "imageUrl",
           "price",
           "productName",
           "quantity",
           "slug",
           "status",
-          "totalAmount",
           "unitCost"
         ],
         "type": "object",
@@ -2455,12 +2454,7 @@
             "type": "number",
             "format": "double"
           },
-          "totalAmount": {
-            "minimum": 0,
-            "type": "number",
-            "format": "double"
-          },
-          "promotionIds": {
+          "promotionId": {
             "type": "array",
             "items": {
               "type": "integer",
@@ -2468,7 +2462,7 @@
             },
             "nullable": true
           },
-          "categoryIds": {
+          "categoryId": {
             "minItems": 1,
             "type": "array",
             "items": {
@@ -2676,7 +2670,6 @@
           },
           "imageUrl": {
             "type": "string",
-            "format": "uri",
             "nullable": true
           },
           "unitCost": {
@@ -2685,13 +2678,7 @@
             "format": "double",
             "nullable": true
           },
-          "totalAmount": {
-            "minimum": 0,
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "promotionIds": {
+          "promotionId": {
             "type": "array",
             "items": {
               "type": "integer",
@@ -2699,7 +2686,7 @@
             },
             "nullable": true
           },
-          "categoryIds": {
+          "categoryId": {
             "type": "array",
             "items": {
               "type": "integer",

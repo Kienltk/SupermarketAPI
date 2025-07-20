@@ -34,9 +34,6 @@ namespace SupermarketAPI.DTOs.Request
         [Range(0.0, double.MaxValue, ErrorMessage = "UnitCost cannot be negative")]
         public decimal? UnitCost { get; set; }
 
-        [Required(ErrorMessage = "TotalAmount is required")]
-        [Range(0.0, double.MaxValue, ErrorMessage = "TotalAmount cannot be negative")]
-        public decimal? TotalAmount { get; set; }
         public List<int>? PromotionId { get; set; }
 
         [Required(ErrorMessage = "CategoryId are required")]

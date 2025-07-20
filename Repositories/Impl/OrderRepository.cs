@@ -102,5 +102,12 @@ namespace SupermarketAPI.Repositories.Impl
 
             return queryResult.Select(g => (g.Date, g.Total)).ToList();
         }
+
+        public async Task<List<OrderDetail>> GetOrderDetailsByOrderId(int orderId)
+        {
+            return await _context.OrderDetails
+                .Where(od => od.OrderId == orderId)
+                .ToListAsync();
+        }
     }
 }

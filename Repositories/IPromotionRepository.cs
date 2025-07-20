@@ -11,7 +11,7 @@ namespace SupermarketAPI.Repositories
         Task AddDiscountAsync(Discount discount);
         Task<Discount> GetDiscountAsync(int productId, int promotionId);
         Task UpdateDiscountAsync(Discount discount);
-        Task<Product> GetProductByIdAsync(int productId);
+        Task<List<Discount>> GetPromotionByProductIdAsync(int productId);
         Task<List<Product>> GetProductsByPromotionIdAsync(int promotionId);
     }
 }

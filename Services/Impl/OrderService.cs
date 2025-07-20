@@ -11,27 +11,38 @@ namespace SupermarketAPI.Services.Impl
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IBillRepository _billRepository;
+        private readonly IProductRepository _productRepository;
         private decimal TAX_PERCENT = 8;
 
-        public OrderService(IOrderRepository orderRepository, IBillRepository billRepository)
+        public OrderService(IOrderRepository orderRepository, IBillRepository billRepository, IProductRepository productRepository)
         {
             _orderRepository = orderRepository;
             _billRepository = billRepository;
+            _productRepository = productRepository;
         }
 
         public async Task<bool> CreateOrder(int customerId, OrderRequestDto orderRequestDto)
         {
+            foreach (var item in orderRequestDto.Items)
+            {
+                var product = await _productRepository.GetProductByIdAsync(item.ProductId);
+                if (product == null)
+                {
+                    throw new Exception($"Product with ID {item.ProductId} not found.");
+                }
+                if (product.Quantity < item.Quantity)
+                {
+                    throw new Exception($"Insufficient quantity for product ID {item.ProductId}. Available: {product.Quantity}, Requested: {item.Quantity}");
+                }
+                product.Quantity -= item.Quantity;
+                await _productRepository.UpdateProduct(product);
+            }
+
             var order = new Order
             {
                 CustomerId = customerId,
                 DateOfPurchase = DateTime.Now,
                 Status = "PENDING",
-                //Amount = orderRequestDto.Items.Sum(item =>
-                //{
-                //    var itemAmount = Math.Round((item.Price - (item.Price * (item.DiscountPercent ?? 0) / 100)) * item.Quantity - (item.DiscountAmount ?? 0), 2);
-                //    Console.WriteLine($"Item: Price={item.Price}, Discount={item.DiscountPercent}%, Quantity={item.Quantity}, DiscountAmount={item.DiscountAmount}, Total={itemAmount}");
-                //    return itemAmount;
-                //})
                 Amount = orderRequestDto.TotalAmount,
             };
             await _orderRepository.CreateOrder(order);
@@ -141,11 +152,25 @@ namespace SupermarketAPI.Services.Impl
             var order = orders.FirstOrDefault(o => o.OrderId == orderRequestDto.OrderId);
             if (order == null) return false;
 
+            if (orderRequestDto.OrderStatus == "CANCELLED" && order.Status != "CANCELLED")
+            {
+                var orderDetails = await _orderRepository.GetOrderDetailsByOrderId(order.OrderId);
+                foreach (var detail in orderDetails)
+                {
+                    var product = await _productRepository.GetProductByIdAsync(detail.ProductId);
+                    if (product == null)
+                    {
+                        throw new Exception($"Product with ID {detail.ProductId} not found.");
+                    }
+                    product.Quantity += detail.Quantity;
+                    await _productRepository.UpdateProduct(product);
+                }
+            }
+
             order.Status = orderRequestDto.OrderStatus;
             await _orderRepository.UpdateOrder(order);
             return true;
         }
-
 
         private OrderDto MapToOrderDto(Order order)
         {

@@ -279,7 +279,8 @@ namespace SupermarketAPI.Services.Impl
                 Street = customer.Street,
                 Mobile = customer.Mobile,
                 Country = customer.Country,
-                Dob = customer.Dob
+                Dob = customer.Dob,
+                Address = customer.Address,
             };
         }
 

@@ -60,16 +60,15 @@ namespace SupermarketAPI.Repositories.Impl
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Product> GetProductByIdAsync(int productId)
+        public async Task<List<Discount>> GetPromotionByProductIdAsync(int productId)
         {
-            return await _context.Products
-                .FirstOrDefaultAsync(p => p.ProductId == productId);
+            return await _context.Discounts.Where(d => d.ProductId == productId).ToListAsync();
         }
 
         public async Task<List<Product>> GetProductsByPromotionIdAsync(int promotionId)
         {
             return await _context.Discounts
-                .Where(d => d.PromotionId == promotionId && d.IsActive)
+                .Where(d => d.PromotionId == promotionId && d.IsActive == true)
                 .Include(d => d.Product)
                 .Select(d => d.Product)
                 .ToListAsync();

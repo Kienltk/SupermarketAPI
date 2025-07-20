@@ -18,5 +18,6 @@ namespace SupermarketAPI.Repositories
         Task<List<Product>> GetProductsByRatingScore(int ratingScore);
         Task<Product> CreateProductAsync(Product product);
         Task<bool> DeleteProductAsync(int id);
+        Task<bool> UpdateProduct(Product product);
     }
 }
