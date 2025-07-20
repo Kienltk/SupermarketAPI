@@ -1,4 +1,5 @@
 ﻿// BrandController.cs
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Services;
@@ -6,7 +7,6 @@ using SupermarketAPI.Services;
 namespace SupermarketAPI.Controllers
 {
     [ApiController]
-    [Authorize(Roles = "ADMIN")]
     [Route("api/brands")]
     public class BrandController : Controller
     {

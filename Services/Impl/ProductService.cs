@@ -278,18 +278,18 @@ namespace SupermarketAPI.Services.Impl
                 TotalAmount = dto.TotalAmount
             };
 
-            if (dto.PromotionIds != null && dto.PromotionIds.Any())
+            if (dto.PromotionId != null && dto.PromotionId.Any())
             {
                 var promotions = await _context.Promotions
-                    .Where(p => dto.PromotionIds.Contains(p.PromotionId))
+                    .Where(p => dto.PromotionId.Contains(p.PromotionId))
                     .ToListAsync();
                 product.Promotions = promotions;
             }
 
-            if (dto.CategoryIds != null && dto.CategoryIds.Any())
+            if (dto.CategoryId != null && dto.CategoryId.Any())
             {
                 var categories = await _context.Categories
-                    .Where(c => dto.CategoryIds.Contains(c.CategoryId))
+                    .Where(c => dto.CategoryId.Contains(c.CategoryId))
                     .ToListAsync();
 
                 product.ProductCategories = categories.Select(c => new ProductCategory
@@ -331,18 +331,18 @@ namespace SupermarketAPI.Services.Impl
             existingProduct.UnitCost = productUpdate.UnitCost ?? existingProduct.UnitCost;
             existingProduct.TotalAmount = productUpdate.TotalAmount ?? existingProduct.TotalAmount;
 
-            if (productUpdate.PromotionIds != null)
+            if (productUpdate.PromotionId != null)
             {
                 var promotions = await _context.Promotions
-                    .Where(p => productUpdate.PromotionIds.Contains(p.PromotionId))
+                    .Where(p => productUpdate.PromotionId.Contains(p.PromotionId))
                     .ToListAsync();
                 existingProduct.Promotions = promotions;
             }
 
-            if (productUpdate.CategoryIds != null)
+            if (productUpdate.CategoryId != null)
             {
                 var categories = await _context.Categories
-                    .Where(c => productUpdate.CategoryIds.Contains(c.CategoryId))
+                    .Where(c => productUpdate.CategoryId.Contains(c.CategoryId))
                     .ToListAsync();
 
                 existingProduct.ProductCategories = categories

@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Services;
 
 namespace SupermarketAPI.Controllers
 {
     [ApiController]
-    [Authorize(Roles = "ADMIN")]
     [Route("api/categories")]
     public class CategoryController : Controller
     {

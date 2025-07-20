@@ -26,8 +26,6 @@ namespace SupermarketAPI.DTOs.Request
         [Required(ErrorMessage = "BrandId is required")]
         public int? BrandId { get; set; }
 
-        [Required(ErrorMessage = "ImageUrl is required")]
-        [Url(ErrorMessage = "ImageUrl must be a valid URL")]
         public string ImageUrl { get; set; }
 
         [Required(ErrorMessage = "UnitCost is required")]
@@ -37,10 +35,10 @@ namespace SupermarketAPI.DTOs.Request
         [Required(ErrorMessage = "TotalAmount is required")]
         [Range(0.0, double.MaxValue, ErrorMessage = "TotalAmount cannot be negative")]
         public decimal? TotalAmount { get; set; }
-        public List<int>? PromotionIds { get; set; }
+        public List<int>? PromotionId { get; set; }
 
-        [Required(ErrorMessage = "CategoryIds are required")]
+        [Required(ErrorMessage = "CategoryId are required")]
         [MinLength(1, ErrorMessage = "At least one category is required")]
-        public List<int>? CategoryIds { get; set; }
+        public List<int>? CategoryId { get; set; }
     }
 }

@@ -20,7 +20,6 @@ namespace SupermarketAPI.DTOs.Request
 
         public int? BrandId { get; set; }
 
-        [Url(ErrorMessage = "ImageUrl must be a valid URL")]
         public string? ImageUrl { get; set; }
 
         [Range(0.0, double.MaxValue, ErrorMessage = "UnitCost cannot be negative")]
@@ -29,8 +28,8 @@ namespace SupermarketAPI.DTOs.Request
         [Range(0.0, double.MaxValue, ErrorMessage = "TotalAmount cannot be negative")]
         public decimal? TotalAmount { get; set; }
 
-        public List<int>? PromotionIds { get; set; }
+        public List<int>? PromotionId { get; set; }
 
-        public List<int>? CategoryIds { get; set; }
+        public List<int>? CategoryId { get; set; }
     }
 }
