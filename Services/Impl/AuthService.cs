@@ -273,6 +273,7 @@ namespace SupermarketAPI.Services.Impl
                 CreditCardExpiry = customer.CreditCardExpiry,
                 CardHolderName = customer.CardHolderName,
                 CVV = customer.CVV,
+                Address=customer.Address,
                 State = customer.State,
                 City = customer.City,
                 Street = customer.Street,
@@ -311,6 +312,7 @@ namespace SupermarketAPI.Services.Impl
                 customer.CVV = updateDto.CVV ?? customer.CVV;
                 customer.Dob = updateDto.Dob ?? customer.Dob;
                 customer.Street = updateDto.Street ?? customer.Street;
+                customer.Address=updatedDto.Address ?? customer.Address;
                 customer.City = updateDto.City ?? customer.City;
                 customer.State = updateDto.State ?? customer.State;
 
@@ -319,6 +321,7 @@ namespace SupermarketAPI.Services.Impl
                 return new UserInfoResponseDto
                 {
                     Email = customer.Email,
+                    Address=customer.Address,
                     FirstName = customer.FirstName,
                     MiddleName = customer.MiddleName ?? "",
                     LastName = customer.LastName,
