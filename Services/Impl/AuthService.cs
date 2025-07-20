@@ -188,7 +188,7 @@ namespace SupermarketAPI.Services.Impl
                 throw new Exception("User not found");
 
             if (!BCrypt.Net.BCrypt.Verify(dto.CurrentPassword, customer.Password))
-                throw new Exception("Mật khẩu hiện tại không chính xác");
+                throw new Exception("The current password is incorrect.");
 
             customer.Password = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
             await _customerRepository.UpdateCustomerAsync(customer);
@@ -198,7 +198,7 @@ namespace SupermarketAPI.Services.Impl
         {
             var customer = await _customerRepository.GetCustomerByEmailAsync(dto.Email);
             if (customer == null)
-                throw new Exception("Không tìm thấy người dùng với email này.");
+                throw new Exception("No user found with this email.");
 
             string verificationCode = Generate6DigitCode();
 
@@ -225,7 +225,7 @@ namespace SupermarketAPI.Services.Impl
                 }
             }
 
-            throw new Exception("Mã xác nhận không đúng hoặc đã hết hạn.");
+            throw new Exception("The verification code is incorrect or has expired.");
         }
 
 
@@ -234,8 +234,8 @@ namespace SupermarketAPI.Services.Impl
             var fromAddress = new MailAddress("Ndc7571@gmail.com", "Supermarket Support");
             var toAddress = new MailAddress(toEmail);
             string fromPassword = "rejdvgxpaheddjgt";
-            string subject = "Xác nhận đặt lại mật khẩu";
-            string body = $"Mã xác nhận của bạn là: {code}. Mã có hiệu lực trong 10 phút.";
+            string subject = "Confirm password reset";
+            string body = $"Your verification code is: {code}. The code is valid for 10 minutes.";
 
             var smtp = new SmtpClient
             {
@@ -272,8 +272,8 @@ namespace SupermarketAPI.Services.Impl
                 CreditCardNumber = customer.CreditCardNumber,
                 CreditCardExpiry = customer.CreditCardExpiry,
                 CardHolderName = customer.CardHolderName,
-                CVV = customer.CVV,
                 Address=customer.Address,
+                CVV = customer.CVV,
                 State = customer.State,
                 City = customer.City,
                 Street = customer.Street,
@@ -294,7 +294,7 @@ namespace SupermarketAPI.Services.Impl
                 {
                     var emailExist = await _customerRepository.GetCustomerByEmailAsync(updateDto.Email);
                     if (emailExist != null)
-                        throw new Exception("Email đã tồn tại. Vui lòng chọn email khác.");
+                        throw new Exception("Email existed.");
                 }
 
                 customer.FirstName = updateDto.FirstName ?? customer.FirstName;
@@ -312,7 +312,6 @@ namespace SupermarketAPI.Services.Impl
                 customer.CVV = updateDto.CVV ?? customer.CVV;
                 customer.Dob = updateDto.Dob ?? customer.Dob;
                 customer.Street = updateDto.Street ?? customer.Street;
-                customer.Address=updatedDto.Address ?? customer.Address;
                 customer.City = updateDto.City ?? customer.City;
                 customer.State = updateDto.State ?? customer.State;
 
@@ -321,7 +320,6 @@ namespace SupermarketAPI.Services.Impl
                 return new UserInfoResponseDto
                 {
                     Email = customer.Email,
-                    Address=customer.Address,
                     FirstName = customer.FirstName,
                     MiddleName = customer.MiddleName ?? "",
                     LastName = customer.LastName,
@@ -351,12 +349,12 @@ namespace SupermarketAPI.Services.Impl
             if (!_cache.TryGetValue(dto.Email + "_verified", out DateTime verifiedTime) ||
                 DateTime.UtcNow - verifiedTime > TimeSpan.FromMinutes(15))
             {
-                throw new Exception("Email chưa được xác minh hoặc mã đã hết hạn.");
+                throw new Exception("The email has not been verified or the code has expired.");
             }
 
             var customer = await _customerRepository.GetCustomerByEmailAsync(dto.Email);
             if (customer == null)
-                throw new Exception("Không tìm thấy người dùng.");
+                throw new Exception("User not found.");
 
             customer.Password = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
             await _customerRepository.UpdateCustomerAsync(customer);
