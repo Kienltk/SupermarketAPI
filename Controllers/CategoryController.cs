@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SupermarketAPI.DTOs.Response;
 using SupermarketAPI.Services;
@@ -6,7 +6,6 @@ using SupermarketAPI.Services;
 namespace SupermarketAPI.Controllers
 {
     [ApiController]
-    //[Authorize(Roles = "ADMIN")]
     [Route("api/categories")]
     public class CategoryController : Controller
     {
@@ -40,6 +39,7 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
+        [Authorize(Roles = "ADMIN")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
@@ -98,6 +98,7 @@ namespace SupermarketAPI.Controllers
                 return BadRequest(errorResponse);
             }
         }
+        [Authorize(Roles = "ADMIN")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCategory(int id, [FromBody] CategoryDto categoryDto)
         {
@@ -121,6 +122,7 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
+        [Authorize(Roles = "ADMIN")]
         [HttpPost("")]
         public async Task<IActionResult> CreateCategory([FromBody] CategoryDto newCategory)
         {
