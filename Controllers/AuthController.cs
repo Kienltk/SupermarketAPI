@@ -72,7 +72,9 @@ namespace SupermarketAPI.Controllers
             }
         }
 
+        [Authorize]
         [HttpPost("refresh-token")]
+        
         public async Task<ActionResult<ResponseObject<AuthResponseDto>>> RefreshToken([FromBody] string refreshToken)
         {
             try
