@@ -1,4 +1,4 @@
-﻿// BrandController.cs
+// BrandController.cs
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SupermarketAPI.DTOs.Response;
@@ -75,7 +75,7 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
-
+        [Authorize(Roles = "ADMIN")]
         [HttpPost("")]
         public async Task<IActionResult> CreateBrand([FromBody] BrandDto brandDto)
         {
@@ -99,7 +99,7 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
-
+        [Authorize(Roles = "ADMIN")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateBrand(int id, [FromBody] BrandDto brandDto)
         {
@@ -123,7 +123,7 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
-
+        [Authorize(Roles = "ADMIN")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBrand(int id)
         {
