@@ -26,6 +26,8 @@ namespace SupermarketAPI.DTOs.Request
         [Required(ErrorMessage = "BrandId is required")]
         public int? BrandId { get; set; }
 
+        [Required(ErrorMessage = "ImageUrl is required")]
+        //[Url(ErrorMessage = "ImageUrl must be a valid URL")]
         public string ImageUrl { get; set; }
 
         [Required(ErrorMessage = "UnitCost is required")]

@@ -139,7 +139,7 @@
     "ContainingType": "SupermarketAPI.Controllers.AuthController",
     "Method": "UpdateUserInfo",
     "RelativePath": "api/auth/update-info",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [

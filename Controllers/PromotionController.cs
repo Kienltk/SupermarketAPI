@@ -20,6 +20,7 @@ namespace SupermarketAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<ResponseObject<PromotionDto>>> CreatePromotion([FromBody] PromotionDto promotionRequest)
         {
             try
@@ -95,6 +96,7 @@ namespace SupermarketAPI.Controllers
         }
 
         [HttpPut("{promotionId}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<ResponseObject<bool>>> UpdatePromotion(int promotionId, [FromBody] bool isActive)
         {
             try
@@ -130,6 +132,7 @@ namespace SupermarketAPI.Controllers
         }
 
         [HttpPost("{promotionId}/products/{productId}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<ResponseObject<bool>>> AddProductToPromotion(int promotionId, int productId)
         {
             try
@@ -165,6 +168,7 @@ namespace SupermarketAPI.Controllers
         }
 
         [HttpPut("{promotionId}/products/{productId}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<ResponseObject<bool>>> UpdateProductPromotion(int promotionId, int productId, [FromBody] bool isActive)
         {
             try

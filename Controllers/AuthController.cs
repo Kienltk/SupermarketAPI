@@ -138,6 +138,7 @@ namespace SupermarketAPI.Controllers
                 });
             }
         }
+
         [Authorize]
         [HttpPut("update-info")]
         public async Task<IActionResult> UpdateUserInfo([FromBody] UpdateUserInfoDto dto)
