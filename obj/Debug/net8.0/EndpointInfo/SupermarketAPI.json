@@ -1891,6 +1891,10 @@
         "additionalProperties": false
       },
       "BrandDto": {
+        "required": [
+          "brandName",
+          "slug"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -1898,12 +1902,13 @@
             "format": "int32"
           },
           "brandName": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "slug": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -2136,11 +2141,15 @@
         "additionalProperties": false
       },
       "ForgotPasswordDto": {
+        "required": [
+          "email"
+        ],
         "type": "object",
         "properties": {
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           }
         },
         "additionalProperties": false
@@ -2455,12 +2464,8 @@
             "format": "double"
           },
           "promotionId": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "categoryId": {
             "minItems": 1,
@@ -2941,15 +2946,20 @@
         "additionalProperties": false
       },
       "ResetPasswordDto": {
+        "required": [
+          "email",
+          "newPassword"
+        ],
         "type": "object",
         "properties": {
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           },
           "newPassword": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false

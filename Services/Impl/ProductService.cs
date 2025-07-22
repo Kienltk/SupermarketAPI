@@ -15,6 +15,7 @@ namespace SupermarketAPI.Services.Impl
         private readonly IFavoriteRepository _favoriteRepository;
         private readonly IBrandRepository _brandRepository;
         private readonly IRatingRepository _ratingRepository;
+        private readonly IPromotionRepository _promotionRepository;
         private readonly SupermarketContext _context;
 
         public ProductService(IProductRepository productRepository,
@@ -22,6 +23,7 @@ namespace SupermarketAPI.Services.Impl
             IFavoriteRepository favoriteRepository,
             IBrandRepository brandRepository,
             IRatingRepository ratingRepository,
+            IPromotionRepository promotionRepository,
             SupermarketContext context)
         {
             _context = context;
@@ -30,6 +32,7 @@ namespace SupermarketAPI.Services.Impl
             _favoriteRepository = favoriteRepository;
             _brandRepository = brandRepository;
             _ratingRepository = ratingRepository;
+            _promotionRepository = promotionRepository;
         }
 
         public async Task<HomeDto> Home(int? customerId)
@@ -280,14 +283,6 @@ namespace SupermarketAPI.Services.Impl
                 TotalAmount = TotalAmount
             };
 
-            if (dto.PromotionId != null && dto.PromotionId.Any())
-            {
-                var promotions = await _context.Promotions
-                    .Where(p => dto.PromotionId.Contains(p.PromotionId))
-                    .ToListAsync();
-                product.Promotions = promotions;
-            }
-
             if (dto.CategoryId != null && dto.CategoryId.Any())
             {
                 var categories = await _context.Categories
@@ -302,6 +297,19 @@ namespace SupermarketAPI.Services.Impl
 
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
+
+
+            if (dto.PromotionId != null)
+            {
+                var newProduct = _productRepository.GetProductBySlugAsync(product.Slug);
+                var discount = new Discount
+                {
+                    ProductId = newProduct.Result.ProductId,
+                    PromotionId = dto.PromotionId,
+                    IsActive = true
+                };
+                _promotionRepository.AddDiscountAsync(discount);
+            }
             return product;
         }
 

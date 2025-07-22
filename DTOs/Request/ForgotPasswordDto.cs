@@ -1,4 +1,6 @@
-﻿namespace SupermarketAPI.DTOs.Request
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SupermarketAPI.DTOs.Request
 {
     public class ForgotPasswordDto
     {

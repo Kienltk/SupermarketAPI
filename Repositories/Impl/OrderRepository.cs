@@ -34,6 +34,7 @@ namespace SupermarketAPI.Repositories.Impl
                     .ThenInclude(od => od.Promotion) 
                     .ThenInclude(p => p.GiftProduct)
                 .Where(o => o.CustomerId == userId)
+                     .Include(o => o.Customer)
                 .ToListAsync();
         }
 
@@ -44,7 +45,7 @@ namespace SupermarketAPI.Repositories.Impl
                     .ThenInclude(od => od.Product)
                 .Include(o => o.OrderDetails)
                     .ThenInclude(od => od.Promotion)
-                    .ThenInclude(p => p.GiftProduct)
+                        .ThenInclude(p => p.GiftProduct)
                 .Include(o => o.Customer)
                 .ToListAsync();
         }

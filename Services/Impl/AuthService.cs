@@ -280,7 +280,6 @@ namespace SupermarketAPI.Services.Impl
                 Mobile = customer.Mobile,
                 Country = customer.Country,
                 Dob = customer.Dob,
-                Address = customer.Address,
             };
         }
 
@@ -315,6 +314,7 @@ namespace SupermarketAPI.Services.Impl
                 customer.Street = updateDto.Street ?? customer.Street;
                 customer.City = updateDto.City ?? customer.City;
                 customer.State = updateDto.State ?? customer.State;
+                customer.Address = updateDto.Address ?? customer.Address;
 
                 await _customerRepository.UpdateCustomerAsync(customer);
 
